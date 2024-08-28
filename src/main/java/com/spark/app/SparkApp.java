@@ -23,6 +23,7 @@ import tech.jhipster.config.JHipsterConstants;
 @EnableConfigurationProperties({ LiquibaseProperties.class, ApplicationProperties.class })
 public class SparkApp {
     //josues here
+    // mohammed made a change
     //SPaRKU P
     private static final Logger log = LoggerFactory.getLogger(SparkApp.class);
 
