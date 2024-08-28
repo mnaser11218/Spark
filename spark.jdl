@@ -1,0 +1,48 @@
+entity UserProfile {
+    userId Long
+    userName String
+    firstName String
+    lastName String
+    createdDate LocalDate
+}
+
+// an ignored comment
+
+entity Spark {
+sparkId Long
+userId Long
+date LocalDate
+body String
+url String
+}
+
+entity Hashtag {
+hashtagId Long
+hashtagName String
+dataCreated LocalDate
+
+}
+
+entity Mentions {
+mentionId Long
+mentionUsername String
+date LocalDate
+}
+
+/**
+
+The Employee entity.*/
+
+
+
+
+relationship OneToMany {
+UserProfile{spark} to Spark{userProfile}
+}
+
+relationship ManyToMany {
+Mentions{spark} to Spark{mention}
+}
+relationship ManyToMany {
+Hashtag{spark} to Spark{hashtag}
+}

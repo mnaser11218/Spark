@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20240828194626"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "mentionId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "mentionUsername",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "Mentions",
+  "relationships": [
+    {
+      "otherEntityName": "spark",
+      "otherEntityRelationshipName": "mention",
+      "relationshipName": "spark",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

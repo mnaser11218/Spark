@@ -1,0 +1,31 @@
+{
+  "sparkApp": {
+    "spark": {
+      "home": {
+        "title": "Sparks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Spark",
+        "createOrEditLabel": "Create or edit a Spark",
+        "notFound": "No Sparks found"
+      },
+      "created": "A new Spark is created with identifier {{ param }}",
+      "updated": "A Spark is updated with identifier {{ param }}",
+      "deleted": "A Spark is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Spark {{ id }}?"
+      },
+      "detail": {
+        "title": "Spark"
+      },
+      "id": "ID",
+      "sparkId": "Spark Id",
+      "userId": "User Id",
+      "date": "Date",
+      "body": "Body",
+      "url": "Url",
+      "userProfile": "User Profile",
+      "mention": "Mention",
+      "hashtag": "Hashtag"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "sparkApp": {
+    "hashtag": {
+      "home": {
+        "title": "Hashtags",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Hashtag",
+        "createOrEditLabel": "Create or edit a Hashtag",
+        "notFound": "No Hashtags found"
+      },
+      "created": "A new Hashtag is created with identifier {{ param }}",
+      "updated": "A Hashtag is updated with identifier {{ param }}",
+      "deleted": "A Hashtag is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Hashtag {{ id }}?"
+      },
+      "detail": {
+        "title": "Hashtag"
+      },
+      "id": "ID",
+      "hashtagId": "Hashtag Id",
+      "hashtagName": "Hashtag Name",
+      "dataCreated": "Data Created",
+      "spark": "Spark"
+    }
+  }
+}

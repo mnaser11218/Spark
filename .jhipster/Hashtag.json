@@ -1,0 +1,31 @@
+{
+  "annotations": {
+    "changelogDate": "20240828194625"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "hashtagId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "hashtagName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataCreated",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "name": "Hashtag",
+  "relationships": [
+    {
+      "otherEntityName": "spark",
+      "otherEntityRelationshipName": "hashtag",
+      "relationshipName": "spark",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}
