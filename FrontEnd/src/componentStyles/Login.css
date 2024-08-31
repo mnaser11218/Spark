@@ -1,0 +1,49 @@
+.login-container {
+    background-color: #FBF9F1; 
+  }
+  
+  .card {
+    width: 20rem;
+    background-color: #E5E1DA; 
+    border: 1px solid #92C7CF; 
+  }
+  
+  .card-header {
+    color: #92C7CF; 
+  }
+  
+  .card-subheader {
+    color: #92C7CF; 
+  }
+  
+  .form-label {
+    color: #92C7CF; 
+  }
+  
+  .form-control {
+    border-color: #AAD7D9;
+  }
+  
+  .btn-primary {
+    background-color: #92C7CF !important; 
+    color: #FBF9F1 !important; 
+  }
+  
+  .btn-primary:hover {
+    background-color: #AAD7D9; 
+  }
+  
+  .btn-secondary {
+    background-color: #92C7CF; 
+    color: #FBF9F1; 
+  }
+  
+  .btn-secondary:hover {
+    background-color: #AAD7D9; 
+
+  }
+  
+  .text-muted {
+    color: #92C7CF; 
+  }
+  
