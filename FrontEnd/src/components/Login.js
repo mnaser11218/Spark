@@ -1,39 +1,22 @@
 import React from 'react';
-import '../App.css';
+import '../componentStyles/Login.css';
+import { useNavigate } from 'react-router';
 
-
-const Login=()=> {
-
-
+const Login = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/createaccount');
+  }
   return (
- 
-
-    
-    <div
-      className="d-flex justify-content-center align-items-center vh-100"
-      style={{ backgroundColor: '#F6E6CB' }} 
-      
-    >
-      <div
-      
-        className="card p-4 shadow-sm"
-        style={{
-          width: '20rem',
-          backgroundColor: '#E7D4B5', // Card background color
-          border: '1px solid #A0937D', // Border color
-        }}
-      >
-           <h1 className="text-center mb-4">
-  Start the <span style={{ color: '#A0937D', fontWeight: 'bold' }}>SPARK</span>
-</h1>
-        <h2 className="text-center mb-4" style={{ color: '#A0937D' }}>Sign In</h2>
+    <div className="login-container d-flex justify-content-center align-items-center vh-100">
+      <div className="card p-4 shadow-sm">
+        <h1 className="text-center mb-4 card-header">
+          Start the <span style={{ color: '#92C7CF', fontWeight: 'bold' }}>SPARK ⚡️</span>
+        </h1>
+        <h2 className="text-center mb-4 card-subheader">Sign In</h2>
         <form autoComplete="off">
           <div className="mb-3">
-            <label
-              htmlFor="email"
-              className="form-label"
-              style={{ color: '#A0937D' }} // Label color
-            >
+            <label htmlFor="username" className="form-label">
               Username
             </label>
             <input
@@ -41,15 +24,10 @@ const Login=()=> {
               className="form-control"
               id="username"
               placeholder="Enter your username"
-              style={{ borderColor: '#B6C7AA' }} // Input border color
             />
           </div>
           <div className="mb-3">
-            <label
-              htmlFor="password"
-              className="form-label"
-              style={{ color: '#A0937D' }} // Label color
-            >
+            <label htmlFor="password" className="form-label">
               Password
             </label>
             <input
@@ -57,14 +35,12 @@ const Login=()=> {
               className="form-control"
               id="password"
               placeholder="Enter your password"
-              style={{ borderColor: '#B6C7AA' }} // Input border color
             />
           </div>
           <div className="d-grid gap-2">
             <button
               type="submit"
-              className="btn"
-              style={{ backgroundColor: '#A0937D', color: '#F6E6CB' }} // Button background and text color
+              className="btn btn-primary"
             >
               Log In
             </button>
@@ -72,22 +48,16 @@ const Login=()=> {
         </form>
         <hr />
         <div className="text-center">
-          <p style={{ color: '#A0937D' }}>Don't have an account?</p>
+          <p className="text-muted">Don't have an account?</p>
           <button
-            className="btn"
-            style={{
-              backgroundColor: '#B6C7AA',
-              color: '#A0937D',
-              borderColor: '#A0937D',
-            }} // Button background, text, and border color
+            className="btn btn-secondary"
+            onClick={handleClick}
           >
             Create Account
           </button>
         </div>
       </div>
     </div>
-
-   
   );
 };
 
