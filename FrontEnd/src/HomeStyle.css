@@ -1,0 +1,12 @@
+img{
+    height: 500px;
+}
+
+#home-page{
+    display: flex;
+    padding-right: 400px;
+    margin-bottom: 600px;
+    justify-content: end;
+    align-items: center;
+
+}
