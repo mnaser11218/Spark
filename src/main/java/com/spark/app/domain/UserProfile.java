@@ -31,6 +31,9 @@ public class UserProfile implements Serializable {
     @Column(name = "user_name")
     private String userName;
 
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -84,6 +87,19 @@ public class UserProfile implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public UserProfile password(String password) {
+        this.setPassword(password);
+        return this;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -182,6 +198,7 @@ public class UserProfile implements Serializable {
             "id=" + getId() +
             ", userId=" + getUserId() +
             ", userName='" + getUserName() + "'" +
+            ", password='" + getPassword() + "'" +
             ", firstName='" + getFirstName() + "'" +
             ", lastName='" + getLastName() + "'" +
             ", createdDate='" + getCreatedDate() + "'" +

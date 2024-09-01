@@ -45,6 +45,12 @@ export const UserProfileDetail = () => {
           </dt>
           <dd>{userProfileEntity.userName}</dd>
           <dt>
+            <span id="password">
+              <Translate contentKey="sparkApp.userProfile.password">Password</Translate>
+            </span>
+          </dt>
+          <dd>{userProfileEntity.password}</dd>
+          <dt>
             <span id="firstName">
               <Translate contentKey="sparkApp.userProfile.firstName">First Name</Translate>
             </span>

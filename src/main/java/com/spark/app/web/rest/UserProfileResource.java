@@ -127,6 +127,9 @@ public class UserProfileResource {
                 if (userProfile.getUserName() != null) {
                     existingUserProfile.setUserName(userProfile.getUserName());
                 }
+                if (userProfile.getPassword() != null) {
+                    existingUserProfile.setPassword(userProfile.getPassword());
+                }
                 if (userProfile.getFirstName() != null) {
                     existingUserProfile.setFirstName(userProfile.getFirstName());
                 }
