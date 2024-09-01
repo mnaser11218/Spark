@@ -6,6 +6,7 @@ import Login from "./LoginInButton.js";
 import SignUp from "./SignUpButton.js"
 
 
+
 const HomePage=()=>{
     
     return (
@@ -22,6 +23,7 @@ const HomePage=()=>{
           
             
         </div>
+        <h2>this is the home page</h2>
         </div>
     );
 };
