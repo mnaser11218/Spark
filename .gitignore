@@ -151,3 +151,4 @@ Desktop.ini
 ######################
 /coverage/
 /.nyc_output/
+.h2.server.properties
