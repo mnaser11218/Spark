@@ -7,7 +7,7 @@ const SignUpButton = () => {
    
     const handleClick = () => {
       console.log('SignUp button clicked'); 
-      navigate('/CreateAnAcount');
+      navigate('/CreateAccount');
     };
     return (
         <div >  
