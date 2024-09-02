@@ -13,6 +13,8 @@ function CreateAccount() {
     const [password, setPassword] = useState('');
     // const [userId, setUserId] = useState('');
 
+   
+
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
@@ -21,12 +23,15 @@ function CreateAccount() {
         console.log(randomNumber);
         // setUserId(randomNumber);
 
+        const todays = new Date().toLocaleDateString('en-CA');
+
 
         const user = {
             firstName,
             lastName,
             userName,
             password,
+            createdDate : todays,
             userId : randomNumber
         };
 

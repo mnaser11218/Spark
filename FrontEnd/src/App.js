@@ -6,6 +6,7 @@ import ShowTimeline from './components/TimeLine/TimeLine';
 import CreateUserProfile from './components/CreateAccount';
 import VerticalNavbar from './components/SparkNav';
 import { UserProvider } from './components/CurrentUser';
+import ProfilePage from './components/ProfilePage';
 
 /*
 Twitter Application (twitter clone)
@@ -43,6 +44,9 @@ const App =()=> {
           <Route path="/login" element={<Login />} />
           <Route path="/timeline" element={<ShowTimeline />} />
           <Route path="/createaccount" element={<CreateUserProfile />} />
+          
+          <Route path="/profilepage" element={<ProfilePage/>}/>
+
         </Routes>
       </div>
     </div>

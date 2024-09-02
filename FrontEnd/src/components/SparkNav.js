@@ -25,7 +25,7 @@ const VerticalNavbar = () => {
             <Link to="/createaccount" className="navbar-link">Create Account</Link>
           </li>
           <li className="navbar-item">
-            <Link to="" className="navbar-link">Profile</Link>
+            <Link to="/profilepage" className="navbar-link">Profile</Link>
           </li>
           
         </ul>
