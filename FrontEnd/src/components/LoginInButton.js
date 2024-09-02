@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../componentStyles/HomeStyle.css';
+
 
 
 const LoginInButton = () => {
@@ -14,7 +16,7 @@ const LoginInButton = () => {
 
   return (
     <div >
-      <button onClick={handleClick}>Log In</button>
+      <button className="btn btn-primary" onClick={handleClick}>Log In</button>
       <br/>
       
     
