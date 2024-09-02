@@ -26,13 +26,13 @@
   }
   
   
-  .btn-primary {
+  .btn-primary-login {
     background-color: #6B728E !important; 
-    color: white;
+    color: white !important;
     border-color: #50577A!important;
   }
   
-  .btn-primary:hover {
+  .btn-primary-login:hover {
     background-color: #AAD7D9; 
   }
   
