@@ -9,12 +9,39 @@ function ShowTimeline(){
 const [items, setItems] = useState([]);
 const [inputValue, setInputValue] = useState('');
 const [firstName, setFirstName] = useState(''); 
-
+const [userProfiles, setUserProfiles]  = useState({});
+let obj = {};
 const { currentLoggedInUser } = useUser(); // Get the current logged-in user
 
 
 let today = new Date().toLocaleDateString('en-CA');
 
+const getUserProfiles = () => {
+  fetch('http://localhost:8080/api/user-profiles')
+  .then(response => response.json())
+  .then(data => {
+   
+    data.forEach(item => {
+      console.log("hellow")
+      // let userId = item.userId;
+     // setUserProfiles({...userProfiles, {item.userId: item} })
+       obj[item.userId] = item;
+       console.log(obj)
+    //  Object.assign(obj, {item.userId: item});
+ 
+    
+      //retrieve a spark
+      //find out who its related to
+      //call the fields (firstname, username, lastname, etc.) of that specific person
+    });
+    console.log(obj)
+
+    //setItems(formattedItems);
+  })
+  .catch(error => console.error('Error fetching data:', error));
+   
+
+}
 
  
  //display all Sparks 
@@ -26,6 +53,8 @@ let today = new Date().toLocaleDateString('en-CA');
     let formattedItems = data.map(item => ({
       body: item.body,
       date: item.date,
+      name: getFirstNameById(item.userId),
+      userName: getUserNameById(item.userId)
       //retrieve a spark
       //find out who its related to
       //call the fields (firstname, username, lastname, etc.) of that specific person
@@ -44,8 +73,32 @@ function getFirstNameOfUser () {
        
 }
 
+// method to return first name of user 
 
+const getFirstNameById = (id) => {
+//console.log( "first name:" + obj[id])
+let object = obj[id]
+for (const property in object) {
+  if(property == 'firstName'){
+    console.log("first name is : " + `${object[property]}`)
+    return `${object[property]}`
+  }
+  console.log(`${property}: ${object[property]}`);
+}
+}
 
+// getting user name by userid: 
+
+const getUserNameById = (id) => {
+  //console.log( "first name:" + obj[id])
+  let object = obj[id]
+  for (const property in object) {
+    if(property == 'userName'){
+      return `${object[property]}`
+    }
+    console.log(`${property}: ${object[property]}`);
+  }
+  }
 //to post a Spark to the sparks database 
 function postToServer(){
 
@@ -62,6 +115,8 @@ function postToServer(){
       })
       alert("Spark posted!");
       getSparks();
+      getUserProfiles()
+      setInputValue("")
       // window.location.reload();
 }
 
@@ -70,7 +125,8 @@ function postToServer(){
     useEffect(() => {
       return(  
       getFirstNameOfUser(),
-      getSparks()
+      getSparks(),
+      getUserProfiles()
       )},[]);
 
     return (
@@ -107,8 +163,8 @@ function postToServer(){
             <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
   <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
   <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-</svg> User</h4>
-            <p>@UserName</p>
+</svg> {item.name}</h4>
+            <p>@U{item.userName}</p>
             </div>
             <div className="item-content">{item.body}</div>
             <div className="item-timestamp">{item.date}</div>
