@@ -1,8 +1,9 @@
 .navbar-container {
     width: 250px;
     height: 100vh;
-    background-color: #92C7CF;
-    padding: 20px;
+    background-color:#404258;
+    padding: 30px;
+    margin-left: 60px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     left: 0;
@@ -34,16 +35,13 @@
     font-size: 18px;
     font-weight: bold;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 28px;
     display: block;
     width: 100%;
-    text-align: center;
-    background-color: #AAD7D9;
     transition: background-color 0.3s;
   }
   
   .navbar-link:hover {
-    background-color: #E5E1DA;
-    color: #92C7CF;
+    background-color: #474E68;
   }
   

@@ -1,32 +1,35 @@
 .login-container {
-    background-color: #FBF9F1; 
+    background-color: #404258; 
+    margin: 0 !important;
   }
   
   .card {
     width: 20rem;
-    background-color: #E5E1DA; 
-    border: 1px solid #92C7CF; 
+    background-color: #474E68 !important;
+    border: 1px solid #6B728E !important; 
+  }
+
+  #the-card {
+    padding: 50px !important;
   }
   
   .card-header {
-    color: #92C7CF; 
+    color: white !important; 
   }
   
   .card-subheader {
-    color: #92C7CF; 
+    color: white !important; 
   }
   
   .form-label {
-    color: #92C7CF; 
+    color: white !important;
   }
   
-  .form-control {
-    border-color: #AAD7D9;
-  }
   
   .btn-primary {
-    background-color: #92C7CF !important; 
-    color: #FBF9F1 !important; 
+    background-color: #6B728E !important; 
+    color: white;
+    border-color: #50577A!important;
   }
   
   .btn-primary:hover {
@@ -34,8 +37,8 @@
   }
   
   .btn-secondary {
-    background-color: #92C7CF; 
-    color: #FBF9F1; 
+    background-color:#50577A !important; 
+    color: white;
   }
   
   .btn-secondary:hover {
@@ -43,7 +46,7 @@
 
   }
   
-  .text-muted {
-    color: #92C7CF; 
+#pls {
+    color: white !important;
   }
   
