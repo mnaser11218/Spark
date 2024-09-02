@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../componentStyles/HomeStyle.css';
+
 
 
 const SignUpButton = () => {
@@ -11,7 +13,7 @@ const SignUpButton = () => {
     };
     return (
         <div >  
-          <button onClick={handleClick}>CreateAnAcount</button>
+          <button className="btn btn-primary" onClick={handleClick}>Create An Acount</button>
         </div>
       );
     };

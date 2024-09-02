@@ -10,3 +10,14 @@ img{
     align-items: center;
 
 }
+
+.btn-primary {
+    background-color: #92C7CF !important; 
+    color: #FBF9F1 !important; 
+  }
+  
+  .btn-primary:hover {
+    background-color: #AAD7D9; 
+  }
+
+
