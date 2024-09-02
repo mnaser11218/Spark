@@ -1,22 +1,36 @@
 import React, { useState } from 'react';
 import '../componentStyles/CreateAccount.css'; 
+import { useNavigate } from 'react-router';
 
 function CreateAccount() {
+
+    const navigate = useNavigate();
+   
+
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [userName, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    // const [userId, setUserId] = useState('');
+
 
     const handleSubmit = (event) => {
         event.preventDefault(); 
+
+        const randomNumber = Math.floor(Math.random() * 5000);
+        console.log(randomNumber);
+        // setUserId(randomNumber);
+
 
         const user = {
             firstName,
             lastName,
             userName,
-            password
+            password,
+            userId : randomNumber
         };
 
+      
         fetch('http://localhost:8080/api/user-profiles', { 
             method: 'POST',
             headers: {
@@ -42,6 +56,7 @@ function CreateAccount() {
             console.error('Error:', error);
             alert('Failed to create account');
         });
+        navigate('/login');
     };
 
     return (
