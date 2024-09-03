@@ -9,6 +9,7 @@ import { UserProvider } from './components/CurrentUser';
 import ProfilePage from './components/ProfilePage';
 import UserProfilePage from './components/UsersProfilePage';
 import ShowTimelinePreview from './components/TimeLine/TimeLineNonUser';
+import ExplorePage from './components/ExplorePage';
 
 const AppLayout = () => {
   const location = useLocation();
@@ -27,6 +28,7 @@ const AppLayout = () => {
           <Route path="/profilepage" element={<ProfilePage />} />
           <Route path="/userprofilepage/:user" element={<UserProfilePage />} />
           <Route path="/preview" element={<ShowTimelinePreview />} />
+          <Route path="/explore" element={<ExplorePage/>}/>
         </Routes>
       </div>
     </div>
