@@ -22,24 +22,12 @@ function ShowTimeline(){
     // alert("Clicked!")
   }
 
+
+  //when youre about to post, take file and put it in directory of images
+  //
   const handleFileChange = async (event) => {
     const file = event.target.files[0]; 
     if (file) {
-      // try {
-      //   const options = { 
-      //     maxSizeMB: 1, 
-      //     maxWidthOrHeight: 800, //this does the resizing to 800
-      //     useWebWorker: true
-      //   };
-      //   const compressedFile = await imageCompression(file, options); 
-      //   const reader = new FileReader();
-      //   reader.onload = () => {
-      //     setImageUrl(reader.result); 
-      //   };
-      //   reader.readAsDataURL(compressedFile); 
-      // } catch (error) {
-      //   console.error('Error compressing image:', error); 
-      // }
       const reader = new FileReader();
       reader.onload = () => {
         setImageUrl(reader.result); 
