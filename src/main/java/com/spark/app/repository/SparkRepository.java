@@ -21,7 +21,7 @@ public interface SparkRepository extends JpaRepository<Spark, Long> {
     List<Spark> getSparkByUserName(String string);
 
 
-@Query(value = "SELECT * FROM SPARK WHERE body like '%#?1%'",nativeQuery = true)
+@Query(value = "SELECT * FROM SPARK WHERE body like %?1%",nativeQuery = true)
     List<Spark> getSparkByHashtag(String string);
 
 //    @Query(value = "SELECT BODY * FROM SPARK \n" +
