@@ -196,4 +196,11 @@ public class SparkResource {
         Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkByHashtag(string));
         return ResponseUtil.wrapOrNotFound(ownerOfSpark);
     }
+
+    @GetMapping("/username/mention/{string}")
+    public ResponseEntity<List<Spark>> getSparksByMention(@PathVariable() String string) {
+        log.debug("REST request to get Sparks by searched mention : {}", string);
+        Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkByMention(string));
+        return ResponseUtil.wrapOrNotFound(ownerOfSpark);
+    }
 }
