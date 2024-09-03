@@ -20,9 +20,12 @@ public interface SparkRepository extends JpaRepository<Spark, Long> {
         " where user_profile.user_name = ?1 " , nativeQuery = true)
     List<Spark> getSparkByUserName(String string);
 
-
-@Query(value = "SELECT * FROM SPARK WHERE body like %?1%",nativeQuery = true)
+    @Query(value = "SELECT * FROM SPARK WHERE body LIKE CONCAT('%#', ?1, '%')", nativeQuery = true)
     List<Spark> getSparkByHashtag(String string);
+
+
+//@Query(value = "SELECT * FROM SPARK WHERE body like %#?1%",nativeQuery = true)
+//    List<Spark> getSparkByHashtag(String string);
 
 //    @Query(value = "SELECT BODY * FROM SPARK \n" +
 //        " JOIN user_profile on user_profile.user_id = spark.user_id\n" +
