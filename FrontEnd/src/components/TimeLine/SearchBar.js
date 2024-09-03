@@ -19,6 +19,10 @@ const DisplaySearchBar = () => {
         } catch (error) {
           console.error('Error:', error);
         }
+        
+      }
+      else {
+        setSparks([]); 
       }
     };
 
