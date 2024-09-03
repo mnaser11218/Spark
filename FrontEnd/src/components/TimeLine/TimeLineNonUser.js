@@ -8,25 +8,26 @@ import { useNavigate } from 'react-router';
 
 
 
-function ShowTimeline(){
+function ShowTimelinePreview(){
 
   const navigate = useNavigate();
 
   //this click event takes you to the respective userprofile. uses regex to read the @username of where clicked.
   const handleClick = (event) => {
-    const clickedDiv = event.currentTarget;
-    const textContent = clickedDiv.textContent;
-    const regex = /@(\w+)/;
-    const match = textContent.match(regex);
-    let userToPass = '';
-    if (match) {
-        const userName = match[1]; 
-        userToPass = userName;
-        console.log(userName);
-    } else {
-        console.log("No username found.");
-    }
-    navigate(`/userprofilepage/${userToPass}?.user}`);
+    // const clickedDiv = event.currentTarget;
+    // const textContent = clickedDiv.textContent;
+    // const regex = /@(\w+)/;
+    // const match = textContent.match(regex);
+    // let userToPass = '';
+    // if (match) {
+    //     const userName = match[1]; 
+    //     userToPass = userName;
+    //     console.log(userName);
+    // } else {
+    //     console.log("No username found.");
+    // }
+    // navigate(`/userprofilepage/${userToPass}?.user}`);
+    alert("Login to see more profiles and Sparks!")
   } 
 
 const [items, setItems] = useState([]);
@@ -34,7 +35,7 @@ const [inputValue, setInputValue] = useState('');
 const [firstName, setFirstName] = useState(''); 
 const [userProfiles, setUserProfiles]  = useState({});
 let obj = {};
-const { currentLoggedInUser } = useUser(); // Get the current logged-in user
+// const { currentLoggedInUser } = useUser(); // Get the current logged-in user
 
 
 let today = new Date().toLocaleDateString('en-CA');
@@ -69,7 +70,7 @@ const getUserProfiles = () => {
  
  //display all Sparks 
  const getSparks = ()=> {
-  console.log(currentLoggedInUser.firstName + " is logged in!");
+//   console.log(currentLoggedInUser.firstName + " is logged in!");
   fetch('http://localhost:8080/api/sparks')
   .then(response => response.json())
   .then(data => {
@@ -89,12 +90,12 @@ const getUserProfiles = () => {
 }
 
 
-//just to test if we can retrieve user
-function getFirstNameOfUser () {
+// //just to test if we can retrieve user
+// function getFirstNameOfUser () {
   
-        document.getElementById("display-user").textContent = "Current User: " + currentLoggedInUser.firstName;
+//         document.getElementById("display-user").textContent = "Current User: " + currentLoggedInUser.firstName;
        
-}
+// }
 
 // method to return first name of user 
 
@@ -124,23 +125,24 @@ const getUserNameById = (id) => {
   }
 //to post a Spark to the sparks database 
 function postToServer(){
+    alert("Login to post Sparks and view more!")
 
-      fetch('http://localhost:8080/api/sparks', {
-          method: "POST",
-          body: JSON.stringify({
-              userId: currentLoggedInUser.userId,
-              body: inputValue,
-              date: today
-            }),
-          headers: {
-              "Content-type": "application/json; charset=UTF-8"
-          }
-      })
-      alert("Spark posted!");
-      getSparks();
-      getUserProfiles()
-      setInputValue("")
-      // window.location.reload();
+//       fetch('http://localhost:8080/api/sparks', {
+//           method: "POST",
+//           body: JSON.stringify({
+//               userId: currentLoggedInUser.userId,
+//               body: inputValue,
+//               date: today
+//             }),
+//           headers: {
+//               "Content-type": "application/json; charset=UTF-8"
+//           }
+//       })
+//       alert("Spark posted!");
+//       getSparks();
+//       getUserProfiles()
+//       setInputValue("")
+//       // window.location.reload();
 }
 
  
@@ -148,23 +150,18 @@ function postToServer(){
     useEffect(() => {
       return(  
       getUserProfiles(),
-      getFirstNameOfUser(),
+    //   getFirstNameOfUser(),
       // getFirstNameById(),
       getSparks()
       )},[]);
 
-      // const loadFile = function (event){
-      //   Document.getElementById("imgBox").style.backgroundImage = "url(" + URL.createObjectURL(event.target.files[0]) + ")";
-      // }
-
     return (
       
-      <>
 
         <div className="timeline-container">
-                <p id="following">Home</p>
+                <p id="following">Sign Up to Start Sparking!</p>
 
-            <p id="display-user">X</p>
+            {/* <p id="display-user">X</p> */}
 
       <div className="input-group">
         <input
@@ -174,27 +171,15 @@ function postToServer(){
           placeholder="What's happening?"
           className="input-field"
         />
-        <div id="imgBox">
-          <p>div is here</p>
-        </div>
-        {/* <input type="file" accept="image/*" name="image" id="file" style={{display: "block"}} onChange="loadFile(event)"/> */}
 
         {/* <TextInputWithProgress/> */}
 
 {/* <textarea name="text" rows="14" cols="10" wrap="soft" maxlength="255" style={{overflow:"hidden;", resize:"none;"}}/> */}
-
+      
       </div>
-
-<div id="submit-and-icon">
-      <svg id="photo-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
-  <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
-  <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/>
-</svg>
-<button onClick={postToServer} className="add-button">
+      <button onClick={postToServer} className="add-button">
           Post
         </button>
-        </div>
-    
 
       <div className="timeline">
 
@@ -215,18 +200,9 @@ function postToServer(){
         ))}
       </div>
     </div>
-{/* 
-          <div>
-            <h2>What does this do?</h2>
-            <button>meh</button>
-          </div> */}
-
-          </>
-
-
     
     )
 }
 
-export default ShowTimeline;
+export default ShowTimelinePreview;
 

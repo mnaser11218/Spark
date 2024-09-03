@@ -1,9 +1,10 @@
 .navbar-container {
     width: 250px;
     height: 100vh;
-    background-color:#404258;
+    /* background-color:#404258; */
+    background-color: black;
+
     padding: 30px;
-    margin-left: 60px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: fixed;
     left: 0;
@@ -11,6 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid #ffffff;
   }
   
   .navbar {
@@ -42,6 +44,8 @@
   }
   
   .navbar-link:hover {
-    background-color: #474E68;
+    /* background-color: #474E68; */
+    background-color: rgb(26, 26, 26);
+
   }
   
