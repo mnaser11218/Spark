@@ -1,6 +1,7 @@
 package com.spark.app.web.rest;
 
 import com.spark.app.domain.Spark;
+import com.spark.app.domain.UserProfile;
 import com.spark.app.repository.SparkRepository;
 import com.spark.app.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
@@ -20,6 +21,7 @@ import tech.jhipster.web.util.ResponseUtil;
 /**
  * REST controller for managing {@link com.spark.app.domain.Spark}.
  */
+
 @RestController
 @RequestMapping("/api/sparks")
 @Transactional
@@ -180,5 +182,18 @@ public class SparkResource {
         return ResponseEntity.noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+    @GetMapping("/username/{string}")
+    public ResponseEntity<List<Spark>> getSparksByUserName(@PathVariable("string") String string) {
+        log.debug("REST request to get Sparks From specified User : {}", string);
+        Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkByUserName(string));
+        return ResponseUtil.wrapOrNotFound(ownerOfSpark);
+    }
+
+    @GetMapping("/username/hashtag/{string}")
+    public ResponseEntity<List<Spark>> getSparksByHashtag(@PathVariable() String string) {
+        log.debug("REST request to get Sparks by searched Hashtag : {}", string);
+        Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkByHashtag(string));
+        return ResponseUtil.wrapOrNotFound(ownerOfSpark);
     }
 }

@@ -110,6 +110,13 @@ export const UserProfileUpdate = () => {
                 type="text"
               />
               <ValidatedField
+                label={translate('sparkApp.userProfile.password')}
+                id="user-profile-password"
+                name="password"
+                data-cy="password"
+                type="text"
+              />
+              <ValidatedField
                 label={translate('sparkApp.userProfile.firstName')}
                 id="user-profile-firstName"
                 name="firstName"

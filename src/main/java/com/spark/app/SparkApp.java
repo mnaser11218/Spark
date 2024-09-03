@@ -24,6 +24,7 @@ import tech.jhipster.config.JHipsterConstants;
 public class SparkApp {
     //josues here
     // mohammed made a change
+    //Konichiwa Bryan koko ni iru!
     //SPaRKU P
     private static final Logger log = LoggerFactory.getLogger(SparkApp.class);
 

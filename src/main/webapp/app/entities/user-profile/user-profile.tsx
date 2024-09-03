@@ -96,6 +96,10 @@ export const UserProfile = () => {
                   <Translate contentKey="sparkApp.userProfile.userName">User Name</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('userName')} />
                 </th>
+                <th className="hand" onClick={sort('password')}>
+                  <Translate contentKey="sparkApp.userProfile.password">Password</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('password')} />
+                </th>
                 <th className="hand" onClick={sort('firstName')}>
                   <Translate contentKey="sparkApp.userProfile.firstName">First Name</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('firstName')} />
@@ -121,6 +125,7 @@ export const UserProfile = () => {
                   </td>
                   <td>{userProfile.userId}</td>
                   <td>{userProfile.userName}</td>
+                  <td>{userProfile.password}</td>
                   <td>{userProfile.firstName}</td>
                   <td>{userProfile.lastName}</td>
                   <td>
