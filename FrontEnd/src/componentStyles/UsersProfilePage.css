@@ -5,9 +5,11 @@
 } */
 
 .profile-page {
-    min-width: 900px;
+    max-width: 600px;
     margin: 0 auto;
-    background-color: #404258;
+    /* background-color: #404258; */
+    background-color: black;
+
     border: 1px solid #6B728E;
     border-radius: 8px;
     overflow: hidden;
@@ -74,7 +76,9 @@
 .profile-nav {
     border-top: 1px solid #6B728E;
     border-bottom: 1px solid #e1e8ed;
-    background-color: #6B728E;
+    /* background-color: #6B728E; */
+    background-color: black;
+
     color: white;
 
 }

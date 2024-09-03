@@ -1,13 +1,16 @@
 .timeline-container {
     display: flex;
     flex-direction: column;
-    max-width: 700px;
-    margin: 50px auto;
+    max-width: 900px;
     color: white;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #404258;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    /* border-radius: 10px; */
+    margin-left: 0px;
+    border: 1px solid #ffffff;    
+    background-color: black;
+
+    /* background-color: #404258; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   }
   
   .input-group {
@@ -19,12 +22,14 @@
   .input-field {
     flex: 1;
     padding: 10px;
+    padding-bottom: 35px;
     color: white;
-    height: 125px;
-    border: 2px solid #474E68; 
+    height: 135px;
+    font-size: 25px;
+    border: 2px solid #ffffff; 
     border-radius: 20px;
     margin-right: 10px;
-    background-color: #6B728E;
+    /* background-color: #6B728E; */
 
 
   }
@@ -34,6 +39,14 @@
     color: white;
   }
   
+
+  #photo-icon {
+    position: relative;
+    left: 30px;
+    bottom: 80px;
+  }
+
+
   .add-button {
    border-radius: 10px;
    max-width: 75px;
@@ -74,12 +87,10 @@
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-
- 
   
   .timeline-item {
     padding: 15px;
-    border: 1px solid white;
+    border: 1px solid #ffffff;
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s;
@@ -87,7 +98,8 @@
   
   .timeline-item:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    background-color: #474E68;
+    background-color: rgb(17, 17, 17);
+    /* background-color: #474E68; */
   }
   
   .item-content {
@@ -121,3 +133,15 @@
     color: #b1b1b1;
   }
   
+  #user-links {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+
+  #user-links:hover {
+    background-color: #313131;
+    cursor: pointer;
+  }
