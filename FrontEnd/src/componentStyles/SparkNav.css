@@ -1,8 +1,8 @@
 .navbar-container {
     width: 250px;
     height: 100vh;
-    /* background-color:#404258; */
-    background-color: black;
+    background-color:#404258;
+    /* background-color: black; */
 
     padding: 30px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -44,8 +44,8 @@
   }
   
   .navbar-link:hover {
-    /* background-color: #474E68; */
-    background-color: rgb(26, 26, 26);
+    background-color: #474E68;
+    /* background-color: rgb(26, 26, 26); */
 
   }
   

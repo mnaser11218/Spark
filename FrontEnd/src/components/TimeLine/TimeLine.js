@@ -1,14 +1,52 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import '../../componentStyles/TimeLine.css';
 import { useUser } from '../CurrentUser';
 
 import { useNavigate } from 'react-router';
+import imageCompression from 'browser-image-compression';
+
 
 
 
 
 function ShowTimeline(){
+
+
+  //this is for the photo icon
+  const fileInputRef = useRef(null);
+  const [imageUrl, setImageUrl] = useState(null);
+
+  function handlePhotoIconClick(){
+    fileInputRef.current.click();
+    // alert("Clicked!")
+  }
+
+  const handleFileChange = async (event) => {
+    const file = event.target.files[0]; 
+    if (file) {
+      // try {
+      //   const options = { 
+      //     maxSizeMB: 1, 
+      //     maxWidthOrHeight: 800, //this does the resizing to 800
+      //     useWebWorker: true
+      //   };
+      //   const compressedFile = await imageCompression(file, options); 
+      //   const reader = new FileReader();
+      //   reader.onload = () => {
+      //     setImageUrl(reader.result); 
+      //   };
+      //   reader.readAsDataURL(compressedFile); 
+      // } catch (error) {
+      //   console.error('Error compressing image:', error); 
+      // }
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImageUrl(reader.result); 
+      };
+      reader.readAsDataURL(file); 
+    }
+  };
 
   const navigate = useNavigate();
 
@@ -45,11 +83,10 @@ const getUserProfiles = () => {
   .then(data => {
    
     data.forEach(item => {
-      console.log("hellow")
       // let userId = item.userId;
      // setUserProfiles({...userProfiles, {item.userId: item} })
        obj[item.userId] = item;
-       console.log(obj)
+      //  console.log(obj)
     //  Object.assign(obj, {item.userId: item});
  
     
@@ -130,7 +167,8 @@ function postToServer(){
           body: JSON.stringify({
               userId: currentLoggedInUser.userId,
               body: inputValue,
-              date: today
+              date: today,
+              url: imageUrl
             }),
           headers: {
               "Content-type": "application/json; charset=UTF-8"
@@ -140,6 +178,7 @@ function postToServer(){
       getSparks();
       getUserProfiles()
       setInputValue("")
+      console.log("The image URL: " + imageUrl)
       // window.location.reload();
 }
 
@@ -170,13 +209,15 @@ function postToServer(){
         <input
           type="text"
           value={inputValue}
+          autoComplete='off'
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="What's happening?"
           className="input-field"
+          id="post-spark-input"
         />
-        <div id="imgBox">
+        {/* <div id="imgBox">
           <p>div is here</p>
-        </div>
+        </div> */}
         {/* <input type="file" accept="image/*" name="image" id="file" style={{display: "block"}} onChange="loadFile(event)"/> */}
 
         {/* <TextInputWithProgress/> */}
@@ -186,7 +227,7 @@ function postToServer(){
       </div>
 
 <div id="submit-and-icon">
-      <svg id="photo-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+      <svg id="photo-icon" onClick={handlePhotoIconClick} xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
   <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
   <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/>
 </svg>
@@ -194,6 +235,39 @@ function postToServer(){
           Post
         </button>
         </div>
+
+
+
+
+ {/* remains hidden until photo is uploaded */}
+ <input
+        type="file"
+        ref={fileInputRef}
+        style={{ display: 'none' }}
+        accept="image/*"
+        onChange={handleFileChange}
+      />
+
+      {/*this is where image is shown the container*/}
+      <input
+        id="post-spark-input"
+        type="text"
+        value={imageUrl ? 'Image uploaded!' : ''}
+        readOnly
+        style={{ display: 'block', marginTop: '10px' }}
+      />
+
+      {/* displays the image*/}
+      {imageUrl && (
+        <img
+          src={imageUrl}
+          alt="Uploaded preview"
+          style={{ display: 'block', marginTop: '10px', maxWidth: '100%', height: '100px', width: '100px' }}
+        />
+      )}
+
+
+
     
 
       <div className="timeline">
