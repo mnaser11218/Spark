@@ -189,4 +189,11 @@ public class SparkResource {
         Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkByUserName(string));
         return ResponseUtil.wrapOrNotFound(ownerOfSpark);
     }
+
+    @GetMapping("/username/hashtag/{string}")
+    public ResponseEntity<List<Spark>> getSparksByHashtag(@PathVariable() String string) {
+        log.debug("REST request to get Sparks by searched Hashtag : {}", string);
+        Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkByHashtag(string));
+        return ResponseUtil.wrapOrNotFound(ownerOfSpark);
+    }
 }
