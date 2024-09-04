@@ -16,11 +16,9 @@ const DisplaySearchBar = () => {
     .catch(error => console.error('Error fetching data:', error));
      
   }
-  const getUserProfileById = (userId) =>{
-    const results = userProfiles.find(ele=> ele.userId === userId)
-  console.log("results is" + results)
-  return results;
-  }
+  const getUserProfileById = (userId) =>userProfiles.find(ele=> ele.userId === userId)
+
+  
 
   useEffect(() => {
     fetchUserProfiles()
