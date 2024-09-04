@@ -1,11 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import '../../componentStyles/SearchBar.css';
+// import { constants } from 'fs/promises';
 
 const DisplaySearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [userProfiles, setUserProfiles] = useState([])
   const [sparks, setSparks] = useState([]);
+  let obj = {};
+
+  const fetchUserProfiles = () => {
+    fetch('http://localhost:8080/api/user-profiles')
+    .then(response => response.json())
+    .then(data => setUserProfiles(data)
+)
+    .catch(error => console.error('Error fetching data:', error));
+     
+  }
+  const getUserProfileById = (userId) =>{
+    const results = userProfiles.find(ele=> ele.userId === userId)
+  console.log("results is" + results)
+  return results;
+  }
 
   useEffect(() => {
+    fetchUserProfiles()
+
     const fetchSparks = async () => {
       if (searchTerm.length > 0) {
         try {
@@ -25,7 +44,6 @@ const DisplaySearchBar = () => {
         setSparks([]); 
       }
     };
-
     const delayDebounceFn = setTimeout(() => {
       fetchSparks();
     }, 300);
@@ -44,11 +62,16 @@ const DisplaySearchBar = () => {
       />
       <div className="results">
         {sparks.length > 0 ? (
-          sparks.map((spark) => (
+          sparks.map((spark) => {
+            const profile = getUserProfileById(spark.userId)
+            return (
             <div key={spark.id} className="spark-item">
-              {spark.body}
+              <p>@{profile?.userName + " " + profile?.firstName +" "+ profile?.lastName}</p>
+              {spark.body} <br/>
+              {spark.date}
             </div>
-          ))
+            )}
+          )
         ) : (
           <p id="no-results">No results found</p>
         )}
@@ -58,46 +81,3 @@ const DisplaySearchBar = () => {
 };
 
 export default DisplaySearchBar;
-
-
-
-
-// import React, { useState, useEffect } from 'react';
-// import '../../componentStyles/SearchBar.css';
-
-// const DisplaySearchBar = ({ endpoint }) => {
-//     const [query, setQuery] = useState('');
-//     const [results, setResults] = useState([]);
-
-//     useEffect(() => {
-//         if (query.length > 0) {
-//             fetch(`${endpoint}?search=${query}`)
-//                 .then(response => response.json())
-//                 .then(data => setResults(data))
-//                 .catch(error => console.error('Error fetching data:', error));
-//         } else {
-//             setResults([]);
-//         }
-//     }, [query, endpoint]);
-
-//     return (
-//         <div className="search-bar">
-//             <input
-//                 type="text"
-//                 placeholder="Search..."
-//                 value={query}
-//                 onChange={e => setQuery(e.target.value)}
-//                 className="search-input"
-//             />
-//             <ul className="search-results">
-//                 {results.map((result, index) => (
-//                     <li key={index} className="search-item">
-//                         {result.body} {/* Adjust this to get data going! */}
-//                     </li>
-//                 ))}
-//             </ul>
-//         </div>
-//     );
-// };
-
-// export default DisplaySearchBar;

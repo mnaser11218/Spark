@@ -4,7 +4,6 @@ import '../../componentStyles/TimeLine.css';
 import { useUser } from '../CurrentUser';
 
 import { useNavigate } from 'react-router';
-import imageCompression from 'browser-image-compression';
 
 
 
@@ -60,6 +59,7 @@ const [inputValue, setInputValue] = useState('');
 const [firstName, setFirstName] = useState(''); 
 const [userProfiles, setUserProfiles]  = useState({});
 let obj = {};
+//const [object, setObject] = useState({})
 const { currentLoggedInUser } = useUser(); // Get the current logged-in user
 
 
@@ -71,16 +71,8 @@ const getUserProfiles = () => {
   .then(data => {
    
     data.forEach(item => {
-      // let userId = item.userId;
-     // setUserProfiles({...userProfiles, {item.userId: item} })
-       obj[item.userId] = item;
-      //  console.log(obj)
-    //  Object.assign(obj, {item.userId: item});
- 
-    
-      //retrieve a spark
-      //find out who its related to
-      //call the fields (firstname, username, lastname, etc.) of that specific person
+        obj[item.userId] = item;
+      // setObject({...object, })
     });
     console.log(obj)
 
@@ -185,7 +177,6 @@ function postToServer(){
       // }
 
     return (
-      
       <>
 
         <div className="timeline-container">
