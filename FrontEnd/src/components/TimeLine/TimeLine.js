@@ -79,7 +79,7 @@ const getUserProfiles = () => {
     //setItems(formattedItems);
   })
   .catch(error => console.error('Error fetching data:', error));
-   
+   // testing
 
 }
 
