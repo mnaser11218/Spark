@@ -57,7 +57,7 @@ function ShowTimeline(){
 const [items, setItems] = useState([]);
 const [inputValue, setInputValue] = useState('');
 const [firstName, setFirstName] = useState(''); 
-const [userProfiles, setUserProfiles]  = useState({});
+const [userProfiles, setUserProfiles]  = useState([]);
 let obj = {};
 const [object, setObject] = useState({})
 const { currentLoggedInUser } = useUser(); // Get the current logged-in user
@@ -65,31 +65,38 @@ const { currentLoggedInUser } = useUser(); // Get the current logged-in user
 
 let today = new Date().toLocaleDateString('en-CA');
 
+const getUserProfiles = () => {
+  fetch('http://localhost:8080/api/user-profiles')
+  .then(response => response.json())
+  .then(data => {
+   
+    data.forEach(item => {
+        obj[item.userId] = item;
+      // setObject({...object, })
+    });
+    console.log(obj)
+
+    //setItems(formattedItems);
+  })
+  .catch(error => console.error('Error fetching data:', error));
+   
+
+}
+
 // const getUserProfiles = () => {
 //   fetch('http://localhost:8080/api/user-profiles')
 //   .then(response => response.json())
 //   .then(data => {
-   
-//     data.forEach(item => {
-//         obj[item.userId] = item;
-//       // setObject({...object, })
-//     });
-//     console.log(obj)
-
-//     //setItems(formattedItems);
-//   })
+//     console.log("data is : " + data)
+//     setUserProfiles(data)})
 //   .catch(error => console.error('Error fetching data:', error));
-   
-
 // }
-
-const getUserProfiles = () => {
-  fetch('http://localhost:8080/api/user-profiles')
-  .then(response => response.json())
-  .then(data => setUserProfiles(data))
-  .catch(error => console.error('Error fetching data:', error));
-}
-const getUserProfileById = (userId) =>userProfiles.find(ele=> ele.userId === userId)
+// const getUserProfileById = (userId) => {
+  
+// const results = userProfiles.find(ele=> ele.userId === userId)
+// console.log("results is: " +  results?.id)
+// return results;
+// }
 
 
  
@@ -102,8 +109,8 @@ const getUserProfileById = (userId) =>userProfiles.find(ele=> ele.userId === use
     let formattedItems = data.map(item => ({
       body: item.body,
       date: item.date,
-      name: getUserProfileById(item.userId).firstName,
-      userName: getUserProfileById(item.userId).userName
+      name: getFirstNameById(item.userId),
+      userName: getUserNameById(item.userId)
       //retrieve a spark
       //find out who its related to
       //call the fields (firstname, username, lastname, etc.) of that specific person
@@ -124,30 +131,30 @@ function getFirstNameOfUser () {
 
 // method to return first name of user 
 
-// const getFirstNameById = (id) => {
-// //console.log( "first name:" + obj[id])
-// let object = obj[id]
-// for (const property in object) {
-//   if(property == 'firstName'){
-//     console.log("first name is : " + `${object[property]}`)
-//     return `${object[property]}`
-//   }
-//   console.log(`${property}: ${object[property]}`);
-// }
-// }
+const getFirstNameById = (id) => {
+//console.log( "first name:" + obj[id])
+let object = obj[id]
+for (const property in object) {
+  if(property == 'firstName'){
+    console.log("first name is : " + `${object[property]}`)
+    return `${object[property]}`
+  }
+  console.log(`${property}: ${object[property]}`);
+}
+}
 
-// // getting user name by userid: 
+// getting user name by userid: 
 
-// const getUserNameById = (id) => {
-//   //console.log( "first name:" + obj[id])
-//   let object = obj[id]
-//   for (const property in object) {
-//     if(property == 'userName'){
-//       return `${object[property]}`
-//     }
-//     console.log(`${property}: ${object[property]}`);
-//   }
-//   }
+const getUserNameById = (id) => {
+  //console.log( "first name:" + obj[id])
+  let object = obj[id]
+  for (const property in object) {
+    if(property == 'userName'){
+      return `${object[property]}`
+    }
+    console.log(`${property}: ${object[property]}`);
+  }
+  }
 //to post a Spark to the sparks database 
 function postToServer(){
 
