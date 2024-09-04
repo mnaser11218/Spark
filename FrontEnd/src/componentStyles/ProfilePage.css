@@ -110,3 +110,26 @@
 .tweet:last-child {
     border-bottom: none;
 }
+
+#spark-tab {
+    margin: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 20px;
+}
+
+#mention-tab {
+    margin: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 20px;
+}
+
+#spark-tab:hover{
+background-color: #5f6885;
+
+}
+
+#mention-tab:hover{
+background-color: #5f6885;
+}
