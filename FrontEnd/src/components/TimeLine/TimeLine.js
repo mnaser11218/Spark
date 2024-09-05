@@ -4,9 +4,21 @@ import '../../componentStyles/TimeLine.css';
 import { useUser } from '../CurrentUser';
 
 import { useNavigate } from 'react-router';
+import AWS from "aws-sdk";
+import UploadImageToS3WithNativeSdk from '../UploadImageToS3';
+
+// const S3_BUCKET = 'spark1images'
+// const REGION = 'US West (Oregon) us-west-2'
 
 
+// AWS.config.update({
+//   accessKeyId: 'AKIA45Y2RJTTRJN2KJ64',
+//   secretAccessKey: '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'
+// })
 
+// const handleFileInput = (e)=> {
+//   setSelectedFile(e.target.files[0])
+// }
 
 
 function ShowTimeline(){
@@ -266,6 +278,7 @@ function postToServer(){
     
 
       <div className="timeline">
+        <UploadImageToS3WithNativeSdk />
 
         {items.map((item, index) => (
           <div key={index} className="timeline-item">
