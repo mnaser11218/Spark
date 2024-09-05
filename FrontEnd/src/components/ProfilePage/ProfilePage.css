@@ -1,14 +1,18 @@
-/* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #404258;
-} */
+
+#blurb {
+    color: white;
+}
+
+#whole-page {
+    display: flex;
+    
+}
 
 .profile-page {
     min-width: 900px;
     margin: 0 auto;
-    background-color: #404258;
-    border: 1px solid #6B728E;
+    background-color: #15202b !important;
+    border: 1px solid #283d53 !important;
     border-radius: 8px;
     overflow: hidden;
 }
@@ -35,7 +39,7 @@
     border-radius: 50%;
     background-color: #e1e8ed;
     margin-top: -60px;
-    border: 4px solid #6B728E;
+    border: 4px solid #283d53 !important;
 }
 
 .profile-details {
@@ -73,8 +77,8 @@
 
 .profile-nav {
     border-top: 1px solid #6B728E;
-    border-bottom: 1px solid #e1e8ed;
-    background-color: #6B728E;
+    border-bottom: 1px solid #6B728E !important;
+    background-color: #283d53 !important;
     color: white;
 
 }
@@ -113,23 +117,23 @@
 
 #spark-tab {
     margin: 10px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 150px !important;
+    padding-right: 150px !important;
     border-radius: 20px;
 }
 
 #mention-tab {
     margin: 10px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 150px !important;
+    padding-right: 150px !important;
     border-radius: 20px;
 }
 
 #spark-tab:hover{
-background-color: #5f6885;
+background-color: #35506d !important;
 
 }
 
 #mention-tab:hover{
-background-color: #5f6885;
+background-color: #35506d !important;
 }

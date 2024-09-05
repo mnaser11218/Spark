@@ -13,8 +13,8 @@ const UploadImageToS3WithNativeSdk = () => {
 
 
 AWS.config.update({
-  accessKeyId: 'AKIA45Y2RJTTWWJC4UWW',
-  secretAccessKey: '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'
+  accessKeyId: process.env.REACT_APP_API_KEY_PRIMARY,
+  secretAccessKey: process.env.REACT_APP_API_KEY_SECRET
 })
 
 

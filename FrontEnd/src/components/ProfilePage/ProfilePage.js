@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import '../componentStyles/ProfilePage.css';
-import { useUser } from './CurrentUser';
+import './ProfilePage.css';
+import { useUser } from '../CurrentUser';
 
 
 const ProfilePage = () => {

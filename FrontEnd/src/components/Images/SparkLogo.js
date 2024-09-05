@@ -1,6 +1,6 @@
 import React from 'react';
-import img1 from './Images/SparkLogo.png';
-import '../componentStyles/HomeStyle.css'
+import img1 from '../../SparkLogo.png';
+import '../../components/HomePage/HomeStyle.css';
 
 
 
