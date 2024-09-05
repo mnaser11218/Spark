@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import '../../componentStyles/TimeLine.css';
+import '../../components/TimeLine/TimeLine.css';
 import { useUser } from '../CurrentUser';
 
 import { useNavigate } from 'react-router';
+import LoginInButton from '../Login/LoginInButton';
 
 
 
@@ -159,7 +160,8 @@ function postToServer(){
       
 
         <div className="timeline-container">
-                <p id="following">Sign Up to Start Sparking!</p>
+                <p id="following">Sign Up/Log In to Start Sparking!</p>
+                <LoginInButton/>
 
             {/* <p id="display-user">X</p> */}
 
