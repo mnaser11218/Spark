@@ -13,8 +13,8 @@ const UploadImageToS3WithNativeSdk = () => {
 
 
 AWS.config.update({
-  accessKeyId: 'AKIA45Y2RJTTWWJC4UWW',
-  secretAccessKey: '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'
+  accessKeyId: `${process.env.SPARK_ACCESS_KEY}` ,
+  secretAccessKey: `${process.env.SPARK_ACCESS_SECRET_KEY}`
 })
 
 
