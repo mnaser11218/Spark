@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../componentStyles/Login.css';
+import './Login.css';
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { useUser } from '../CurrentUser';
@@ -50,7 +50,7 @@ const Login = () => {
         <h1 className="text-center mb-4 card-header">
           Log in to <span style={{ color: 'white', fontWeight: 'bold' }}>SPARK ⚡️</span>
         </h1>
-        <h2 className="text-center mb-4 card-subheader">Sign In</h2>
+        {/* <h2 className="text-center mb-4 card-subheader">Sign In</h2> */}
         <form autoComplete="off" onSubmit={HandleLogin}>
           <div className="mb-3">
             <label htmlFor="username" className="form-label">
@@ -81,6 +81,7 @@ const Login = () => {
           <div className="d-grid gap-2">
             <button
               type="submit"
+              id="logger"
               className="btn btn-primary-login"
             >
               Log In
@@ -91,6 +92,7 @@ const Login = () => {
         <div className="text-center">
           <p className="text-muted" id="pls">Don't have an account?</p>
           <button
+          id="createit"
             className="btn btn-secondary"
             onClick={handleClick}
           >

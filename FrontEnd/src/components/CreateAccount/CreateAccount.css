@@ -1,0 +1,87 @@
+.create-account-container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 12px;
+  background-color: #1d2835; 
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); 
+  font-family: 'Arial', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px; 
+  margin-bottom: 30px; 
+  font-weight: 700;
+  color: #FFFFFF; 
+}
+
+#wow {
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 25px; 
+}
+
+label {
+  display: block;
+  font-size: 16px; 
+  margin-bottom: 8px;
+  font-weight: 600; 
+}
+
+input {
+  width: 100%;
+  padding: 14px; 
+  border: 2px solid #6B728E;
+  color: white;
+  border-radius: 8px; 
+  font-size: 16px;
+  background-color: #1E2A38; 
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border: 2px solid #2c74b3; 
+  box-shadow: 0 0 12px rgba(44, 116, 179, 0.4); 
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #2c74b3;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px; 
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  background-color: #205295;
+  box-shadow: 0 4px 10px rgba(32, 82, 149, 0.3); 
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 600px) {
+  .create-account-container {
+    padding: 30px;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+  
+  input, button {
+    font-size: 16px;
+  }
+}
+

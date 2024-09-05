@@ -1,9 +1,10 @@
 import React from 'react';
-import '../App.css';
-import '../componentStyles/HomeStyle.css';
-import Logo from './SparkLogo';
-import Login from "./LoginInButton.js";
-import SignUp from "./SignUpButton.js"
+import '../../App.css';
+import './HomeStyle.css';
+import Logo from '../Images/SparkLogo';
+import Login from "../Login/LoginInButton.js";
+import SignUp from "../CreateAccount/SignUpButton.js"
+import PreviewButton from '../PreviewPage/PreviewButton';
 
 
 
@@ -19,6 +20,8 @@ const HomePage=()=>{
         <h2>
             <Login/>
             <SignUp/>
+            <PreviewButton/>
+            
             </h2>
           
             
