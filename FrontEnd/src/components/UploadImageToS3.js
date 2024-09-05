@@ -57,4 +57,4 @@ const myBucket = new AWS.S3({
     </div>
 }
 
-export default UploadImageToS3WithNativeSdk;
+export default UploadImageToS3WithNativeSdk; 
