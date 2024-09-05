@@ -40,6 +40,9 @@ class UserProfileResourceIT {
     private static final String DEFAULT_USER_NAME = "AAAAAAAAAA";
     private static final String UPDATED_USER_NAME = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PASSWORD = "AAAAAAAAAA";
+    private static final String UPDATED_PASSWORD = "BBBBBBBBBB";
+
     private static final String DEFAULT_FIRST_NAME = "AAAAAAAAAA";
     private static final String UPDATED_FIRST_NAME = "BBBBBBBBBB";
 
@@ -81,6 +84,7 @@ class UserProfileResourceIT {
         UserProfile userProfile = new UserProfile()
             .userId(DEFAULT_USER_ID)
             .userName(DEFAULT_USER_NAME)
+            .password(DEFAULT_PASSWORD)
             .firstName(DEFAULT_FIRST_NAME)
             .lastName(DEFAULT_LAST_NAME)
             .createdDate(DEFAULT_CREATED_DATE);
@@ -97,6 +101,7 @@ class UserProfileResourceIT {
         UserProfile userProfile = new UserProfile()
             .userId(UPDATED_USER_ID)
             .userName(UPDATED_USER_NAME)
+            .password(UPDATED_PASSWORD)
             .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
             .createdDate(UPDATED_CREATED_DATE);
@@ -169,6 +174,7 @@ class UserProfileResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(userProfile.getId().intValue())))
             .andExpect(jsonPath("$.[*].userId").value(hasItem(DEFAULT_USER_ID.intValue())))
             .andExpect(jsonPath("$.[*].userName").value(hasItem(DEFAULT_USER_NAME)))
+            .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD)))
             .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME)))
             .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME)))
             .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())));
@@ -188,6 +194,7 @@ class UserProfileResourceIT {
             .andExpect(jsonPath("$.id").value(userProfile.getId().intValue()))
             .andExpect(jsonPath("$.userId").value(DEFAULT_USER_ID.intValue()))
             .andExpect(jsonPath("$.userName").value(DEFAULT_USER_NAME))
+            .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD))
             .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME))
             .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME))
             .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()));
@@ -215,6 +222,7 @@ class UserProfileResourceIT {
         updatedUserProfile
             .userId(UPDATED_USER_ID)
             .userName(UPDATED_USER_NAME)
+            .password(UPDATED_PASSWORD)
             .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
             .createdDate(UPDATED_CREATED_DATE);
@@ -297,7 +305,11 @@ class UserProfileResourceIT {
         UserProfile partialUpdatedUserProfile = new UserProfile();
         partialUpdatedUserProfile.setId(userProfile.getId());
 
-        partialUpdatedUserProfile.userId(UPDATED_USER_ID).userName(UPDATED_USER_NAME).lastName(UPDATED_LAST_NAME);
+        partialUpdatedUserProfile
+            .userId(UPDATED_USER_ID)
+            .userName(UPDATED_USER_NAME)
+            .firstName(UPDATED_FIRST_NAME)
+            .createdDate(UPDATED_CREATED_DATE);
 
         restUserProfileMockMvc
             .perform(
@@ -331,6 +343,7 @@ class UserProfileResourceIT {
         partialUpdatedUserProfile
             .userId(UPDATED_USER_ID)
             .userName(UPDATED_USER_NAME)
+            .password(UPDATED_PASSWORD)
             .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
             .createdDate(UPDATED_CREATED_DATE);

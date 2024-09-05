@@ -13,6 +13,10 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "password",
+      "fieldType": "String"
+    },
+    {
       "fieldName": "firstName",
       "fieldType": "String"
     },

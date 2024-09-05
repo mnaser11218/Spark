@@ -1,6 +1,7 @@
 entity UserProfile {
     userId Long
     userName String
+    password String
     firstName String
     lastName String
     createdDate LocalDate

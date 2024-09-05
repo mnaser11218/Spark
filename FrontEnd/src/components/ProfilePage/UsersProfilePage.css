@@ -1,0 +1,139 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #404258;
+} */
+
+.profile-page {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #404258;
+    /* background-color: black; */
+    border: 1px solid white;
+    /* border: 1px solid #6B728E; */
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.profile-header {
+    position: relative;
+}
+
+.cover-photo {
+    height: 200px;
+    background-color: #aab8c2;
+}
+
+.profile-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #e1e8ed;
+    margin-top: -60px;
+    border: 4px solid #6B728E;
+}
+
+.profile-details {
+    text-align: center;
+}
+
+.profile-name {
+    color: white !important;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-handle {
+    color: white;
+}
+
+.profile-bio {
+    margin: 10px 0;
+
+    color: white;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    color: white;
+
+}
+
+.profile-stats strong {
+    color: white;
+}
+
+.profile-nav {
+    border-top: 1px solid #6B728E;
+    border-bottom: 1px solid #e1e8ed;
+    background-color: #6B728E;
+    /* background-color: black; */
+
+    color: white;
+
+}
+
+.profile-nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    color: white;
+
+    list-style: none;
+}
+
+.profile-nav li {
+    padding: 15px 0;
+    cursor: pointer;
+    color: white;
+
+}
+
+.tweets-section {
+    padding: 20px;
+
+}
+
+.tweet {
+    padding: 15px;
+    color: white;
+    border-bottom: 1px solid #6B728E;
+}
+
+.tweet:last-child {
+    border-bottom: none;
+}
+
+#spark-tab {
+    margin: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 20px;
+}
+
+#mention-tab {
+    margin: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 20px;
+}
+
+#spark-tab:hover{
+background-color: #5f6885;
+
+}
+
+#mention-tab:hover{
+background-color: #5f6885;
+}

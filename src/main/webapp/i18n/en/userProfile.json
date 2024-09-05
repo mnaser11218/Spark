@@ -20,6 +20,7 @@
       "id": "ID",
       "userId": "User Id",
       "userName": "User Name",
+      "password": "Password",
       "firstName": "First Name",
       "lastName": "Last Name",
       "createdDate": "Created Date",

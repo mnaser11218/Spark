@@ -127,6 +127,9 @@ public class UserProfileResource {
                 if (userProfile.getUserName() != null) {
                     existingUserProfile.setUserName(userProfile.getUserName());
                 }
+                if (userProfile.getPassword() != null) {
+                    existingUserProfile.setPassword(userProfile.getPassword());
+                }
                 if (userProfile.getFirstName() != null) {
                     existingUserProfile.setFirstName(userProfile.getFirstName());
                 }
@@ -168,6 +171,13 @@ public class UserProfileResource {
     public ResponseEntity<UserProfile> getUserProfile(@PathVariable("id") Long id) {
         log.debug("REST request to get UserProfile : {}", id);
         Optional<UserProfile> userProfile = userProfileRepository.findById(id);
+        return ResponseUtil.wrapOrNotFound(userProfile);
+    }
+
+    @GetMapping("/username/{string}")
+    public ResponseEntity<UserProfile> getUserProfileByUserName(@PathVariable("string") String string) {
+        log.debug("REST request to get UserProfile : {}", string);
+        Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.getUserProfileByUserName(string));
         return ResponseUtil.wrapOrNotFound(userProfile);
     }
 
