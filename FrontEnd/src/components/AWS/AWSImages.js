@@ -13,8 +13,8 @@ const UploadImageToS3WithNativeSdk = () => {
 
 
 AWS.config.update({
-  accessKeyId: `${process.env.SPARK_ACCESS_KEY}` ,
-  secretAccessKey: `${process.env.SPARK_ACCESS_SECRET_KEY}`
+  accessKeyId: process.env.REACT_APP_API_KEY_PRIMARY,
+  secretAccessKey: process.env.REACT_APP_API_KEY_SECRET
 })
 
 
@@ -57,4 +57,4 @@ const myBucket = new AWS.S3({
     </div>
 }
 
-export default UploadImageToS3WithNativeSdk; 
+export default UploadImageToS3WithNativeSdk;
