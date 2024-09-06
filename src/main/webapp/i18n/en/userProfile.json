@@ -24,7 +24,8 @@
       "firstName": "First Name",
       "lastName": "Last Name",
       "createdDate": "Created Date",
-      "spark": "Spark"
+      "spark": "Spark",
+      "likes": "Likes"
     }
   }
 }

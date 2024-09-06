@@ -23,6 +23,7 @@
       "date": "Date",
       "body": "Body",
       "url": "Url",
+      "likes": "Likes",
       "userProfile": "User Profile",
       "mention": "Mention",
       "hashtag": "Hashtag"

@@ -1,5 +1,6 @@
 package com.spark.app.domain;
 
+import static com.spark.app.domain.LikesTestSamples.*;
 import static com.spark.app.domain.SparkTestSamples.*;
 import static com.spark.app.domain.UserProfileTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -45,5 +46,27 @@ class UserProfileTest {
         userProfile.setSparks(new HashSet<>());
         assertThat(userProfile.getSparks()).doesNotContain(sparkBack);
         assertThat(sparkBack.getUserProfile()).isNull();
+    }
+
+    @Test
+    void likesTest() {
+        UserProfile userProfile = getUserProfileRandomSampleGenerator();
+        Likes likesBack = getLikesRandomSampleGenerator();
+
+        userProfile.addLikes(likesBack);
+        assertThat(userProfile.getLikes()).containsOnly(likesBack);
+        assertThat(likesBack.getUserProfile()).isEqualTo(userProfile);
+
+        userProfile.removeLikes(likesBack);
+        assertThat(userProfile.getLikes()).doesNotContain(likesBack);
+        assertThat(likesBack.getUserProfile()).isNull();
+
+        userProfile.likes(new HashSet<>(Set.of(likesBack)));
+        assertThat(userProfile.getLikes()).containsOnly(likesBack);
+        assertThat(likesBack.getUserProfile()).isEqualTo(userProfile);
+
+        userProfile.setLikes(new HashSet<>());
+        assertThat(userProfile.getLikes()).doesNotContain(likesBack);
+        assertThat(likesBack.getUserProfile()).isNull();
     }
 }

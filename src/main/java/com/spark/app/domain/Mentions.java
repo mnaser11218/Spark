@@ -41,7 +41,7 @@ public class Mentions implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "spark_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "userProfile", "mentions", "hashtags" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "likes", "userProfile", "mentions", "hashtags" }, allowSetters = true)
     private Set<Spark> sparks = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

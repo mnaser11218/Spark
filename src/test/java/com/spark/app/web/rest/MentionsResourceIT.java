@@ -298,7 +298,7 @@ class MentionsResourceIT {
         Mentions partialUpdatedMentions = new Mentions();
         partialUpdatedMentions.setId(mentions.getId());
 
-        partialUpdatedMentions.mentionId(UPDATED_MENTION_ID);
+        partialUpdatedMentions.mentionUsername(UPDATED_MENTION_USERNAME).date(UPDATED_DATE);
 
         restMentionsMockMvc
             .perform(

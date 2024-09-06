@@ -14,7 +14,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 @Repository
 public interface SparkRepository extends JpaRepository<Spark, Long> {
-   // @Query(value = " SELECT * FROM spark join user_profile  on user_profile.id = spark.user_profile_id where user_profile.user_name = ?1 ", nativeQuery = true)
+    // @Query(value = " SELECT * FROM spark join user_profile  on user_profile.id = spark.user_profile_id where user_profile.user_name = ?1 ", nativeQuery = true)
     @Query(value = "SELECT spark.* FROM SPARK \n" +
         " JOIN user_profile on user_profile.user_id = spark.user_id \n" +
         " where user_profile.user_name = ?1 " , nativeQuery = true)
@@ -36,3 +36,4 @@ public interface SparkRepository extends JpaRepository<Spark, Long> {
 //    Spark getSparkByUserName(String string);
 
 }
+

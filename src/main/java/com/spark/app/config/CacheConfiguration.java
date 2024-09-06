@@ -59,6 +59,9 @@ public class CacheConfiguration {
             createCache(cm, com.spark.app.domain.Hashtag.class.getName() + ".sparks");
             createCache(cm, com.spark.app.domain.Mentions.class.getName());
             createCache(cm, com.spark.app.domain.Mentions.class.getName() + ".sparks");
+            createCache(cm, com.spark.app.domain.UserProfile.class.getName() + ".likes");
+            createCache(cm, com.spark.app.domain.Spark.class.getName() + ".likes");
+            createCache(cm, com.spark.app.domain.Likes.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
