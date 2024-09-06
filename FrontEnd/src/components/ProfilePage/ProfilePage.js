@@ -122,18 +122,22 @@ const ProfilePage = () => {
                 <div className="tweets-section">
                 {view === 'sparks' && sparks.map(spark => (
                         <div key={spark.id} className="tweet">
-                            <p>@{currentLoggedInUser.userName} {currentLoggedInUser.firstName + " " + currentLoggedInUser.lastName}</p>
-                            <p>{spark.body}</p>
-                            <p>{spark.date}</p>
+                            <p className="name-spark-class">{currentLoggedInUser.firstName + " " + currentLoggedInUser.lastName}</p>
+                            <p className="username-spark-class">@{currentLoggedInUser.userName} </p>
+                            <p className="body-spark-class">{spark.body}</p>
+                            <br/>
+                            <p className="date-spark-class">{spark.date}</p>
                         </div>
                     ))}
                     {view === 'mentions' && mentions.map(mention => {
                         const profile = getUserProfileById(mention.userId);
                         return (
                         <div key={mention.id} className="tweet">
-                            <p>@{profile?.userName} {profile?.firstName + " " + profile?.lastName}</p>
-                            <p>{mention.body}</p>
-                            <p>{mention.date}</p>
+                            <p className="name-spark-class">{profile?.firstName + " " + profile?.lastName}</p>
+                            <p className="username-spark-class">@{profile?.userName} </p>
+                            <p className="body-spark-class">{mention.body}</p>
+                            <br/>
+                            <p className="date-spark-class">{mention.date}</p>
                         </div>
                         );
                         })}

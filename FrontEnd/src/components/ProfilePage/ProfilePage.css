@@ -5,7 +5,6 @@
 
 #whole-page {
     display: flex;
-    
 }
 
 .profile-page {
@@ -136,4 +135,23 @@ background-color: #35506d !important;
 
 #mention-tab:hover{
 background-color: #35506d !important;
+}
+
+.date-spark-class {
+    color: grey;
+    font-size: 15px;
+}
+
+.name-spark-class {
+    margin-top: 10px;
+    font-size: 20px;
+    padding:0;
+    margin: 0;
+}
+.username-spark-class {
+    color: grey;
+}
+
+.body-spark-class {
+    font-size: 18px;
 }
