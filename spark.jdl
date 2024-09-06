@@ -24,6 +24,11 @@ dataCreated LocalDate
 
 }
 
+entity Likes {
+liked Long
+Dislike Long
+}
+
 entity Mentions {
 mentionId Long
 mentionUsername String
@@ -40,6 +45,16 @@ The Employee entity.*/
 relationship OneToMany {
 UserProfile{spark} to Spark{userProfile}
 }
+
+relationship OneToMany {
+Spark{likes} to Likes{spark}
+}
+
+relationship OneToMany {
+UserProfile{likes} to Likes{userProfile}
+}
+
+
 
 relationship ManyToMany {
 Mentions{spark} to Spark{mention}

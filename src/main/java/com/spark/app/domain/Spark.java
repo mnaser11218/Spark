@@ -19,6 +19,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 public class Spark implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -39,8 +40,13 @@ public class Spark implements Serializable {
     @Column(name = "url")
     private String url;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "spark")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "spark", "userProfile" }, allowSetters = true)
+    private Set<Likes> likes = new HashSet<>();
+
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "sparks" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "sparks", "likes" }, allowSetters = true)
     private UserProfile userProfile;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "sparks")
@@ -131,6 +137,37 @@ public class Spark implements Serializable {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public Set<Likes> getLikes() {
+        return this.likes;
+    }
+
+    public void setLikes(Set<Likes> likes) {
+        if (this.likes != null) {
+            this.likes.forEach(i -> i.setSpark(null));
+        }
+        if (likes != null) {
+            likes.forEach(i -> i.setSpark(this));
+        }
+        this.likes = likes;
+    }
+
+    public Spark likes(Set<Likes> likes) {
+        this.setLikes(likes);
+        return this;
+    }
+
+    public Spark addLikes(Likes likes) {
+        this.likes.add(likes);
+        likes.setSpark(this);
+        return this;
+    }
+
+    public Spark removeLikes(Likes likes) {
+        this.likes.remove(likes);
+        likes.setSpark(null);
+        return this;
     }
 
     public UserProfile getUserProfile() {

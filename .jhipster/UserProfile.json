@@ -37,6 +37,13 @@
       "relationshipName": "spark",
       "relationshipSide": "left",
       "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "likes",
+      "otherEntityRelationshipName": "userProfile",
+      "relationshipName": "likes",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
     }
   ],
   "searchEngine": "no"

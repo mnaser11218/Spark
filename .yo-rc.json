@@ -15,7 +15,7 @@
     "enableHibernateCache": true,
     "enableSwaggerCodegen": false,
     "enableTranslation": true,
-    "entities": ["UserProfile", "Spark", "Hashtag", "Mentions"],
+    "entities": ["UserProfile", "Spark", "Hashtag", "Mentions", "Likes"],
     "feignClient": null,
     "jhipsterVersion": "8.6.0",
     "jwtSecretKey": "ZmYyMjllN2NiNzdkZWNkYTMxNmE4NzQ3Y2I5N2E3ZmMwZTMyM2JlODZhZWFkODM3ZDVkMTgxZmRjOWI0NTU0Y2ZmODhiYjI5NTUzMDhkZWI1ODlmMGIzNzQyOWM2YTJjNjQyNjRkYmU3Yzk5ZDEzMDkxNTVlYzhkNmRmOTAwNWU=",

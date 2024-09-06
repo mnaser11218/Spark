@@ -296,8 +296,6 @@ class HashtagResourceIT {
         Hashtag partialUpdatedHashtag = new Hashtag();
         partialUpdatedHashtag.setId(hashtag.getId());
 
-        partialUpdatedHashtag.hashtagId(UPDATED_HASHTAG_ID).dataCreated(UPDATED_DATA_CREATED);
-
         restHashtagMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedHashtag.getId())

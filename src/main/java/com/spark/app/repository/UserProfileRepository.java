@@ -15,4 +15,3 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Long> 
     @Query(value = "SELECT * FROM user_profile where user_name =?1", nativeQuery = true)
     public UserProfile getUserProfileByUserName(String string);
 }
-

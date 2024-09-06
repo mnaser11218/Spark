@@ -278,7 +278,7 @@ class SparkResourceIT {
         Spark partialUpdatedSpark = new Spark();
         partialUpdatedSpark.setId(spark.getId());
 
-        partialUpdatedSpark.userId(UPDATED_USER_ID).url(UPDATED_URL);
+        partialUpdatedSpark.sparkId(UPDATED_SPARK_ID).date(UPDATED_DATE).body(UPDATED_BODY);
 
         restSparkMockMvc
             .perform(
