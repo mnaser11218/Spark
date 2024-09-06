@@ -65,6 +65,8 @@ function CreateAccount() {
     };
 
     return (
+      <>
+      <div id ="ca-whole-page">
         <div className="create-account-container">
             <h2 id="wow">Create your account</h2>
             <form onSubmit={handleSubmit} autoComplete='off'>
@@ -116,6 +118,9 @@ function CreateAccount() {
 </form>
 
         </div>
+
+        </div>
+        </>
     );
 }
 

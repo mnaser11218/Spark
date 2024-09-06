@@ -3,30 +3,24 @@ import '../../App.css';
 import './HomeStyle.css';
 import Logo from '../Images/SparkLogo';
 import Login from "../Login/LoginInButton.js";
-import SignUp from "../CreateAccount/SignUpButton.js"
+import SignUp from "../CreateAccount/SignUpButton.js";
 import PreviewButton from '../PreviewPage/PreviewButton';
 
-
-
-const HomePage=()=>{
-    
+const HomePage = () => {
     return (
-        <div>
-              <Logo/>
-        <div id='home-page'>
-
-            
-      
-        <h2>
-            <Login/>
-            <SignUp/>
-            <PreviewButton/>
-            
-            </h2>
-          
-            
-        </div>
-        <h2>this is the home page</h2>
+        <div className="home-container" id="home-full-page">
+            <div className="home-logo">
+                <Logo />
+            </div>
+            <div className="home-content">
+                <h1 className="home-title">Welcome to Spark</h1>
+                <p className="home-subtitle">Connect. Share. Discover.</p>
+                <div id="home-buttons">
+                    <Login />
+                    <SignUp />
+                    <PreviewButton />
+                </div>
+            </div>
         </div>
     );
 };
