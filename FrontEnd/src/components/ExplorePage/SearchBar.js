@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../componentStyles/SearchBar.css';
+import './SearchBar.css';
 // import { constants } from 'fs/promises';
 
 const DisplaySearchBar = () => {
@@ -56,7 +56,7 @@ const DisplaySearchBar = () => {
         placeholder="Search by hashtag..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-input"
+        className="search-input-bar"
       />
       <div className="results">
         {sparks.length > 0 ? (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../componentStyles/CreateAccount.css'; 
+import './CreateAccount.css'; 
 import { useNavigate } from 'react-router';
 
 function CreateAccount() {
@@ -66,50 +66,55 @@ function CreateAccount() {
 
     return (
         <div className="create-account-container">
-            <h2>Create your account</h2>
+            <h2 id="wow">Create your account</h2>
             <form onSubmit={handleSubmit} autoComplete='off'>
-                <div className="form-group">
-                    <label htmlFor="firstName">First Name:</label>
-                    <input
-                        type="text"
-                        id="firstName"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="lastName">Last Name:</label>
-                    <input
-                        type="text"
-                        id="lastName"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="username">Username:</label>
-                    <input
-                        type="text"
-                        id="username"
-                        value={userName}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                <button type="submit">Create Account</button>
-            </form>
+  <div className="form-group">
+    <label htmlFor="firstName">First Name:</label>
+    <input
+      type="text"
+      id="firstName"
+      value={firstName}
+      onChange={(e) => setFirstName(e.target.value)}
+      placeholder="Enter your first name"  
+      required
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="lastName">Last Name:</label>
+    <input
+      type="text"
+      id="lastName"
+      value={lastName}
+      onChange={(e) => setLastName(e.target.value)}
+      placeholder="Enter your last name"  
+      required
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="username">Username:</label>
+    <input
+      type="text"
+      id="username"
+      value={userName}
+      onChange={(e) => setUsername(e.target.value)}
+      placeholder="Create a unique username" 
+      required
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      placeholder="Create a strong password" 
+      required
+    />
+  </div>
+  <button type="submit">Create Account</button>
+</form>
+
         </div>
     );
 }
