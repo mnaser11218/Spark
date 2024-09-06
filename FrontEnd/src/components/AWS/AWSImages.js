@@ -27,12 +27,15 @@ const myBucket = new AWS.S3({
 })
 
     const handleFileInput = (e) => {
+
         setSelectedFile(e.target.files[0]);
         setShowImage(true)
-        childToParent(data)
+        childToParent(`https://mybucketlists123.s3.us-west-2.amazonaws.com/${e.target.files[0]?.name}`)
+
        // console.log(selectedFile)
     //    uploadFile(selectedFile)
     uploadFile(e.target.files[0])
+
 
        // console.log("link to get photo " + `https://mybucketlists123.s3.us-west-2.amazonaws.com/${selectedFile?.name}`)
     } 
