@@ -130,11 +130,12 @@
 #likes-comments {
   display: flex;
   padding: 15px;
-  gap: 35px;
+  gap: 50px;
 }
 
 #like-icon-id {
   transition: 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 #like-icon-id:hover{
@@ -143,8 +144,20 @@
 
 #comment-icon-id {
   transition: 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 #comment-icon-id:hover{
   transform: scale(1.5);
 }
+
+#retweet-icon-id {
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#retweet-icon-id:hover{
+  transform: scale(1.5);
+}
+
+

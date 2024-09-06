@@ -64,7 +64,8 @@ const DisplaySearchBar = () => {
             const profile = getUserProfileById(spark.userId)
             return (
             <div key={spark.id} className="spark-item">
-              <p>@{profile?.userName + " " + profile?.firstName +" "+ profile?.lastName}</p>
+              <p id="name-spark-search-id">{profile?.firstName +" "+ profile?.lastName}</p>
+              <p id="username-spark-search-id">@{profile?.userName}</p>
               {spark.body} <br/>
               {spark.date}
             </div>
