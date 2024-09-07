@@ -31,7 +31,6 @@ const myBucket = new AWS.S3({
         setSelectedFile(e.target.files[0]);
         setShowImage(true)
         childToParent(`https://mybucketlists123.s3.us-west-2.amazonaws.com/${e.target.files[0]?.name}`)
-
        // console.log(selectedFile)
     //    uploadFile(selectedFile)
     uploadFile(e.target.files[0])
