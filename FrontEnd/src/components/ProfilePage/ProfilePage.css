@@ -158,11 +158,15 @@ background-color: #35506d !important;
 #click-profile-function {
     display: inline-block;
     border-radius: 10px;
-    /* padding: 10px;
-    padding-bottom: 0px; */
+    padding: 10px;
+
 }
 
 #click-profile-function:hover {
     cursor: pointer;
-    /* background-color: #283c51; */
+    background-color: #283c51;
+}
+
+.spark-image {
+    margin-bottom: 12px;
 }
