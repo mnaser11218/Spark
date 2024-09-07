@@ -15,15 +15,17 @@ import SparkPage from './components/Spark/SparkPage';
 const AppLayout = () => {
   const location = useLocation();
 
-  const showNavbarRoutes = ['/timeline', '/explore', '/spark']; //THIS IS WHAT DETERMINES WHO GETS A NAVBAR
+  const showNavbarRoutes = ['/timeline', '/explore']; //THIS IS WHAT DETERMINES WHO GETS A NAVBAR
   const isProfilePage = location.pathname === '/profilepage';
   const isUserProfileRoute = location.pathname.startsWith('/userprofilepage');
+  const isSparkPage = location.pathname.startsWith('/spark');
 
   //not sure if i need this line of code but im too scared to delete it
-  const shouldShowNavbar = showNavbarRoutes.includes(location.pathname) || isUserProfileRoute || isProfilePage;
+  const shouldShowNavbar = showNavbarRoutes.includes(location.pathname) || isUserProfileRoute || isProfilePage || isSparkPage;
 
   //this determines which one should have width styling (sometimes it gets centered when not needed)
-  const shouldApplyWidth = !isProfilePage && !isUserProfileRoute;
+  //this stays commented out for now
+  const shouldApplyWidth= !isProfilePage && !isUserProfileRoute;
 
   return (
     <div style={{ display: 'flex' }}>
@@ -45,7 +47,7 @@ const AppLayout = () => {
           <Route path="/userprofilepage/:user" element={<UserProfilePage />} />
           <Route path="/preview" element={<ShowTimelinePreview />} />
           <Route path="/explore" element={<ExplorePage />} />
-          <Route path="/spark" element={<SparkPage/>}/>
+          <Route path="/spark/:sparkToCall" element={<SparkPage/>}/>
         </Routes>
       </div>
     </div>
@@ -132,8 +134,14 @@ export default App;
 // /*
 // Twitter Application (twitter clone)
 // Tasks to Fulfill
+
+
 // - As a user, (not logged in) I
+
+
 // can view list of all tweets from all users
+
+
 // - As a user, (logged in) I
 // can post a new tweet (limited to 255 chars)
 // can view list of all tweets

@@ -14,6 +14,7 @@ function ShowTimeline() {
   const { currentLoggedInUser } = useUser();
   const navigate = useNavigate();
   const [data, setData] = useState('');
+  const [key, setKey] = useState(null);
 
   const childToParent = (childdata) => {
     setData(childdata);
@@ -61,6 +62,14 @@ function ShowTimeline() {
     }
   };
 
+
+//map all the sparks and display them nicely. getAll for all sparks
+//item.body + item.name in the html
+//a function inside the map function that says { return item.id }
+
+
+
+
   const fetchUserProfiles = async () => {
     try {
       const response = await fetch('http://localhost:8080/api/user-profiles');
@@ -75,11 +84,17 @@ function ShowTimeline() {
     }
   };
 
+  const handleSparkClick = (item) => {
+    navigate(`/spark/${item}`);
+    console.log(item);
+  }
+
   const fetchSparks = async () => {
     try {
       const response = await fetch('http://localhost:8080/api/sparks');
       const data = await response.json();
       const formattedItems = data.map(item => ({
+        id: item.id,
         body: item.body,
         date: item.date,
         name: userProfiles[item.userId]?.firstName || 'Unknown',
@@ -118,7 +133,13 @@ function ShowTimeline() {
 
   useEffect(() => {
     fetchUserProfiles();
-    fetchSparks();
+    // fetchSparks();
+  }, []);
+
+  useEffect(() => {
+    if (Object.keys(userProfiles).length > 0){
+      fetchSparks();
+    }
   }, [userProfiles]);
 
   return (
@@ -165,8 +186,9 @@ function ShowTimeline() {
         )}
       </div>
       <div className="timeline">
+
   {items.map((item, index) => (
-    <div key={index} className="timeline-item">
+    <div className="timeline-item" id="spark-individual-container">
       <div id="user-container">
         <div onClick={handleClick} id="user-links">
           <h4>
@@ -177,17 +199,19 @@ function ShowTimeline() {
             {item.name}
           </h4>
           <p>@{item.userName}</p>
+          {/* <p>we have the id: {item.id}</p> */}
         </div>
       </div>
-      <div className="item-content">{item.body}</div>
-      {item.imageUrl && ( // displays the image if it exists!
+      <div className="item-content" key={item.id} onClick={() => handleSparkClick(item.id)}>{item.body}<br/>{item.imageUrl && ( // displays the image if it exists!
         <img 
           src={item.imageUrl} 
           alt="Spark image" 
           id="the-working-image"
           style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }} 
         />
-      )}
+      )}</div>
+
+      
       <div className="item-timestamp">{item.date}</div>
       <div id="likes-comments">
         <span id="comment-icon-id">{commentIcon}</span>
