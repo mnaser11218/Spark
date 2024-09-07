@@ -137,3 +137,7 @@ background-color: #5f6885;
 #mention-tab:hover{
 background-color: #5f6885;
 }
+
+#actual-user-name{
+    color: grey;
+}

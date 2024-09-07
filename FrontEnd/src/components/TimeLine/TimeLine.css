@@ -16,7 +16,7 @@
   margin-bottom: 20px;
 }
 
-#plzz {
+#main-input-element {
   flex: 1;
   padding: 15px;
   color: #e1e8ed;
@@ -29,7 +29,7 @@
   border-bottom-right-radius: 0px !important; */
 
   border-radius: 20px;
-  background-color: #2f3336;
+  background-color: #15202b;
  
 }
 
@@ -86,6 +86,11 @@
   margin-bottom: 10px;
   border-radius: 10px;
   background-color: #192734;
+}
+
+.timeline-item:hover{
+  background-color: rgb(29, 43, 56);
+  cursor: pointer;
 }
 
 #user-container {
@@ -170,12 +175,3 @@
   display: flex;
 }
 
-#third-div-section{
-  width: 50%;
-}
-
-#discover-sparks-h1{
-  color: white;
-  text-align: center;
-  padding: 25px;
-}

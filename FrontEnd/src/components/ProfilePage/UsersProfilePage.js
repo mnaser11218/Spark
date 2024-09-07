@@ -142,7 +142,8 @@ const UserProfilePage = () => {
                         return (
                             <div key={mention.id} className="tweet">
                                 <div id="click-profile-function" onClick={handleClick}>
-                                    <p>@{profile?.userName} {profile?.firstName + " " + profile?.lastName}</p>
+                                    <p id="names-first-last">{profile?.firstName + " " + profile?.lastName}</p>
+                                    <p id="actual-user-name">@{profile?.userName}</p>
                                 </div>
                                 <p>{mention.body}</p>
                                 {mention.url && <img src={mention.url} alt="mention" className="tweet-image" style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }} />}

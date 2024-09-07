@@ -158,8 +158,7 @@ background-color: #35506d !important;
 #click-profile-function {
     display: inline-block;
     border-radius: 10px;
-    padding: 10px;
-
+    padding-top: 10px;
 }
 
 #click-profile-function:hover {
