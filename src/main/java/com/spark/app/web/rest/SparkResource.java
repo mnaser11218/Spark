@@ -170,6 +170,8 @@ public class SparkResource {
         return ResponseUtil.wrapOrNotFound(spark);
     }
 
+
+
     /**
      * {@code DELETE  /sparks/:id} : delete the "id" spark.
      *
@@ -188,6 +190,13 @@ public class SparkResource {
     public ResponseEntity<List<Spark>> getSparksByUserName(@PathVariable("string") String string) {
         log.debug("REST request to get Sparks From specified User : {}", string);
         Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkByUserName(string));
+        return ResponseUtil.wrapOrNotFound(ownerOfSpark);
+    }
+
+    @GetMapping("/comments/{id}")
+    public ResponseEntity<List<Spark>> getCommentsBySparkId(@PathVariable("id") Long id) {
+        log.debug("REST request to get Sparks From specified User : {}", id);
+        Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkbySparkId(id));
         return ResponseUtil.wrapOrNotFound(ownerOfSpark);
     }
 
