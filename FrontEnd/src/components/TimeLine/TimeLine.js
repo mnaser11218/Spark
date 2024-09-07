@@ -3,7 +3,7 @@ import './TimeLine.css';
 import { useUser } from '../CurrentUser';
 import { useNavigate } from 'react-router';
 import UploadImageToS3WithNativeSdk from '../AWS/AWSImages';
-import DisplaySearchBar from '../ExplorePage/SearchBar';
+import ShowThirdSection from './ThirdSection';
 
 function ShowTimeline() {
   const fileInputRef = useRef(null);
@@ -136,7 +136,7 @@ function ShowTimeline() {
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="What's happening?"
           className="input-field-lol"
-          id="plzz"
+          id="main-input-element"
         />
         <UploadImageToS3WithNativeSdk childToParent={childToParent}/>
         <div id="submit-and-icon">
@@ -200,14 +200,7 @@ function ShowTimeline() {
 
     </div>
 
-<div id="third-div-section">
-  <h1 id="discover-sparks-h1">Discover Sparks</h1>
-  <DisplaySearchBar/>
-  <div>
-    <h2>😰</h2>
-  </div>
-</div>
-
+<ShowThirdSection/>
 
 </div>
 

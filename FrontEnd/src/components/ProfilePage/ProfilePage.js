@@ -112,7 +112,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
             </header>
-            <Likes />
+            {/* <Likes /> */}
             <main className="profile-content">
                 <nav className="profile-nav">
                     <ul>

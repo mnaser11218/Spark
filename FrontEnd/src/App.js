@@ -10,15 +10,16 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 import UserProfilePage from './components/ProfilePage/UsersProfilePage';
 import ShowTimelinePreview from './components/PreviewPage/PreviewPage';
 import ExplorePage from './components/ExplorePage/ExplorePage';
+import SparkPage from './components/Spark/SparkPage';
 
 const AppLayout = () => {
   const location = useLocation();
 
-  const showNavbarRoutes = ['/timeline', '/explore'];
+  const showNavbarRoutes = ['/timeline', '/explore', '/spark']; //THIS IS WHAT DETERMINES WHO GETS A NAVBAR
   const isProfilePage = location.pathname === '/profilepage';
   const isUserProfileRoute = location.pathname.startsWith('/userprofilepage');
 
-  //this determines which pages wants a navbar showing
+  //not sure if i need this line of code but im too scared to delete it
   const shouldShowNavbar = showNavbarRoutes.includes(location.pathname) || isUserProfileRoute || isProfilePage;
 
   //this determines which one should have width styling (sometimes it gets centered when not needed)
@@ -44,6 +45,7 @@ const AppLayout = () => {
           <Route path="/userprofilepage/:user" element={<UserProfilePage />} />
           <Route path="/preview" element={<ShowTimelinePreview />} />
           <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/spark" element={<SparkPage/>}/>
         </Routes>
       </div>
     </div>
