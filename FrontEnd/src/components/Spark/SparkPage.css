@@ -1,4 +1,5 @@
 .spark-page-container {
+    min-width: 600px;
     max-width: 600px;
     margin: 0 auto;
     margin-top: 50px;
@@ -72,5 +73,9 @@
   .spark-retweet-icon:hover,
   .spark-like-icon:hover {
     transform: scale(1.5);
+}
+
+#full-full-body {
+  display: flex;
 }
   

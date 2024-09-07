@@ -19,8 +19,10 @@
 #main-input-element {
   flex: 1;
   padding: 15px;
+  padding-bottom: 80px;
   color: #e1e8ed;
-  height: auto;
+  /* height: auto; */
+  height: 200px;
   font-size: 18px;
   border: 1px solid #1d9bf0;
 

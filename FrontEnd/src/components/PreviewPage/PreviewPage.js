@@ -162,10 +162,10 @@ function postToServer(){
         <div className="timeline-container">
                 <p id="following">Sign Up/Log In to Start Sparking!</p>
                 <LoginInButton/>
+                <br/>
 
-            {/* <p id="display-user">X</p> */}
 
-      <div className="input-group">
+      {/* <div className="input-group">
         <input
           type="text"
           value={inputValue}
@@ -174,14 +174,11 @@ function postToServer(){
           className="input-field"
         />
 
-        {/* <TextInputWithProgress/> */}
-
-{/* <textarea name="text" rows="14" cols="10" wrap="soft" maxlength="255" style={{overflow:"hidden;", resize:"none;"}}/> */}
-      
+       
       </div>
       <button onClick={postToServer} className="add-button">
           Post
-        </button>
+        </button> */}
 
       <div className="timeline">
 

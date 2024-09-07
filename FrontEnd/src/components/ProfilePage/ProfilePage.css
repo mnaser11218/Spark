@@ -169,3 +169,45 @@ background-color: #35506d !important;
 .spark-image {
     margin-bottom: 12px;
 }
+
+#likes-comments {
+    display: flex;
+    padding: 15px;
+    gap: 50px;
+  }
+  
+  #like-icon-id {
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  #like-icon-id:hover{
+    transform: scale(1.5);
+  }
+  
+  #comment-icon-id {
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  #comment-icon-id:hover{
+    transform: scale(1.5);
+  }
+  
+  #retweet-icon-id {
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  #retweet-icon-id:hover{
+    transform: scale(1.5);
+  }
+
+  #full-whole-profile-page{
+    display: flex;
+  }
+
+
+ 
+
+ 
