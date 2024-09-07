@@ -33,7 +33,7 @@ function ShowTimeline() {
 
 
 
-  // Handle file input and image preview
+  // does the file input and image preview
   const handleFileChange = async (event) => {
     const file = event.target.files[0]; 
     if (file) {
@@ -83,6 +83,7 @@ function ShowTimeline() {
         date: item.date,
         name: userProfiles[item.userId]?.firstName || 'Unknown',
         userName: userProfiles[item.userId]?.userName || 'Unknown',
+        imageUrl: item.url //this is where we add image URL!!
       }));
       setItems(formattedItems);
     } catch (error) {
@@ -90,6 +91,7 @@ function ShowTimeline() {
     }
   };
 
+  
   const postToServer = async () => {
     try {
       await fetch('http://localhost:8080/api/sparks', {
@@ -161,27 +163,39 @@ function ShowTimeline() {
         )}
       </div>
       <div className="timeline">
-        {items.map((item, index) => (
-          <div key={index} className="timeline-item">
-            <div id="user-container">
-              <div onClick={handleClick} id="user-links">
-                <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                  <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                </svg> {item.name}</h4>
-                <p>@{item.userName}</p>
-              </div>
-            </div>
-            <div className="item-content">{item.body}</div>
-            <div className="item-timestamp">{item.date}</div>
-            <div id="likes-comments">
-              <span id="comment-icon-id">{commentIcon}</span>
-              <span id="retweet-icon-id">{retweetIcon}</span>
-              <span id="like-icon-id">{likeIcon}</span>
-            </div>
-          </div>
-        ))}
+  {items.map((item, index) => (
+    <div key={index} className="timeline-item">
+      <div id="user-container">
+        <div onClick={handleClick} id="user-links">
+          <h4>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg> 
+            {item.name}
+          </h4>
+          <p>@{item.userName}</p>
+        </div>
       </div>
+      <div className="item-content">{item.body}</div>
+      {item.imageUrl && ( // displays the image if it exists!
+        <img 
+          src={item.imageUrl} 
+          alt="Spark image" 
+          id="the-working-image"
+          style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }} 
+        />
+      )}
+      <div className="item-timestamp">{item.date}</div>
+      <div id="likes-comments">
+        <span id="comment-icon-id">{commentIcon}</span>
+        <span id="retweet-icon-id">{retweetIcon}</span>
+        <span id="like-icon-id">{likeIcon}</span>
+      </div>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 }

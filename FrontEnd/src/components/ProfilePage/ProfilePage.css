@@ -57,7 +57,6 @@
 
 .profile-bio {
     margin: 10px 0;
-
     color: white;
 }
 
@@ -154,4 +153,16 @@ background-color: #35506d !important;
 
 .body-spark-class {
     font-size: 18px;
+}
+
+#click-profile-function {
+    display: inline-block;
+    border-radius: 10px;
+    /* padding: 10px;
+    padding-bottom: 0px; */
+}
+
+#click-profile-function:hover {
+    cursor: pointer;
+    /* background-color: #283c51; */
 }
