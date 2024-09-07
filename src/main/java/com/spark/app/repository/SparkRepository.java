@@ -22,7 +22,7 @@ public interface SparkRepository extends JpaRepository<Spark, Long> {
 
     List<Spark> getSparkByUserProfileUserName(String username);
 
-    @Query(value = "SELECT * FROM SPARK WHERE body LIKE CONCAT('%#', ?1, '%')", nativeQuery = true)
+    @Query(value = "SELECT * FROM SPARK WHERE LOWER(body) LIKE LOWER(CONCAT('%#', ?1, '%'))", nativeQuery = true)
     List<Spark> getSparkByHashtag(String hashtag);
 
     @Query(value = "SELECT * FROM SPARK WHERE body LIKE CONCAT('%@', ?1, '%')", nativeQuery = true)
