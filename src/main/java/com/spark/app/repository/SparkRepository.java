@@ -28,9 +28,11 @@ public interface SparkRepository extends JpaRepository<Spark, Long> {
     @Query(value = "SELECT * FROM SPARK WHERE body LIKE CONCAT('%@', ?1, '%')", nativeQuery = true)
     List<Spark> getSparkByMention(String mention);
 
-    //List<Spark> getSparkbySparkId(Long sparkId);
+    @Query(value="select * from spark where spark_id = ?1", nativeQuery = true)
+    List<Spark> getSparkbySparkId(Long sparkId);
 
-//    List<Spark> getCommentsOfASpark(Lo\\\\ng id)
+//    @Query()
+//   List<Spark> getCommentsOfASpark(Long id);
 
 
 //@Query(value = "SELECT * FROM SPARK WHERE body like %#?1%",nativeQuery = true)
