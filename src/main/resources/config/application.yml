@@ -16,6 +16,7 @@
 
 ---
 # Conditionally disable springdoc on missing api-docs profile
+
 spring:
   config:
     activate:

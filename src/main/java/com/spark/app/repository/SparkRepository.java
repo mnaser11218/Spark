@@ -30,6 +30,8 @@ public interface SparkRepository extends JpaRepository<Spark, Long> {
 
     //List<Spark> getSparkbySparkId(Long sparkId);
 
+//    List<Spark> getCommentsOfASpark(Lo\\\\ng id)
+
 
 //@Query(value = "SELECT * FROM SPARK WHERE body like %#?1%",nativeQuery = true)
 //    List<Spark> getSparkByHashtag(String string);
