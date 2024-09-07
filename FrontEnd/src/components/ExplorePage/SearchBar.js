@@ -29,6 +29,7 @@ const DisplaySearchBar = () => {
           const response = await fetch(`http://localhost:8080/api/sparks/username/hashtag/${searchTerm}`);
           if (response.ok) {
             const data = await response.json();
+
             setSparks(data);
           } else {
             console.error('Failed to fetch sparks');

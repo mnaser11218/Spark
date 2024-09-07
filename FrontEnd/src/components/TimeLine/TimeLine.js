@@ -3,6 +3,7 @@ import './TimeLine.css';
 import { useUser } from '../CurrentUser';
 import { useNavigate } from 'react-router';
 import UploadImageToS3WithNativeSdk from '../AWS/AWSImages';
+import DisplaySearchBar from '../ExplorePage/SearchBar';
 
 function ShowTimeline() {
   const fileInputRef = useRef(null);
@@ -121,10 +122,11 @@ function ShowTimeline() {
   }, [userProfiles]);
 
   return (
+    <div id="complete-time-page-body">
     <div className="timeline-container">
-      <p id="following">Home</p>
+      <p id="following">Explore</p>
       
-      <p id="display-user">Current User: {currentLoggedInUser.firstName}</p>
+      <p id="display-user">Welcome, {currentLoggedInUser.firstName}!</p>
     
       <div className="input-group">
         <input
@@ -197,6 +199,19 @@ function ShowTimeline() {
 </div>
 
     </div>
+
+<div id="third-div-section">
+  <h1 id="discover-sparks-h1">Discover Sparks</h1>
+  <DisplaySearchBar/>
+  <div>
+    <h2>😰</h2>
+  </div>
+</div>
+
+
+</div>
+
+
   );
 }
 
