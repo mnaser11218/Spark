@@ -12,7 +12,12 @@ function ShowTimeline() {
   const [userProfiles, setUserProfiles] = useState([]);
   const { currentLoggedInUser } = useUser();
   const navigate = useNavigate();
+  const [data, setData] = useState('');
 
+  const childToParent = (childdata) => {
+    setData(childdata);
+    setImageUrl(childdata)
+  }
   const likeIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
 </svg>
@@ -28,7 +33,7 @@ function ShowTimeline() {
 
 
 
-  // Handle file input and image preview
+  // does the file input and image preview
   const handleFileChange = async (event) => {
     const file = event.target.files[0]; 
     if (file) {
@@ -78,6 +83,7 @@ function ShowTimeline() {
         date: item.date,
         name: userProfiles[item.userId]?.firstName || 'Unknown',
         userName: userProfiles[item.userId]?.userName || 'Unknown',
+        imageUrl: item.url //this is where we add image URL!!
       }));
       setItems(formattedItems);
     } catch (error) {
@@ -85,6 +91,7 @@ function ShowTimeline() {
     }
   };
 
+  
   const postToServer = async () => {
     try {
       await fetch('http://localhost:8080/api/sparks', {
@@ -118,7 +125,7 @@ function ShowTimeline() {
       <p id="following">Home</p>
       
       <p id="display-user">Current User: {currentLoggedInUser.firstName}</p>
-      <UploadImageToS3WithNativeSdk/>
+    
       <div className="input-group">
         <input
           type="text"
@@ -129,14 +136,16 @@ function ShowTimeline() {
           className="input-field-lol"
           id="plzz"
         />
+        <UploadImageToS3WithNativeSdk childToParent={childToParent}/>
         <div id="submit-and-icon">
-          <svg id="photo-icon" onClick={handlePhotoIconClick} xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-image" viewBox="0 0 16 16">
+          {/* <svg id="photo-icon" onClick={handlePhotoIconClick} xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-image" viewBox="0 0 16 16">
             <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
             <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z"/>
-          </svg>
+          </svg> */}
           <button onClick={postToServer} className="add-button">
             Post
           </button>
+          {/* {"this is  the data : " + data + "this is the image url: " + imageUrl} */}
         </div>
         <input
           type="file"
@@ -154,27 +163,39 @@ function ShowTimeline() {
         )}
       </div>
       <div className="timeline">
-        {items.map((item, index) => (
-          <div key={index} className="timeline-item">
-            <div id="user-container">
-              <div onClick={handleClick} id="user-links">
-                <h4><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                  <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                </svg> {item.name}</h4>
-                <p>@{item.userName}</p>
-              </div>
-            </div>
-            <div className="item-content">{item.body}</div>
-            <div className="item-timestamp">{item.date}</div>
-            <div id="likes-comments">
-              <span id="comment-icon-id">{commentIcon}</span>
-              <span id="retweet-icon-id">{retweetIcon}</span>
-              <span id="like-icon-id">{likeIcon}</span>
-            </div>
-          </div>
-        ))}
+  {items.map((item, index) => (
+    <div key={index} className="timeline-item">
+      <div id="user-container">
+        <div onClick={handleClick} id="user-links">
+          <h4>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg> 
+            {item.name}
+          </h4>
+          <p>@{item.userName}</p>
+        </div>
       </div>
+      <div className="item-content">{item.body}</div>
+      {item.imageUrl && ( // displays the image if it exists!
+        <img 
+          src={item.imageUrl} 
+          alt="Spark image" 
+          id="the-working-image"
+          style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }} 
+        />
+      )}
+      <div className="item-timestamp">{item.date}</div>
+      <div id="likes-comments">
+        <span id="comment-icon-id">{commentIcon}</span>
+        <span id="retweet-icon-id">{retweetIcon}</span>
+        <span id="like-icon-id">{likeIcon}</span>
+      </div>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 }

@@ -160,4 +160,8 @@
   transform: scale(1.5);
 }
 
-
+#the-working-image{
+  border: 1px solid #283d53;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
