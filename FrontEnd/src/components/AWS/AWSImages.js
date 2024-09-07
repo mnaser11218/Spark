@@ -5,7 +5,7 @@ const UploadImageToS3WithNativeSdk = ({ childToParent }) => {
   const [progress, setProgress] = useState(0);
   const [selectedFile, setSelectedFile] = useState(null);
   const [showImage, setShowImage] = useState(true);
-  const fileInputRef = useRef(null); // Reference to the hidden file input field
+  const fileInputRef = useRef(null); //this refers to hidden input
 
   const S3_BUCKET = 'mybucketlists123';
   const REGION = 'us-west-2';
@@ -25,10 +25,10 @@ const UploadImageToS3WithNativeSdk = ({ childToParent }) => {
     setSelectedFile(file);
     setShowImage(true);
 
-    // Send the URL back to the parent
+    //sends URL to parent!!!!
     childToParent(`https://mybucketlists123.s3.us-west-2.amazonaws.com/${file?.name}`);
 
-    // Upload the file to S3
+    // uploads this to s3
     uploadFile(file);
   };
 
@@ -49,16 +49,14 @@ const UploadImageToS3WithNativeSdk = ({ childToParent }) => {
       });
   };
 
-  // Handle SVG click event to open file input
+  // this does the SVG handle event
   const handlePhotoIconClick = () => {
-    fileInputRef.current.click(); // Programmatically click the hidden file input
+    fileInputRef.current.click(); 
   };
 
   return (
     <div>
-      {/* <div>Native SDK File Upload Progress is {progress}%</div> */}
-
-      {/* Hidden file input */}
+ 
       <input
         type="file"
         ref={fileInputRef}
@@ -66,17 +64,17 @@ const UploadImageToS3WithNativeSdk = ({ childToParent }) => {
         onChange={handleFileInput}
       />
 
-      {/* SVG photo icon as the trigger */}
+      {/* SVG icon does the function*/}
       <svg
         id="photo-icon"
-        onClick={handlePhotoIconClick} // Click triggers file input
+        onClick={handlePhotoIconClick}
         xmlns="http://www.w3.org/2000/svg"
         width="25"
         height="25"
         fill="currentColor"
         className="bi bi-image"
         viewBox="0 0 16 16"
-        style={{ cursor: 'pointer' }} // Make the icon look clickable
+        style={{ cursor: 'pointer' }} 
       >
         <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
         <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1z" />
