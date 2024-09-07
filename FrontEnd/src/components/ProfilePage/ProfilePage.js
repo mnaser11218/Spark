@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './ProfilePage.css';
 import { useUser } from '../CurrentUser';
+import Likes from '../Like/Likes.js'
 import { useNavigate } from 'react-router';
 
 const ProfilePage = () => {
@@ -97,6 +98,7 @@ const ProfilePage = () => {
 
     return (
         <div className="profile-page">
+
             <header className="profile-header">
                 <div className="cover-photo"></div>
                 <div className="profile-info">
@@ -110,6 +112,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
             </header>
+            <Likes />
             <main className="profile-content">
                 <nav className="profile-nav">
                     <ul>
