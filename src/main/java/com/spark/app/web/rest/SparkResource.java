@@ -38,6 +38,7 @@ public class SparkResource {
 
     public SparkResource(SparkRepository sparkRepository) {
         this.sparkRepository = sparkRepository;
+
     }
 
     /**
