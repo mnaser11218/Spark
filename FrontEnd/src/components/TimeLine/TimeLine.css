@@ -16,11 +16,13 @@
   margin-bottom: 20px;
 }
 
-#plzz {
+#main-input-element {
   flex: 1;
   padding: 15px;
+  padding-bottom: 80px;
   color: #e1e8ed;
-  height: auto;
+  /* height: auto; */
+  height: 200px;
   font-size: 18px;
   border: 1px solid #1d9bf0;
 
@@ -29,7 +31,7 @@
   border-bottom-right-radius: 0px !important; */
 
   border-radius: 20px;
-  background-color: #2f3336;
+  background-color: #15202b;
  
 }
 
@@ -86,6 +88,11 @@
   margin-bottom: 10px;
   border-radius: 10px;
   background-color: #192734;
+}
+
+.timeline-item:hover{
+  background-color: rgb(29, 43, 56);
+  cursor: pointer;
 }
 
 #user-container {
@@ -165,3 +172,8 @@
   margin-bottom: 15px;
   border-radius: 5px;
 }
+
+#complete-time-page-body{
+  display: flex;
+}
+

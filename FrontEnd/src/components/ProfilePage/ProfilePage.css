@@ -158,11 +158,56 @@ background-color: #35506d !important;
 #click-profile-function {
     display: inline-block;
     border-radius: 10px;
-    /* padding: 10px;
-    padding-bottom: 0px; */
+    padding-top: 10px;
 }
 
 #click-profile-function:hover {
     cursor: pointer;
-    /* background-color: #283c51; */
+    background-color: #283c51;
 }
+
+.spark-image {
+    margin-bottom: 12px;
+}
+
+#likes-comments {
+    display: flex;
+    padding: 15px;
+    gap: 50px;
+  }
+  
+  #like-icon-id {
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  #like-icon-id:hover{
+    transform: scale(1.5);
+  }
+  
+  #comment-icon-id {
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  #comment-icon-id:hover{
+    transform: scale(1.5);
+  }
+  
+  #retweet-icon-id {
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+  }
+  
+  #retweet-icon-id:hover{
+    transform: scale(1.5);
+  }
+
+  #full-whole-profile-page{
+    display: flex;
+  }
+
+
+ 
+
+ 

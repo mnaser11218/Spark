@@ -3,6 +3,7 @@ import './TimeLine.css';
 import { useUser } from '../CurrentUser';
 import { useNavigate } from 'react-router';
 import UploadImageToS3WithNativeSdk from '../AWS/AWSImages';
+import ShowThirdSection from './ThirdSection';
 
 function ShowTimeline() {
   const fileInputRef = useRef(null);
@@ -13,6 +14,7 @@ function ShowTimeline() {
   const { currentLoggedInUser } = useUser();
   const navigate = useNavigate();
   const [data, setData] = useState('');
+  const [key, setKey] = useState(null);
 
   const childToParent = (childdata) => {
     setData(childdata);
@@ -60,6 +62,14 @@ function ShowTimeline() {
     }
   };
 
+
+//map all the sparks and display them nicely. getAll for all sparks
+//item.body + item.name in the html
+//a function inside the map function that says { return item.id }
+
+
+
+
   const fetchUserProfiles = async () => {
     try {
       const response = await fetch('http://localhost:8080/api/user-profiles');
@@ -74,11 +84,17 @@ function ShowTimeline() {
     }
   };
 
+  const handleSparkClick = (item) => {
+    navigate(`/spark/${item}`);
+    console.log(item);
+  }
+
   const fetchSparks = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/sparks');
+      const response = await fetch('http://localhost:8080/api/sparks/notcomments');
       const data = await response.json();
       const formattedItems = data.map(item => ({
+        id: item.id,
         body: item.body,
         date: item.date,
         name: userProfiles[item.userId]?.firstName || 'Unknown',
@@ -117,14 +133,21 @@ function ShowTimeline() {
 
   useEffect(() => {
     fetchUserProfiles();
-    fetchSparks();
+    // fetchSparks();
+  }, []);
+
+  useEffect(() => {
+    if (Object.keys(userProfiles).length > 0){
+      fetchSparks();
+    }
   }, [userProfiles]);
 
   return (
+    <div id="complete-time-page-body">
     <div className="timeline-container">
-      <p id="following">Home</p>
+      <p id="following">Explore</p>
       
-      <p id="display-user">Current User: {currentLoggedInUser.firstName}</p>
+      <p id="display-user">Welcome, {currentLoggedInUser.firstName}!</p>
     
       <div className="input-group">
         <input
@@ -134,7 +157,7 @@ function ShowTimeline() {
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="What's happening?"
           className="input-field-lol"
-          id="plzz"
+          id="main-input-element"
         />
         <UploadImageToS3WithNativeSdk childToParent={childToParent}/>
         <div id="submit-and-icon">
@@ -163,8 +186,9 @@ function ShowTimeline() {
         )}
       </div>
       <div className="timeline">
+
   {items.map((item, index) => (
-    <div key={index} className="timeline-item">
+    <div className="timeline-item" id="spark-individual-container">
       <div id="user-container">
         <div onClick={handleClick} id="user-links">
           <h4>
@@ -172,20 +196,22 @@ function ShowTimeline() {
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
               <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
             </svg> 
-            {item.name}
+            &nbsp;{item.name}
           </h4>
           <p>@{item.userName}</p>
+          {/* <p>we have the id: {item.id}</p> */}
         </div>
       </div>
-      <div className="item-content">{item.body}</div>
-      {item.imageUrl && ( // displays the image if it exists!
+      <div className="item-content" key={item.id} onClick={() => handleSparkClick(item.id)}>{item.body}<br/>{item.imageUrl && ( // displays the image if it exists!
         <img 
           src={item.imageUrl} 
           alt="Spark image" 
           id="the-working-image"
           style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }} 
         />
-      )}
+      )}</div>
+
+      
       <div className="item-timestamp">{item.date}</div>
       <div id="likes-comments">
         <span id="comment-icon-id">{commentIcon}</span>
@@ -197,6 +223,12 @@ function ShowTimeline() {
 </div>
 
     </div>
+
+<ShowThirdSection/>
+
+</div>
+
+
   );
 }
 
