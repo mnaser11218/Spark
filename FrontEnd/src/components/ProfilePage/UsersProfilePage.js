@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import './UsersProfilePage.css';
 import { useNavigate, useParams } from 'react-router';
+import ShowThirdSection from '../TimeLine/ThirdSection';
 
 const UserProfilePage = () => {
     const { user } = useParams();
@@ -107,6 +108,7 @@ const UserProfilePage = () => {
     }, []);
 
     return (
+        <div id="u-prof-page">
         <div className="profile-page">
             <header className="profile-header">
                 <div className="cover-photo"></div>
@@ -131,28 +133,33 @@ const UserProfilePage = () => {
                 <div className="tweets-section">
                     {view === 'sparks' && sparks.map(spark => (
                         <div key={spark.id} className="tweet">
-                            <p>@{userData.userName} {userData.firstName + " " + userData.lastName}</p>
+                            <div className='click-profile-function-user'>
+                            <p id="f-and-l"> {userData.firstName + " " + userData.lastName}</p>
+                            <p id="sp-us">@{userData.userName}</p>
+                            </div>
                             <p>{spark.body}</p>
                             {spark.url && <img src={spark.url} alt="spark" className="tweet-image" style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }}/>}
-                            <p>{spark.date}</p>
+                            <p className='datess'>{spark.date}</p>
                         </div>
                     ))}
                     {view === 'mentions' && mentions.map(mention => {
                         const profile = getUserProfileById(mention.userId);
                         return (
                             <div key={mention.id} className="tweet">
-                                <div id="click-profile-function" onClick={handleClick}>
+                                <div className="click-profile-function-user" onClick={handleClick}>
                                     <p id="names-first-last">{profile?.firstName + " " + profile?.lastName}</p>
                                     <p id="actual-user-name">@{profile?.userName}</p>
                                 </div>
                                 <p>{mention.body}</p>
                                 {mention.url && <img src={mention.url} alt="mention" className="tweet-image" style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }} />}
-                                <p>{mention.date}</p>
+                                <p className="datess">{mention.date}</p>
                             </div>
                         );
                     })}
                 </div>
             </main>
+        </div>
+        <ShowThirdSection/>
         </div>
     );
 };
