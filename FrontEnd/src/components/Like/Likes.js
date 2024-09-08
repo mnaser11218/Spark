@@ -1,9 +1,25 @@
+import React, { useState, useEffect } from 'react';
+import { error } from "console";
+
 export default function Likes() {
-    const like = null;
+    let like = null;
     function likeIncrementor(){
         if(like === null){
             like = true;
             // make fetch call here
+           fetch(`http://localhost:8080/api/likes/likecount/${sparkId}`)
+           .then(response =>{
+           if(response.ok){
+            return response.json()
+           }else{
+           throw new Error('Terrible request...just terrible')
+           }
+          })
+           .then(data => {
+            console.log(data,"Likes collected")
+           })
+           .catch(error => console.log('ERROR'))
+
             const postToServer = async () => {
                 try {
                   await fetch('http://localhost:8080/api/sparks', {
