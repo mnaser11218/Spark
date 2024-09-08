@@ -116,9 +116,9 @@ const ProfilePage = () => {
         <div className="profile-page">
 
             <header className="profile-header">
-                <div className="cover-photo"></div>
+                <div className="cover-photo" id="the-profile-banner"></div>
                 <div className="profile-info">
-                    <div className="profile-picture"></div>
+                    <div className="profile-picture" id="the-profile-default-pic"></div>
                     <div className="profile-details">
                         <h1 className="profile-name" id="get-user-name-profile">Username</h1>
                         <p className="profile-handle" id="get-profile-tag">@userhandle</p>

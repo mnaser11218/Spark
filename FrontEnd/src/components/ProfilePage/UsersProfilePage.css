@@ -166,3 +166,17 @@ background-color: #5f6885;
     margin: 0;
 }
 
+#user-banner-img{
+    background-image: url('../Images/bannerDefault.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#user-pro-pic{
+    background-image: url('../Images/profileImgDefault.png');
+    background-size:120%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}

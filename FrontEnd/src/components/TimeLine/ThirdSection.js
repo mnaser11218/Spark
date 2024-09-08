@@ -17,9 +17,9 @@ function handleClickAction(){
 <div id="third-div-section">
   <h1 id="discover-sparks-h1">Discover Sparks</h1>
   <DisplaySearchBar/>
-  <div>
+  {/* <div>
     <button onClick={handleClickAction}>Press me</button>
-  </div>
+  </div> */}
 </div>
 
 
