@@ -28,6 +28,13 @@
   "name": "Spark",
   "relationships": [
     {
+      "otherEntityName": "likes",
+      "otherEntityRelationshipName": "spark",
+      "relationshipName": "likes",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "userProfile",
       "otherEntityRelationshipName": "spark",
       "relationshipName": "userProfile",

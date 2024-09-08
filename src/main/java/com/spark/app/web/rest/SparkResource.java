@@ -38,6 +38,7 @@ public class SparkResource {
 
     public SparkResource(SparkRepository sparkRepository) {
         this.sparkRepository = sparkRepository;
+
     }
 
     /**
@@ -156,6 +157,13 @@ public class SparkResource {
         return sparkRepository.findAll();
     }
 
+
+    @GetMapping("/notcomments")
+    public List<Spark> getAllSparksNotComments() {
+        log.debug("REST request to get all Sparks that are not comments");
+        return sparkRepository.getSparksNotComments();
+    }
+
     /**
      * {@code GET  /sparks/:id} : get the "id" spark.
      *
@@ -168,6 +176,8 @@ public class SparkResource {
         Optional<Spark> spark = sparkRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(spark);
     }
+
+
 
     /**
      * {@code DELETE  /sparks/:id} : delete the "id" spark.
@@ -190,10 +200,25 @@ public class SparkResource {
         return ResponseUtil.wrapOrNotFound(ownerOfSpark);
     }
 
+    @GetMapping("/comments/{id}")
+    public ResponseEntity<List<Spark>> getCommentsBySparkId(@PathVariable("id") Long id) {
+        log.debug("REST request to get Sparks From specified User : {}", id);
+        Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkbySparkId(id));
+        return ResponseUtil.wrapOrNotFound(ownerOfSpark);
+    }
+
     @GetMapping("/username/hashtag/{string}")
     public ResponseEntity<List<Spark>> getSparksByHashtag(@PathVariable() String string) {
         log.debug("REST request to get Sparks by searched Hashtag : {}", string);
         Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkByHashtag(string));
         return ResponseUtil.wrapOrNotFound(ownerOfSpark);
     }
+
+    @GetMapping("/username/mention/{string}")
+    public ResponseEntity<List<Spark>> getSparksByMention(@PathVariable() String string) {
+        log.debug("REST request to get Sparks by searched mention : {}", string);
+        Optional<List<Spark>> ownerOfSpark = Optional.ofNullable(sparkRepository.getSparkByMention(string));
+        return ResponseUtil.wrapOrNotFound(ownerOfSpark);
+    }
 }
+

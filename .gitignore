@@ -151,4 +151,9 @@ Desktop.ini
 ######################
 /coverage/
 /.nyc_output/
-/src/main/resources/.h2.server.properties
+
+#environment
+FrontEnd/.env
+
+src/main/resources/.h2.server.properties
+/FrontEnd/.env

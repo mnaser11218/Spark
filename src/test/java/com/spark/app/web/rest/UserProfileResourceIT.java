@@ -305,11 +305,7 @@ class UserProfileResourceIT {
         UserProfile partialUpdatedUserProfile = new UserProfile();
         partialUpdatedUserProfile.setId(userProfile.getId());
 
-        partialUpdatedUserProfile
-            .userId(UPDATED_USER_ID)
-            .userName(UPDATED_USER_NAME)
-            .firstName(UPDATED_FIRST_NAME)
-            .createdDate(UPDATED_CREATED_DATE);
+        partialUpdatedUserProfile.userName(UPDATED_USER_NAME).password(UPDATED_PASSWORD).firstName(UPDATED_FIRST_NAME);
 
         restUserProfileMockMvc
             .perform(

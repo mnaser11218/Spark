@@ -45,8 +45,13 @@ public class UserProfile implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "userProfile", "mentions", "hashtags" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "likes", "userProfile", "mentions", "hashtags" }, allowSetters = true)
     private Set<Spark> sparks = new HashSet<>();
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "spark", "userProfile" }, allowSetters = true)
+    private Set<Likes> likes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -169,6 +174,37 @@ public class UserProfile implements Serializable {
     public UserProfile removeSpark(Spark spark) {
         this.sparks.remove(spark);
         spark.setUserProfile(null);
+        return this;
+    }
+
+    public Set<Likes> getLikes() {
+        return this.likes;
+    }
+
+    public void setLikes(Set<Likes> likes) {
+        if (this.likes != null) {
+            this.likes.forEach(i -> i.setUserProfile(null));
+        }
+        if (likes != null) {
+            likes.forEach(i -> i.setUserProfile(this));
+        }
+        this.likes = likes;
+    }
+
+    public UserProfile likes(Set<Likes> likes) {
+        this.setLikes(likes);
+        return this;
+    }
+
+    public UserProfile addLikes(Likes likes) {
+        this.likes.add(likes);
+        likes.setUserProfile(this);
+        return this;
+    }
+
+    public UserProfile removeLikes(Likes likes) {
+        this.likes.remove(likes);
+        likes.setUserProfile(null);
         return this;
     }
 

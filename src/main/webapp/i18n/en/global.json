@@ -11,7 +11,8 @@
         "userProfile": "User Profile",
         "spark": "Spark",
         "hashtag": "Hashtag",
-        "mentions": "Mentions"
+        "mentions": "Mentions",
+        "likes": "Likes"
       },
       "account": {
         "main": "Account",

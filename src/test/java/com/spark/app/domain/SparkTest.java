@@ -1,6 +1,7 @@
 package com.spark.app.domain;
 
 import static com.spark.app.domain.HashtagTestSamples.*;
+import static com.spark.app.domain.LikesTestSamples.*;
 import static com.spark.app.domain.MentionsTestSamples.*;
 import static com.spark.app.domain.SparkTestSamples.*;
 import static com.spark.app.domain.UserProfileTestSamples.*;
@@ -25,6 +26,28 @@ class SparkTest {
 
         spark2 = getSparkSample2();
         assertThat(spark1).isNotEqualTo(spark2);
+    }
+
+    @Test
+    void likesTest() {
+        Spark spark = getSparkRandomSampleGenerator();
+        Likes likesBack = getLikesRandomSampleGenerator();
+
+        spark.addLikes(likesBack);
+        assertThat(spark.getLikes()).containsOnly(likesBack);
+        assertThat(likesBack.getSpark()).isEqualTo(spark);
+
+        spark.removeLikes(likesBack);
+        assertThat(spark.getLikes()).doesNotContain(likesBack);
+        assertThat(likesBack.getSpark()).isNull();
+
+        spark.likes(new HashSet<>(Set.of(likesBack)));
+        assertThat(spark.getLikes()).containsOnly(likesBack);
+        assertThat(likesBack.getSpark()).isEqualTo(spark);
+
+        spark.setLikes(new HashSet<>());
+        assertThat(spark.getLikes()).doesNotContain(likesBack);
+        assertThat(likesBack.getSpark()).isNull();
     }
 
     @Test
