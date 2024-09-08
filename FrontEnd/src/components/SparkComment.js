@@ -33,10 +33,41 @@ function SparkComment({sparkId}) {
   }, []);
   return (
     <div>
-    {comments.map(ele=>{
-       return <div>heello {ele.body}</div>
-      })
-    }
+    {comments.map((item, index) => (
+    <div className="timeline-item" id="spark-individual-container">
+      <div id="user-container">
+        <div  id="user-links">
+        {/* onClick={handleClick} */}
+          <h4>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+              <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg> 
+            {/* {item.name} */}
+          </h4>
+          {/* <p>@{item.userName}</p> */}
+          {/* <p>we have the id: {item.id}</p> */}
+        </div>
+      </div>
+      <div className="item-content" key={item.id} >hello {item.body}<br/>{item.imageUrl && ( // displays the image if it exists!
+        <img 
+          src={item.imageUrl} 
+          alt="Spark image" 
+          id="the-working-image"
+          style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }} 
+        />
+      )}</div>
+      {/* onClick={() => handleSparkClick(item.id)} */}
+
+      
+      <div className="item-timestamp">{item.date}</div>
+      <div id="likes-comments">
+        {/* <span id="comment-icon-id">{commentIcon}</span>
+        <span id="retweet-icon-id">{retweetIcon}</span>
+        <span id="like-icon-id">{likeIcon}</span> */}
+      </div>
+    </div>
+  ))}
     </div>
   )
 }
