@@ -61,7 +61,7 @@ function SparkPage() {
 
   return (
     <div id="full-full-body">
-      {<Likes sparkId={sparkId} />}
+      {/* {<Likes sparkId={sparkId} />} */}
     <div className="spark-page-container">
       <div className="spark-content">
         <div id="spark-user-container">
