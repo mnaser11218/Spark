@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useUser } from './CurrentUser';
+import { useUser } from '../CurrentUser';
 
 
 function SparkComment({sparkId}) {
