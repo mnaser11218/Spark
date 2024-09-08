@@ -22,7 +22,6 @@ const HomePage = () => {
                     <Login />
                     <SignUp />
                     <PreviewButton />
-                    {apiKey}
                     <GPT3Component apiKey={apiKey} />
                 </div>
             </div>
