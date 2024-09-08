@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import './SparkPage.css';
 import ShowThirdSection from '../TimeLine/ThirdSection';
-import SparkComment from '../SparkComment'
+import SparkComment from '../Comments/SparkComment'
+import Likes from '../Like/Likes';
 
 function SparkPage() {
   const [spark, setSpark] = useState(null);
@@ -60,6 +61,7 @@ function SparkPage() {
 
   return (
     <div id="full-full-body">
+      {<Likes sparkId={sparkId} />}
     <div className="spark-page-container">
       <div className="spark-content">
         <div id="spark-user-container">
