@@ -157,7 +157,7 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
 
   return (
     <div id="complete-time-page-body">
-    <div className="timeline-container">
+    <div className="timeline-container col-sm-8">
       <p id="following">Explore</p>
       
       <p id="display-user">Welcome, {currentLoggedInUser.firstName}!</p>
