@@ -1,9 +1,3 @@
-/* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #404258;
-} */
-
 .profile-page {
     max-width: 600px;
     margin: 0 auto;
@@ -17,6 +11,10 @@
 
 .profile-header {
     position: relative;
+}
+
+#u-prof-page{
+    display: flex;
 }
 
 .cover-photo {
@@ -141,3 +139,30 @@ background-color: #5f6885;
 #actual-user-name{
     color: grey;
 }
+
+#sp-us {
+    color: grey;
+}
+
+.datess{
+    color:grey;
+    padding-top: 20px;
+}
+
+.click-profile-function-user{
+    display: flex;
+    flex-direction: column;
+}
+
+#f-and-l{
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+#names-first-last{
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+}
+
