@@ -137,12 +137,21 @@
   margin-bottom: 10px;
 }
 
+#v-icon{
+  padding-top: 2px;
+
+}
+
 #user-links {
   cursor: pointer;
   display: flex;
   padding: 5px;
   padding-right: 15px;
-  flex-direction: column;
+  gap: 10px;
+}
+
+#at-symbol {
+  padding-top: 5px;
 }
 
 #user-links:hover {
@@ -163,10 +172,13 @@
 
 .item-content {
   margin-bottom: 10px;
+  margin-left: 44px;
 }
 
 .item-timestamp {
   font-size: 12px;
+  margin-left: 44px;
+
   color: #657786;
 }
 
@@ -174,7 +186,10 @@
   display: flex;
   padding: 15px;
   gap: 50px;
+  margin-left: 25px;
+
 }
+
 
 #like-icon-id {
   transition: 0.2s ease-in-out;
@@ -215,5 +230,9 @@
 
 #post-a-spark-button{
   width: 80px;
+}
+
+#name-name {
+  font-weight: 900;
 }
 
