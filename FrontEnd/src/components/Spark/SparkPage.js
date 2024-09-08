@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import './SparkPage.css';
 import ShowThirdSection from '../TimeLine/ThirdSection';
+import SparkComment from '../SparkComment'
 
 function SparkPage() {
   const [spark, setSpark] = useState(null);
@@ -88,6 +89,7 @@ function SparkPage() {
           <span className="spark-like-icon">{likeIcon}</span>
         </div>
       </div>
+      <SparkComment sparkId={sparkId}/>
     </div>
     <ShowThirdSection/>
 
