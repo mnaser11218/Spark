@@ -58,7 +58,7 @@ function SparkPage() {
   if (!spark || !userProfile) {
     return <div>Loading...</div>;
   }
-
+// testing
   return (
     <div id="full-full-body">
     <div className="spark-page-container">
