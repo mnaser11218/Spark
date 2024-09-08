@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 function SparkComment({sparkId}) {
   const [comments, setComments] = useState([])
   const [inputValue, setInputValue] = useState('');
-
+  const postToServer = ()=> {console.log("posting comment")}
   useEffect(() => {
     const fetchSparkById = async () => {
       try {
@@ -80,6 +80,9 @@ function SparkComment({sparkId}) {
           className="input-field-lol"
           id="main-input-element"
         />
+        <button onClick={postToServer} className="add-button">
+            Post
+          </button>
     </div>
   )
 }
