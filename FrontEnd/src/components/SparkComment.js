@@ -1,35 +1,68 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { useUser } from './CurrentUser';
+
 
 function SparkComment({sparkId}) {
   const [comments, setComments] = useState([])
   const [inputValue, setInputValue] = useState('');
-  const postToServer = ()=> {console.log("posting comment")}
-  useEffect(() => {
-    const fetchSparkById = async () => {
-      try {
-      
-        const sparkResponse = await fetch(`http://localhost:8080/api/sparks/comments/${sparkId}`);
-        const data = await sparkResponse.json();
-        const formattedItems = data.map(item => ({
-          id: item.id,
-          body: item.body,
-          date: item.date,
-          // name: userProfiles[item.userId]?.firstName || 'Unknown',
-          // userName: userProfiles[item.userId]?.userName || 'Unknown',
-          imageUrl: item.url //this is where we add image URL!!
-        }));
-        setComments(formattedItems);
-        //setComments(sparkData);
+  const { currentLoggedInUser } = useUser();
+  //const postToServer = ()=> {console.log("posting comment")}
 
-        //THIS IS NOT WORKING CURRENTLY
-        // const userProfileResponse = await fetch(`http://localhost:8080/api/user-profiles/${sparkData.userId}`);
-        // const userProfileData = await userProfileResponse.json();
-        // setUserProfile(userProfileData);
-      } catch (error) {
-        console.error('Error fetching spark or user profile:', error);
-      }
-    };
+  const fetchSparkById = async () => {
+    try {
+    
+      const sparkResponse = await fetch(`http://localhost:8080/api/sparks/comments/${sparkId}`);
+      const data = await sparkResponse.json();
+      const formattedItems = data.map(item => ({
+        id: item.id,
+        body: item.body,
+        date: item.date,
+        // name: userProfiles[item.userId]?.firstName || 'Unknown',
+        // userName: userProfiles[item.userId]?.userName || 'Unknown',
+        imageUrl: item.url //this is where we add image URL!!
+      }));
+      setComments(formattedItems);
+      setInputValue("")
+      //setComments(sparkData);
+
+      //THIS IS NOT WORKING CURRENTLY
+      // const userProfileResponse = await fetch(`http://localhost:8080/api/user-profiles/${sparkData.userId}`);
+      // const userProfileData = await userProfileResponse.json();
+      // setUserProfile(userProfileData);
+    } catch (error) {
+      console.error('Error fetching spark or user profile:', error);
+    }
+  };
+
+
+  const postToServer = async () => {
+    try {
+      await fetch('http://localhost:8080/api/sparks', {
+        method: "POST",
+        body: JSON.stringify({
+          sparkId:sparkId,
+          userId: currentLoggedInUser.userId,
+          body: inputValue,
+          date: new Date().toLocaleDateString('en-CA')
+         // url: imageUrl
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+      alert("Comment posted!");
+      // setInputValue("");
+      // setImageUrl(null);
+      // //fetchSparks();
+      fetchSparkById();
+    } catch (error) {
+      console.error('Error posting spark:', error);
+    }
+  };
+
+  useEffect(() => {
+   
 
     fetchSparkById();
   }, []);
