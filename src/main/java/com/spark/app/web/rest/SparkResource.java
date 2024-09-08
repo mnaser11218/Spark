@@ -157,6 +157,13 @@ public class SparkResource {
         return sparkRepository.findAll();
     }
 
+
+    @GetMapping("/notcomments")
+    public List<Spark> getAllSparksNotComments() {
+        log.debug("REST request to get all Sparks that are not comments");
+        return sparkRepository.getSparksNotComments();
+    }
+
     /**
      * {@code GET  /sparks/:id} : get the "id" spark.
      *
