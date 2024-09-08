@@ -172,9 +172,7 @@ const ProfilePage = () => {
         </div>
 
 
-
     <ShowThirdSection id="rd"/>
-
 
 
 </div>

@@ -47,6 +47,10 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
 </svg>
 
+const verifiedIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2c74b3" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+<path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+</svg>
+
 
   // does the file input and image preview
   const handleFileChange = async (event) => {
@@ -208,14 +212,15 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
     <div className="timeline-item" id="spark-individual-container">
       <div id="user-container">
         <div onClick={handleClick} id="user-links">
-          <h4>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+          <h4 id="name-name">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
               <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
             </svg> 
-            &nbsp;{item.name}
+            &nbsp;&nbsp;&nbsp;{item.name}
           </h4>
-          <p>@{item.userName}</p>
+          <span id="v-icon">{verifiedIcon}</span>
+          <p id="at-symbol">@{item.userName}</p>
           {/* <p>we have the id: {item.id}</p> */}
         </div>
       </div>

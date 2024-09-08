@@ -42,7 +42,6 @@ const AppLayout = () => {
   const isProfilePage = location.pathname === '/profilepage';
   const isUserProfileRoute = location.pathname.startsWith('/userprofilepage');
   const isSparkPage = location.pathname.startsWith('/spark');
-  
 
   //not sure if i need this line of code but im too scared to delete it
   const shouldShowNavbar = showNavbarRoutes.includes(location.pathname) || isUserProfileRoute || isProfilePage || isSparkPage;
@@ -52,7 +51,8 @@ const AppLayout = () => {
   const shouldApplyWidth= !isProfilePage && !isUserProfileRoute;
 
   return (
-    <div style={{ display: 'flex' }}>
+    // <div style={{ display: 'flex' }}>
+    <div>
       {shouldShowNavbar && <VerticalNavbar />} 
       <div
         style={{
