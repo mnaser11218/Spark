@@ -4,7 +4,7 @@ import { useUser } from '../CurrentUser';
 import { useNavigate } from 'react-router';
 import UploadImageToS3WithNativeSdk from '../AWS/AWSImages';
 import ShowThirdSection from './ThirdSection';
-
+import Like from '../Like/Likes'
 function ShowTimeline() {
   const fileInputRef = useRef(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -226,9 +226,10 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
           id="the-working-image"
           style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }} 
         />
+        
       )}</div>
 
-      
+      {<Like sparkId={item.id}/>}
       <div className="item-timestamp">{item.date}</div>
       <div id="likes-comments">
         <span id="comment-icon-id">{commentIcon}</span>
