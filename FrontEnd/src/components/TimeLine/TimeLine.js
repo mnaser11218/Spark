@@ -91,7 +91,7 @@ function ShowTimeline() {
 
   const fetchSparks = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/sparks');
+      const response = await fetch('http://localhost:8080/api/sparks/notcomments');
       const data = await response.json();
       const formattedItems = data.map(item => ({
         id: item.id,
