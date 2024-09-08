@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 
 function SparkComment({sparkId}) {
   const [comments, setComments] = useState([])
+  const [inputValue, setInputValue] = useState('');
+
   useEffect(() => {
     const fetchSparkById = async () => {
       try {
@@ -68,6 +70,16 @@ function SparkComment({sparkId}) {
       </div>
     </div>
   ))}
+
+<input
+          type="text"
+          value={inputValue}
+          autoComplete='off'
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Add a comment"
+          className="input-field-lol"
+          id="main-input-element"
+        />
     </div>
   )
 }
