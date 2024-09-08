@@ -31,6 +31,8 @@ public interface SparkRepository extends JpaRepository<Spark, Long> {
     @Query(value="select * from spark where spark_id = ?1", nativeQuery = true)
     List<Spark> getSparkbySparkId(Long sparkId);
 
+    @Query(value="select * from spark where spark_id is null", nativeQuery=true)
+    List<Spark> getSparksNotComments();
 //    @Query()
 //   List<Spark> getCommentsOfASpark(Long id);
 
