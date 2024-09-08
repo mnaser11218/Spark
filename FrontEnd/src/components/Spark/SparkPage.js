@@ -61,7 +61,6 @@ function SparkPage() {
 
   return (
     <div id="full-full-body">
-      {/* {<Likes sparkId={sparkId} />} */}
     <div className="spark-page-container">
       <div className="spark-content">
         <div id="spark-user-container">
@@ -84,11 +83,14 @@ function SparkPage() {
             className="spark-image"
           />
         )}
+            
+
         <div className="spark-timestamp">{spark.date}</div>
         <div className="spark-icons">
           <span className="spark-comment-icon">{commentIcon}</span>
           <span className="spark-retweet-icon">{retweetIcon}</span>
           <span className="spark-like-icon">{likeIcon}</span>
+            {<Likes sparkId={sparkId} />}
         </div>
       </div>
       <SparkComment sparkId={sparkId}/>
