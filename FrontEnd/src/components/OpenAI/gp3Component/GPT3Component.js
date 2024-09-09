@@ -6,6 +6,7 @@ const [generatedText, setGeneratedText] = useState('');
 const [inputText, setInputText] = useState('');
 
 
+
 function generateText() {
     axios.post('https://api.openai.com/v1/completions', {
       model: 'gpt-3.5-turbo-instruct',  // Update to the latest model you intend to use

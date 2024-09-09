@@ -61,6 +61,7 @@ function SparkPage() {
 // testing
   return (
     <div id="full-full-body">
+      {userProfile.firstName}
     <div className="spark-page-container">
       <div className="spark-content">
         <div id="spark-user-container">
