@@ -38,7 +38,7 @@ function SparkPage() {
         setSpark(sparkData);
 
         //THIS IS NOT WORKING CURRENTLY
-        const userProfileResponse = await fetch(`http://localhost:8080/api/user-profiles/${sparkData.userId}`);
+        const userProfileResponse = await fetch(`http://localhost:8080/api/user-profiles/spark/${sparkId}`);
         const userProfileData = await userProfileResponse.json();
         setUserProfile(userProfileData);
       } catch (error) {
@@ -61,7 +61,6 @@ function SparkPage() {
 // testing
   return (
     <div id="full-full-body">
-      {userProfile.firstName}
     <div className="spark-page-container">
       <div className="spark-content">
         <div id="spark-user-container">
