@@ -7,7 +7,10 @@ function SparkComment({sparkId}) {
   const [comments, setComments] = useState([])
   const [inputValue, setInputValue] = useState('');
   const { currentLoggedInUser } = useUser();
+   const [userProfiles, setUserProfiles] = useState([])
   //const postToServer = ()=> {console.log("posting comment")}
+
+
 
   const fetchSparkById = async () => {
     try {
@@ -18,6 +21,7 @@ function SparkComment({sparkId}) {
         id: item.id,
         body: item.body,
         date: item.date,
+        userId: item.userId,
         // name: userProfiles[item.userId]?.firstName || 'Unknown',
         // userName: userProfiles[item.userId]?.userName || 'Unknown',
         imageUrl: item.url //this is where we add image URL!!
@@ -26,15 +30,30 @@ function SparkComment({sparkId}) {
       setInputValue("")
       //setComments(sparkData);
 
-      //THIS IS NOT WORKING CURRENTLY
-      // const userProfileResponse = await fetch(`http://localhost:8080/api/user-profiles/${sparkData.userId}`);
-      // const userProfileData = await userProfileResponse.json();
-      // setUserProfile(userProfileData);
+    
+      // const userProfileResponse = await fetch(`http://localhost:8080/api/user-profiles/spark/${sparkId}`);
+      //   const userProfileData = await userProfileResponse.json();
+      //   setUserProfile(userProfileData);
     } catch (error) {
       console.error('Error fetching spark or user profile:', error);
     }
   };
 
+
+  const fetchUserProfiles = async () => {
+    try {
+      const response = await fetch('http://localhost:8080/api/user-profiles');
+      const data = await response.json();
+      const profileMap = data.reduce((acc, profile) => {
+        acc[profile.userId] = profile;
+        return acc;
+      }, {});
+      setUserProfiles(profileMap);
+      console.log(profileMap)
+    } catch (error) {
+      console.error('Error fetching user profiles:', error);
+    }
+  };
 
   const postToServer = async () => {
     try {
@@ -63,11 +82,12 @@ function SparkComment({sparkId}) {
 
   useEffect(() => {
    
-
+    fetchUserProfiles();
     fetchSparkById();
   }, []);
   return (
     <div>
+      {/* need to get the username of each comment. for each comment we need to get the sparkid and make a fetch call to get the username */}
     {comments.map((item, index) => (
     <div className="timeline-item" id="spark-individual-container">
       <div id="user-container">
@@ -80,8 +100,9 @@ function SparkComment({sparkId}) {
             </svg> 
             {/* {item.name} */}
           </h4>
-          {/* <p>@{item.userName}</p> */}
-          {/* <p>we have the id: {item.id}</p> */}
+          <p>@{userProfiles[item.userId]?.firstName || 'Unknown'}</p>
+          {/* <p>{item.userId}</p> */}
+          <p>{userProfiles[item.userId]?.userName || 'Unknown'}</p>
         </div>
       </div>
       <div className="item-content" key={item.id} >hello {item.body}<br/>{item.imageUrl && ( // displays the image if it exists!

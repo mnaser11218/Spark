@@ -37,7 +37,6 @@ function SparkPage() {
         const sparkData = await sparkResponse.json();
         setSpark(sparkData);
 
-        //THIS IS NOT WORKING CURRENTLY
         const userProfileResponse = await fetch(`http://localhost:8080/api/user-profiles/spark/${sparkId}`);
         const userProfileData = await userProfileResponse.json();
         setUserProfile(userProfileData);
