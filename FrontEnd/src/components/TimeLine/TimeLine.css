@@ -62,6 +62,30 @@
   transform: scale(1.1);
 }
 
+#just-for-styling-pencil {
+  cursor: pointer;
+  position: absolute;
+  right: 70%;
+  top: 75px;
+  transition: transform 0.2s ease-in-out;
+}
+
+#just-for-styling-pencil:hover{
+  transform: scale(1.1);
+}
+
+#just-for-styling-smile{
+  cursor: pointer;
+  position: absolute;
+  right: 65%;
+  top: 75px;
+  transition: transform 0.2s ease-in-out;
+}
+
+just-for-styling-smile:hover{
+  transform: scale(1.1);
+}
+
 #calendar-icon {
   cursor: pointer;
   position: absolute;
@@ -194,6 +218,14 @@
 #like-icon-id {
   transition: 0.2s ease-in-out;
   cursor: pointer;
+}
+
+.bi-emoji-smile{
+  transition: 0.2s ease-in-out;
+
+}
+.bi-emoji-smile:hover{
+  transform: scale(1.1);
 }
 
 #like-icon-id:hover{
