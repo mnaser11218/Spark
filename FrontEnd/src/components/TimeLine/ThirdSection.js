@@ -6,6 +6,8 @@ import SparkPage from '../Spark/SparkPage';
 
 function ShowThirdSection (){
 
+
+
 const navigate = useNavigate();
 function handleClickAction(){    
     navigate(`/spark`);
@@ -20,6 +22,8 @@ function handleClickAction(){
   {/* <div>
     <button onClick={handleClickAction}>Press me</button>
   </div> */}
+
+  
 </div>
 
 

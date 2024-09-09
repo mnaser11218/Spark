@@ -6,10 +6,8 @@ import Login from "../Login/LoginInButton.js";
 import SignUp from "../CreateAccount/SignUpButton.js";
 import PreviewButton from '../PreviewPage/PreviewButton';
 // import OpenAIComponent from '../OpenAI/OpenAIComponent';
-import GPT3Component from '../OpenAI/gp3Component/GPT3Component.js';
 
 const HomePage = () => {
-    const apiKey = process.env.REACT_APP_OPENAI_API_KEY
     return (
         <div className="home-container" id="home-full-page">
             <div className="home-logo">
@@ -22,7 +20,6 @@ const HomePage = () => {
                     <Login />
                     <SignUp />
                     <PreviewButton />
-                    <GPT3Component apiKey={apiKey} />
                 </div>
             </div>
         </div>
