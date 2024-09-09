@@ -100,9 +100,10 @@ function SparkComment({sparkId}) {
             </svg> 
             {/* {item.name} */}
           </h4>
-          <p>@{userProfiles[item.userId]?.firstName || 'Unknown'}</p>
+          <p>@{userProfiles[item.userId]?.userName || 'Unknown'}</p>
+          <p>{userProfiles[item.userId]?.firstName || 'Unknown'}</p>
           {/* <p>{item.userId}</p> */}
-          <p>{userProfiles[item.userId]?.userName || 'Unknown'}</p>
+      
         </div>
       </div>
       <div className="item-content" key={item.id} >hello {item.body}<br/>{item.imageUrl && ( // displays the image if it exists!
