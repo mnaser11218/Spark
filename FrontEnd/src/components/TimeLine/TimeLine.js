@@ -7,6 +7,7 @@ import ShowThirdSection from './ThirdSection';
 import Like from '../Like/Likes'
 import GPT3Component from '../OpenAI/gp3Component/GPT3Component';
 import GPT3PositiveFunc from '../OpenAI/gp3Component/GPT3Positive';
+import GPT3Translate from '../OpenAI/gp3Component/GPT3Translate';
 
 function ShowTimeline() {
   const fileInputRef = useRef(null);
@@ -191,7 +192,10 @@ const apiKey = process.env.REACT_APP_OPENAI_API_KEY
         </span>
         <span id="just-for-styling-smile">
         <GPT3PositiveFunc apiKey={apiKey} onUpdateInputValue={setInputValue}/>
-        </span>
+       </span>
+       <span id = "just-for-styling-global">
+       <GPT3Translate apiKey={apiKey} onUpdateInputValue={setInputValue}/>
+       </span>
 
 
         <div id="submit-and-icon">
