@@ -7,4 +7,25 @@
     text-align: center;
     padding: 25px;
   }
+
+  #whats-trending{
+    /* border: 1px solid white; */
+    border-top: 3px solid #283d53;
+    padding: 20px;
+    color: white;
+  }
+
+  #the-image-for-news {
+    border: 1px solid #283d53;
+    margin-left: 20px;
+    margin-bottom: 35px;
+    height:200px;
+    width: auto;
+  }
   
+  #the-image-for-news-2 {
+    border: 1px solid #283d53;
+    margin-left: 20px;
+    height:200px;
+    width: auto;
+  }

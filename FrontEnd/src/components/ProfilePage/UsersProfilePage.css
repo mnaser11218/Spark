@@ -151,7 +151,7 @@ background-color: #5f6885;
 
 .click-profile-function-user{
     display: flex;
-    flex-direction: column;
+    gap: 10px;
 }
 
 #f-and-l{

@@ -173,6 +173,7 @@ background-color: #35506d !important;
 #likes-comments {
     display: flex;
     padding: 15px;
+    margin-left: 0px;
     gap: 50px;
   }
   
@@ -182,7 +183,7 @@ background-color: #35506d !important;
   }
   
   #like-icon-id:hover{
-    transform: scale(1.5);
+    transform: scale(1.1);
   }
   
   #comment-icon-id {
