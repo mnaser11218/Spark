@@ -14,4 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
     @Query(value = "SELECT * FROM user_profile where user_name =?1", nativeQuery = true)
     public UserProfile getUserProfileByUserName(String string);
+
+    @Query(value="select user_profile.* from user_profile \n" +
+        "join spark on spark.user_id = user_profile.user_id\n" +
+        "where spark.id = ?1;", nativeQuery=true)
+    public UserProfile getUserProfileBySparkId(Long sparkId);
 }
