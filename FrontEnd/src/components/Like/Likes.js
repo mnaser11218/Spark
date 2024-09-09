@@ -30,7 +30,7 @@ export default function Likes({sparkId}) {
                   "Content-type": "application/json; charset=UTF-8"
                 }
               });
-              alert("post liked!");
+              // alert("post liked!");
               console.log("post liked")
             } catch (error) {
               console.error('Error posting spark:', error);

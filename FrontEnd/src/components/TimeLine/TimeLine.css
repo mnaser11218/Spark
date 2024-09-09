@@ -17,7 +17,7 @@
 
 #main-input-element {
   flex: 1;
-  padding: 15px;
+  padding: 20px;
   padding-bottom: 80px;
   color: #e1e8ed;
   /* height: auto; */
@@ -127,6 +127,12 @@ just-for-styling-smile:hover{
   width: 25%;
 }
 
+#display-user{
+  font-weight: 550;
+  font-size: 35px;
+  padding-bottom: 10px;
+}
+
 .add-button:hover {
   background-color: #0c8cd4;
 }
@@ -137,17 +143,19 @@ just-for-styling-smile:hover{
 }
 
 #following {
-  font-size: 24px;
+  font-size: 44px;
   font-weight: bold;
 }
 
 .timeline-item {
   padding: 15px;
-  border: 1px solid #38444d;
+  border: 1px solid #9cb3c3;
   color: #e1e8ed;
   margin-bottom: 10px;
-  /* border-radius: 10px; */
-  background-color: #192734;
+  font-size: 25px;
+  border-radius: 10px;
+  background-color: #253a4d;
+
 }
 
 .timeline-item:hover{
@@ -185,7 +193,8 @@ just-for-styling-smile:hover{
 
 #user-links h4 {
   margin: 0;
-  font-size: 16px;
+  font-size: 25px;
+  padding: 5px;
 }
 
 #user-links p {
@@ -267,4 +276,6 @@ just-for-styling-smile:hover{
 #name-name {
   font-weight: 900;
 }
+
+
 

@@ -214,13 +214,18 @@ background-color: #35506d !important;
     background-repeat: no-repeat;
   }
 
-  #the-profile-default-pic{
+  #the-profile-default-pic {
     background-image: url('../Images/profileImgDefault.png');
     background-size:120%;
     background-position: center;
     background-repeat: no-repeat;
   }
  
+  #name-block-pro {
+    display: flex;
+    gap: 10px;
+  }
+
 
 
  
