@@ -42,7 +42,7 @@
   cursor: pointer;
   position: absolute;
   right: 90%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -54,7 +54,7 @@
   cursor: pointer;
   position: absolute;
   right: 85%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -66,7 +66,7 @@
   cursor: pointer;
   position: absolute;
   right: 70%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -78,7 +78,7 @@
   cursor: pointer;
   position: absolute;
   right: 65%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -90,7 +90,7 @@ just-for-styling-smile:hover{
   cursor: pointer;
   position: absolute;
   right: 80%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -98,12 +98,11 @@ just-for-styling-smile:hover{
   transform: scale(1.1);
 }
 
-
 #pin-icon {
   cursor: pointer;
   position: absolute;
   right: 75%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -179,7 +178,7 @@ just-for-styling-smile:hover{
   display: flex;
   padding: 5px;
   padding-right: 15px;
-  gap: 10px;
+  gap: 12px;
 }
 
 #at-symbol {
@@ -200,7 +199,7 @@ just-for-styling-smile:hover{
 #user-links p {
   margin: 0;
   color: #657786;
-  font-size: 14px;
+  font-size: 24px;
 }
 
 .item-content {
@@ -276,6 +275,8 @@ just-for-styling-smile:hover{
 #name-name {
   font-weight: 900;
 }
+
+
 
 
 
