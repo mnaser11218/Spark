@@ -88,7 +88,7 @@ function SparkPage() {
         <div className="spark-icons">
           <span className="spark-comment-icon">{commentIcon}</span>
           <span className="spark-retweet-icon">{retweetIcon}</span>
-          <span className="spark-like-icon">{likeIcon}</span>
+          {/* <span className="spark-like-icon">{likeIcon}</span> */}
             {<Likes sparkId={sparkId} />}
         </div>
       </div>

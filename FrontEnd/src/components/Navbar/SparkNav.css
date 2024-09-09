@@ -38,14 +38,18 @@
 .navbar-link {
   text-decoration: none;
   color: #FBF9F1;
-  font-size: 18px;
-  font-weight: 900;
+  font-size: 22px;
+  font-weight: 800;
   padding: 15px 20px;
   border-radius: 30px;
 
   display: block;
   width: 100%;
   transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-container h1 {
+  font-size: 90px;
 }
 
 .navbar-link svg {
