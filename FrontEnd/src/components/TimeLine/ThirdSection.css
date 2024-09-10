@@ -17,15 +17,17 @@
 
   #the-image-for-news {
     border: 1px solid #283d53;
-    margin-left: 20px;
+    margin-left: 25px;
     margin-bottom: 35px;
     height:200px;
     width: auto;
+    cursor: pointer;
   }
   
   #the-image-for-news-2 {
     border: 1px solid #283d53;
-    margin-left: 20px;
+    margin-left: 25px;
     height:200px;
     width: auto;
+    cursor: pointer;
   }

@@ -22,7 +22,7 @@ const GPT3Component = ({ apiKey, onUpdateInputValue }) => {
       }
     })
     .then(response => {
-      const gptResponse = response.data.choices[0].text.replaceAll("\"", "");
+      const gptResponse = response.data.choices[0].text.replaceAll("\"", "").trim();
       console.log(gptResponse); //this logs it to console completed
       onUpdateInputValue(gptResponse); //update input value in timeline AKa corrects tweet typed
     })
