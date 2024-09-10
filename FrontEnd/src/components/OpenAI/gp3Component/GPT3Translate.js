@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { TRUE } from 'sass';
+import './GPT3Styling.css';
+
 
 const GPT3Component = ({ apiKey, onUpdateInputValue }) => {
   const [showForm, setShowForm] = useState(false)
@@ -22,7 +24,7 @@ const globeIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23"
 
     axios.post('https://api.openai.com/v1/completions', {
       model: 'gpt-3.5-turbo-instruct',
-      prompt: `Translate this text to: ${inputText}`, //this is the prompt + whatevers in input
+      prompt: `Translate this to ${language}: ${inputText}`, //this is the prompt + whatevers in input
       max_tokens: 1000
     }, {
       headers: {
@@ -34,6 +36,7 @@ const globeIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23"
       const gptResponse = response.data.choices[0].text.replaceAll("\"", "");
       console.log(gptResponse); //this logs it to console completed
       onUpdateInputValue(gptResponse); //update input value in timeline AKa corrects tweet typed
+      setShowLangInput(false);
     })
     .catch(error => {
       console.error('Error:', error);
@@ -41,19 +44,28 @@ const globeIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23"
   };
 
   return (
+    
+    <>
     <div>
       <span id="globe-icon-ai" onClick={()=> setShowLangInput(true)}>{globeIcon}</span>
-      {showLanguageInput &&(
+      </div>
+      <div>
+         {showLanguageInput &&(
         <div> 
           <input 
+          
           type='text' 
           value={language}
           onChange={(event => setLanguage(event.target.value))}
           placeholder='Enter Language (e.g., Spanish, French...)'
+         
          />
-         {language}
+         <button id='vishnu-button' onClick={generateText}>
+        Submit Language
+         </button>
           </div>)}
-    </div>
+      </div>
+      </>
   );
 };
 
