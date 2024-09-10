@@ -82,7 +82,7 @@
   transition: transform 0.2s ease-in-out;
 }
 
-just-for-styling-smile:hover{
+#just-for-styling-smile:hover{
   transform: scale(1.1);
 }
 
@@ -94,9 +94,22 @@ just-for-styling-smile:hover{
   transition: transform 0.2s ease-in-out;
 }
 
-just-for-styling-global:hover{
+#just-for-styling-global:hover{
   transform: scale(1.1);
 }
+
+#vishnu {
+  position: absolute;
+  right: 60%;
+  top: 105px;
+}
+
+#vishnu-button {
+  position: absolute;
+  right: 60%;
+  top: 105px;
+}
+
 
 #calendar-icon {
   cursor: pointer;
