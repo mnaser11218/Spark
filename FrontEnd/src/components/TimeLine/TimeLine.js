@@ -145,7 +145,7 @@ const apiKey = process.env.REACT_APP_OPENAI_API_KEY
           "Content-type": "application/json; charset=UTF-8"
         }
       });
-      alert("Spark posted!");
+      // alert("Spark posted!");
       setInputValue("");
       setImageUrl(null);
       fetchSparks();
