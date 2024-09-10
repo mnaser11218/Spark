@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 /**
  * Spring Data JPA repository for the UserProfile entity.
  */
@@ -19,4 +21,11 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Long> 
         "join spark on spark.user_id = user_profile.user_id\n" +
         "where spark.id = ?1;", nativeQuery=true)
     public UserProfile getUserProfileBySparkId(Long sparkId);
+
+
+    @Query(value="select DISTINCT user_name from user_profile \n" +
+        "join likes on likes.user_profile_id = user_profile.id\n" +
+        "where spark_id = ?1;", nativeQuery=true)
+    public List<UserProfile> getUserProfilesThatLikesASpark(Long sparkId);
+
 }
