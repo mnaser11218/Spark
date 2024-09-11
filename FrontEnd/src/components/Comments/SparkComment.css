@@ -1,10 +1,9 @@
-.timeline-container {
+/* .timeline-container {
     display: flex;
     flex-direction: column;
     max-width: 900px;
     color: #e1e8ed;
     padding: 20px;
-    /* margin: 0 auto; */
     border: 1px solid #283d53;
     background-color: #15202b;
     border-radius: 10px;
@@ -21,14 +20,11 @@
     padding: 15px;
     padding-bottom: 80px;
     color: #e1e8ed;
-    /* height: auto; */
     height: 200px;
     font-size: 18px;
     border: 1px solid #1d9bf0;
   
-  /* 
-    border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important; */
+
   
     border-radius: 20px;
     background-color: #15202b;
@@ -175,6 +171,22 @@
   
   #complete-time-page-body{
     display: flex;
+  } */
+
+  .input-com {
+    height: 100px !important;
+    border-radius: 10px !important;
+  }
+
+  .cc-img2{
+    border-radius: 50%;
+    width: auto; 
+    height: 45px;
+    border: 1px solid white;
+  }
+
+  #verify-span-icon2{
+    margin-bottom: 20px;
   }
   
   

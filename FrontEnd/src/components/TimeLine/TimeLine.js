@@ -9,6 +9,8 @@ import GPT3Component from '../OpenAI/gp3Component/GPT3Component';
 import GPT3PositiveFunc from '../OpenAI/gp3Component/GPT3Positive';
 import GPT3Translate from '../OpenAI/gp3Component/GPT3Translate';
 
+
+
 function ShowTimeline() {
   const fileInputRef = useRef(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -19,6 +21,7 @@ function ShowTimeline() {
   const navigate = useNavigate();
   const [data, setData] = useState('');
   const [key, setKey] = useState(null);
+
 
   const childToParent = (childdata) => {
     setData(childdata);
@@ -122,6 +125,7 @@ const apiKey = process.env.REACT_APP_OPENAI_API_KEY
         date: item.date,
         name: userProfiles[item.userId]?.firstName || 'Unknown',
         userName: userProfiles[item.userId]?.userName || 'Unknown',
+        profileUrl: userProfiles[item.userId]?.profileUrl || 'Unknown',
         imageUrl: item.url //this is where we add image URL!!
       }));
       setItems(formattedItems);
@@ -168,7 +172,7 @@ const apiKey = process.env.REACT_APP_OPENAI_API_KEY
   return (
     <div id="complete-time-page-body">
     <div className="timeline-container col-sm-8">
-      <p id="following">Explore</p>
+      {/* <p id="following">Explore</p> */}
       
       <p id="display-user">Welcome, {currentLoggedInUser.firstName}!</p>
     
@@ -232,12 +236,14 @@ const apiKey = process.env.REACT_APP_OPENAI_API_KEY
       <div id="user-container">
         <div onClick={handleClick} id="user-links">
           <h4 id="name-name">
-            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" className="bi bi-person-circle" viewBox="0 0 16 16">
+            {/* <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" className="bi bi-person-circle" viewBox="0 0 16 16">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
               <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-            </svg> 
+            </svg>  */}
+            <img src={item.profileUrl} id="profile-pic-standard"/>
             &nbsp;&nbsp;&nbsp;{item.name}
           </h4>
+          {console.log("profile url: " + item.profileUrl)}
           <span id="v-icon">{verifiedIcon}</span>
           <p id="at-symbol">@{item.userName}</p>
           {/* <p>we have the id: {item.id}</p> */}

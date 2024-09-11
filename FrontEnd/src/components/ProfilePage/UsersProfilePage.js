@@ -117,7 +117,8 @@ const UserProfilePage = () => {
             <header className="profile-header">
                 <div className="cover-photo" id="user-banner-img"></div>
                 <div className="profile-info">
-                    <div className="profile-picture" id="user-pro-pic"></div>
+                <img src={userData.profileUrl} className="profile-picture" id="user-pro-pic"></img>
+                    {/* <div className="profile-picture" id="user-pro-pic"></div> */}
                     <div className="profile-details">
                         <h1 className="profile-name" id="get-user-name-profile">Username</h1>
                         <p className="profile-handle" id="get-profile-tag">@userhandle</p>
@@ -138,6 +139,7 @@ const UserProfilePage = () => {
                     {view === 'sparks' && sparks.map(spark => (
                         <div key={spark.id} className="tweet">
                             <div className='click-profile-function-user'>
+                                <img src={userData.profileUrl} className="user-prof-pro-pic-works"/>
                             <p id="f-and-l"> {userData.firstName + " " + userData.lastName}</p>
                             <span id="u-p-v-icon">{verifiedIcon}</span>
                             <p id="sp-us">@{userData.userName}</p>
@@ -152,6 +154,7 @@ const UserProfilePage = () => {
                         return (
                             <div key={mention.id} className="tweet">
                                 <div className="click-profile-function-user" onClick={handleClick}>
+                                    <img src={profile?.profileUrl} className="user-prof-pro-pic-works"/>
                                     <p id="names-first-last">{profile?.firstName + " " + profile?.lastName}</p>
                                     <span id="u-p-v-icon">{verifiedIcon}</span>
                                     <p id="actual-user-name">@{profile?.userName}</p>

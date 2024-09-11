@@ -69,14 +69,15 @@ const verifiedIcon = <svg xmlns="http://www.w3.org/2000/svg" width="21" height="
         <div id="spark-user-container">
           <div id="user-info" onClick={handleUserClick}>
             <h4>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+              <img src={userProfile.profileUrl} id = "sp-page-prof-pic-works"/>
+              {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                 <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-              </svg> 
-              {userProfile.firstName}
+              </svg>  */}
+              {userProfile.firstName} 
             </h4>
             <span id="v-icon-sp">{verifiedIcon}</span>
-            <p>@{userProfile.userName}</p>
+            <p id ="uu">@{userProfile.userName}</p>
           </div>
         </div>
         <div className="spark-body">{spark.body}</div>
