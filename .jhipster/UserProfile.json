@@ -27,6 +27,10 @@
     {
       "fieldName": "createdDate",
       "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "profileUrl",
+      "fieldType": "String"
     }
   ],
   "name": "UserProfile",

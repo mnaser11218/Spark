@@ -182,7 +182,7 @@ public class LikesResource {
     @GetMapping("/likecount/{id}")
     public ResponseEntity<Long> likeCountOfSpark(@PathVariable("id") Long id) {
         log.debug("REST request to get specific amount Likes for a spark : {}", id);
-       Optional<Long> likes = likesRepository.getAmountOfLikesForASpark(id);
+        Optional<Long> likes = likesRepository.getAmountOfLikesForASpark(id);
         return ResponseUtil.wrapOrNotFound(likes);
     }
 

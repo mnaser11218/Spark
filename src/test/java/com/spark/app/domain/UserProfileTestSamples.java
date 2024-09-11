@@ -16,7 +16,8 @@ public class UserProfileTestSamples {
             .userName("userName1")
             .password("password1")
             .firstName("firstName1")
-            .lastName("lastName1");
+            .lastName("lastName1")
+            .profileUrl("profileUrl1");
     }
 
     public static UserProfile getUserProfileSample2() {
@@ -26,7 +27,8 @@ public class UserProfileTestSamples {
             .userName("userName2")
             .password("password2")
             .firstName("firstName2")
-            .lastName("lastName2");
+            .lastName("lastName2")
+            .profileUrl("profileUrl2");
     }
 
     public static UserProfile getUserProfileRandomSampleGenerator() {
@@ -36,6 +38,7 @@ public class UserProfileTestSamples {
             .userName(UUID.randomUUID().toString())
             .password(UUID.randomUUID().toString())
             .firstName(UUID.randomUUID().toString())
-            .lastName(UUID.randomUUID().toString());
+            .lastName(UUID.randomUUID().toString())
+            .profileUrl(UUID.randomUUID().toString());
     }
 }

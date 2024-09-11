@@ -46,4 +46,3 @@ public interface SparkRepository extends JpaRepository<Spark, Long> {
 //    Spark getSparkByUserName(String string);
 
 }
-
