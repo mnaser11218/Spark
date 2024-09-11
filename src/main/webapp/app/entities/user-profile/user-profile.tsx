@@ -112,6 +112,10 @@ export const UserProfile = () => {
                   <Translate contentKey="sparkApp.userProfile.createdDate">Created Date</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('createdDate')} />
                 </th>
+                <th className="hand" onClick={sort('profileUrl')}>
+                  <Translate contentKey="sparkApp.userProfile.profileUrl">Profile Url</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('profileUrl')} />
+                </th>
                 <th />
               </tr>
             </thead>
@@ -133,6 +137,7 @@ export const UserProfile = () => {
                       <TextFormat type="date" value={userProfile.createdDate} format={APP_LOCAL_DATE_FORMAT} />
                     ) : null}
                   </td>
+                  <td>{userProfile.profileUrl}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/user-profile/${userProfile.id}`} color="info" size="sm" data-cy="entityDetailsButton">

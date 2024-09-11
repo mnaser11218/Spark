@@ -43,6 +43,9 @@ public class UserProfile implements Serializable {
     @Column(name = "created_date")
     private LocalDate createdDate;
 
+    @Column(name = "profile_url")
+    private String profileUrl;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "userProfile")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "likes", "userProfile", "mentions", "hashtags" }, allowSetters = true)
@@ -146,6 +149,19 @@ public class UserProfile implements Serializable {
         this.createdDate = createdDate;
     }
 
+    public String getProfileUrl() {
+        return this.profileUrl;
+    }
+
+    public UserProfile profileUrl(String profileUrl) {
+        this.setProfileUrl(profileUrl);
+        return this;
+    }
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
+    }
+
     public Set<Spark> getSparks() {
         return this.sparks;
     }
@@ -238,6 +254,7 @@ public class UserProfile implements Serializable {
             ", firstName='" + getFirstName() + "'" +
             ", lastName='" + getLastName() + "'" +
             ", createdDate='" + getCreatedDate() + "'" +
+            ", profileUrl='" + getProfileUrl() + "'" +
             "}";
     }
 }

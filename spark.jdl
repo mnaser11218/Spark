@@ -5,6 +5,7 @@ entity UserProfile {
     firstName String
     lastName String
     createdDate LocalDate
+    profileUrl String
 }
 
 // an ignored comment

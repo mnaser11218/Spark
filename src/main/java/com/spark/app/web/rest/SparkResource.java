@@ -221,4 +221,3 @@ public class SparkResource {
         return ResponseUtil.wrapOrNotFound(ownerOfSpark);
     }
 }
-

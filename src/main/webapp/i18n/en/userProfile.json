@@ -24,6 +24,7 @@
       "firstName": "First Name",
       "lastName": "Last Name",
       "createdDate": "Created Date",
+      "profileUrl": "Profile Url",
       "spark": "Spark",
       "likes": "Likes"
     }

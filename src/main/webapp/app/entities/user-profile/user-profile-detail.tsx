@@ -72,6 +72,12 @@ export const UserProfileDetail = () => {
               <TextFormat value={userProfileEntity.createdDate} type="date" format={APP_LOCAL_DATE_FORMAT} />
             ) : null}
           </dd>
+          <dt>
+            <span id="profileUrl">
+              <Translate contentKey="sparkApp.userProfile.profileUrl">Profile Url</Translate>
+            </span>
+          </dt>
+          <dd>{userProfileEntity.profileUrl}</dd>
         </dl>
         <Button tag={Link} to="/user-profile" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

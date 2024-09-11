@@ -52,6 +52,9 @@ class UserProfileResourceIT {
     private static final LocalDate DEFAULT_CREATED_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_CREATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
+    private static final String DEFAULT_PROFILE_URL = "AAAAAAAAAA";
+    private static final String UPDATED_PROFILE_URL = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/user-profiles";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -87,7 +90,8 @@ class UserProfileResourceIT {
             .password(DEFAULT_PASSWORD)
             .firstName(DEFAULT_FIRST_NAME)
             .lastName(DEFAULT_LAST_NAME)
-            .createdDate(DEFAULT_CREATED_DATE);
+            .createdDate(DEFAULT_CREATED_DATE)
+            .profileUrl(DEFAULT_PROFILE_URL);
         return userProfile;
     }
 
@@ -104,7 +108,8 @@ class UserProfileResourceIT {
             .password(UPDATED_PASSWORD)
             .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
-            .createdDate(UPDATED_CREATED_DATE);
+            .createdDate(UPDATED_CREATED_DATE)
+            .profileUrl(UPDATED_PROFILE_URL);
         return userProfile;
     }
 
@@ -177,7 +182,8 @@ class UserProfileResourceIT {
             .andExpect(jsonPath("$.[*].password").value(hasItem(DEFAULT_PASSWORD)))
             .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME)))
             .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME)))
-            .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())));
+            .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())))
+            .andExpect(jsonPath("$.[*].profileUrl").value(hasItem(DEFAULT_PROFILE_URL)));
     }
 
     @Test
@@ -197,7 +203,8 @@ class UserProfileResourceIT {
             .andExpect(jsonPath("$.password").value(DEFAULT_PASSWORD))
             .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME))
             .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME))
-            .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()));
+            .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()))
+            .andExpect(jsonPath("$.profileUrl").value(DEFAULT_PROFILE_URL));
     }
 
     @Test
@@ -225,7 +232,8 @@ class UserProfileResourceIT {
             .password(UPDATED_PASSWORD)
             .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
-            .createdDate(UPDATED_CREATED_DATE);
+            .createdDate(UPDATED_CREATED_DATE)
+            .profileUrl(UPDATED_PROFILE_URL);
 
         restUserProfileMockMvc
             .perform(
@@ -342,7 +350,8 @@ class UserProfileResourceIT {
             .password(UPDATED_PASSWORD)
             .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
-            .createdDate(UPDATED_CREATED_DATE);
+            .createdDate(UPDATED_CREATED_DATE)
+            .profileUrl(UPDATED_PROFILE_URL);
 
         restUserProfileMockMvc
             .perform(
