@@ -23,9 +23,9 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Long> 
     public UserProfile getUserProfileBySparkId(Long sparkId);
 
 
-    @Query(value="select DISTINCT user_name from user_profile \n" +
+    @Query(value="select DISTINCT user_profile.* from user_profile \n" +
         "join likes on likes.user_profile_id = user_profile.id\n" +
         "where spark_id = ?1;", nativeQuery=true)
-    public List<UserProfile> getUserProfilesThatLikesASpark(Long sparkId);
+    public List<UserProfile> getUserProfilesThatLikesASpark(Long id);
 
 }
