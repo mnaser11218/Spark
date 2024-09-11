@@ -43,7 +43,12 @@
   }
 
   #v-icon-sp{
+    margin-top: 7px;
     padding-bottom: 5px;
+  }
+
+  #uu{
+    margin-top: 5px;
   }
   
   .spark-body {
@@ -89,5 +94,13 @@
 
 #full-full-body {
   display: flex;
+}
+
+#sp-page-prof-pic-works{
+  border-radius: 50%;
+  width: auto; 
+  height: 45px;
+  border: 1px solid white;
+  margin-right: 10px;
 }
   

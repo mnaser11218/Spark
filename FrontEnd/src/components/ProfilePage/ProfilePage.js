@@ -115,6 +115,8 @@ const ProfilePage = () => {
         fetchUserProfiles();
     }, []);
 
+
+
     return (
         <div id="full-whole-profile-page">
         <div className="profile-page">
@@ -122,7 +124,8 @@ const ProfilePage = () => {
             <header className="profile-header">
                 <div className="cover-photo" id="the-profile-banner"></div>
                 <div className="profile-info">
-                    <div className="profile-picture" id="the-profile-default-pic"></div>
+                <img src={currentLoggedInUser.profileUrl} className="profile-picture" id="the-profile-default-pic"/>
+                    {/* <div className="profile-picture" id="the-profile-default-pic"></div> */}
                     <div className="profile-details">
                         <h1 className="profile-name" id="get-user-name-profile">Username</h1>
                         <p className="profile-handle" id="get-profile-tag">@userhandle</p>
@@ -144,6 +147,7 @@ const ProfilePage = () => {
                     {view === 'sparks' && sparks.map(spark => (
                         <div key={spark.id} className="tweet">
                                                     <div id="name-block-pro">
+                            <img src={currentLoggedInUser.profileUrl} className="pics-working"/>
                             <p className="name-spark-class">{currentLoggedInUser.firstName + " " + currentLoggedInUser.lastName}</p>
                             <span id="the-v-icon">{verifiedProfileIcon}</span>
                             <p className="username-spark-class">@{currentLoggedInUser.userName}</p>
@@ -164,6 +168,7 @@ const ProfilePage = () => {
                         return (
                             <div key={mention.id} className="tweet">
                                 <div id="click-profile-function" onClick={handleClick}>
+                                    <img src={profile?.profileUrl} className="pics-working"/>
                                     <p className="name-spark-class">{profile?.firstName + " " + profile?.lastName}</p>
                                     <p className="username-spark-class">@{profile?.userName}</p>
                                 </div>
