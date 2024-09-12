@@ -195,4 +195,21 @@ public class UserProfileResource {
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
     }
+
+
+
+
+
+    @GetMapping("/spark/{id}")
+    public ResponseEntity<UserProfile> getUserProfileBySparkId(@PathVariable("id") Long id) {
+        log.debug("REST request to get UserProfile by Spark id : {}", id);
+        Optional<UserProfile> userProfile = Optional.ofNullable(userProfileRepository.getUserProfileBySparkId(id));
+        return ResponseUtil.wrapOrNotFound(userProfile);
+    }
+
+    @GetMapping("/sparks/{id}")
+    public List<UserProfile> getAllUserProfilesThatLikeASpark(@PathVariable Long id) {
+        log.debug("REST request to get all UserProfiles");
+        return userProfileRepository.getUserProfilesThatLikesASpark(id);
+    }
 }

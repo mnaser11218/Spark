@@ -10,7 +10,10 @@
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.20",
     "aws-sdk": "^2.1689.0",
+    "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
+    "openai": "^4.58.1",
     "postcss": "^8.4.44",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -44,5 +47,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

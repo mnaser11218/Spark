@@ -51,7 +51,8 @@ const AppLayout = () => {
   const shouldApplyWidth= !isProfilePage && !isUserProfileRoute;
 
   return (
-    <div style={{ display: 'flex' }}>
+    // <div style={{ display: 'flex' }}>
+    <div>
       {shouldShowNavbar && <VerticalNavbar />} 
       <div
         style={{

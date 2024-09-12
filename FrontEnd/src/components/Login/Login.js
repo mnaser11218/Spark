@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import { useUser } from '../CurrentUser';
 
+import myLogo from '../Images/colorful-square-with-rainbow-colored-border-multicolored-square_1308175-15574-removebg-preview.png';
+
 const Login = () => {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -48,7 +50,9 @@ const Login = () => {
     <div className="login-container d-flex justify-content-center align-items-center vh-100">
       <div className="card p-4 shadow-sm" id="the-card">
         <h1 className="text-center mb-4 card-header">
-          Log in to <span style={{ color: 'white', fontWeight: 'bold' }}>SPARK ⚡️</span>
+          Log in to <span style={{ color: 'white', fontWeight: 'bold' }}>SPARK</span>
+          <img src={myLogo} id="fix-logo"/>
+
         </h1>
         {/* <h2 className="text-center mb-4 card-subheader">Sign In</h2> */}
         <form autoComplete="off" onSubmit={HandleLogin}>

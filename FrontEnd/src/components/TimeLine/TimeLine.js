@@ -5,6 +5,12 @@ import { useNavigate } from 'react-router';
 import UploadImageToS3WithNativeSdk from '../AWS/AWSImages';
 import ShowThirdSection from './ThirdSection';
 import Like from '../Like/Likes'
+import GPT3Component from '../OpenAI/gp3Component/GPT3Component';
+import GPT3PositiveFunc from '../OpenAI/gp3Component/GPT3Positive';
+import GPT3Translate from '../OpenAI/gp3Component/GPT3Translate';
+
+
+
 function ShowTimeline() {
   const fileInputRef = useRef(null);
   const [imageUrl, setImageUrl] = useState(null);
@@ -16,13 +22,14 @@ function ShowTimeline() {
   const [data, setData] = useState('');
   const [key, setKey] = useState(null);
 
+
   const childToParent = (childdata) => {
     setData(childdata);
     setImageUrl(childdata)
   }
-  const likeIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
-</svg>
+//   const likeIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+//   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+// </svg>
 
   const commentIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-fill" viewBox="0 0 16 16">
   <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9 9 0 0 0 8 15"/>
@@ -46,6 +53,12 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
 <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
 <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
 </svg>
+
+const verifiedIcon = <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="#2c74b3" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+<path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+</svg>
+
+const apiKey = process.env.REACT_APP_OPENAI_API_KEY
 
 
   // does the file input and image preview
@@ -112,6 +125,7 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
         date: item.date,
         name: userProfiles[item.userId]?.firstName || 'Unknown',
         userName: userProfiles[item.userId]?.userName || 'Unknown',
+        profileUrl: userProfiles[item.userId]?.profileUrl || 'Unknown',
         imageUrl: item.url //this is where we add image URL!!
       }));
       setItems(formattedItems);
@@ -135,7 +149,7 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
           "Content-type": "application/json; charset=UTF-8"
         }
       });
-      alert("Spark posted!");
+      // alert("Spark posted!");
       setInputValue("");
       setImageUrl(null);
       fetchSparks();
@@ -157,13 +171,13 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
 
   return (
     <div id="complete-time-page-body">
-    <div className="timeline-container">
-      <p id="following">Explore</p>
+    <div className="timeline-container col-sm-8">
+      {/* <p id="following">Explore</p> */}
       
       <p id="display-user">Welcome, {currentLoggedInUser.firstName}!</p>
     
       <div className="input-group">
-        <input
+        <textarea
           type="text"
           value={inputValue}
           autoComplete='off'
@@ -171,11 +185,22 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
           placeholder="What's happening?"
           className="input-field-lol"
           id="main-input-element"
+        
         />
         <UploadImageToS3WithNativeSdk childToParent={childToParent}/>
         <span id="gif-icon">{gifIcon}</span>
         <span id="calendar-icon">{calendarIcon}</span>
         <span id="pin-icon">{pinIcon}</span>
+        <span id="just-for-styling-pencil">
+        <GPT3Component apiKey={apiKey} onUpdateInputValue={setInputValue}/>
+        </span>
+        <span id="just-for-styling-smile">
+        <GPT3PositiveFunc apiKey={apiKey} onUpdateInputValue={setInputValue}/>
+       </span>
+       <span id = "just-for-styling-global">
+       <GPT3Translate apiKey={apiKey} onUpdateInputValue={setInputValue}/>
+       </span>
+
 
         <div id="submit-and-icon">
           {/* <svg id="photo-icon" onClick={handlePhotoIconClick} xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" className="bi bi-image" viewBox="0 0 16 16">
@@ -202,20 +227,25 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
           />
         )}
       </div>
+
+
       <div className="timeline">
 
   {items.map((item, index) => (
     <div className="timeline-item" id="spark-individual-container">
       <div id="user-container">
         <div onClick={handleClick} id="user-links">
-          <h4>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+          <h4 id="name-name">
+            {/* <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="white" className="bi bi-person-circle" viewBox="0 0 16 16">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
               <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-            </svg> 
-            &nbsp;{item.name}
+            </svg>  */}
+            <img src={item.profileUrl} id="profile-pic-standard"/>
+            &nbsp;&nbsp;&nbsp;{item.name}
           </h4>
-          <p>@{item.userName}</p>
+          {console.log("profile url: " + item.profileUrl)}
+          <span id="v-icon">{verifiedIcon}</span>
+          <p id="at-symbol">@{item.userName}</p>
           {/* <p>we have the id: {item.id}</p> */}
         </div>
       </div>
@@ -229,12 +259,13 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
         
       )}</div>
 
-      {<Like sparkId={item.id}/>}
+    
       <div className="item-timestamp">{item.date}</div>
       <div id="likes-comments">
         <span id="comment-icon-id">{commentIcon}</span>
         <span id="retweet-icon-id">{retweetIcon}</span>
-        <span id="like-icon-id">{likeIcon}</span>
+        {<Like sparkId={item.id}/>}
+        {/* <span id="like-icon-id">{likeIcon}</span> */}
       </div>
     </div>
   ))}
@@ -243,7 +274,6 @@ const pinIcon = <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" f
     </div>
 
 <ShowThirdSection/>
-
 </div>
 
 

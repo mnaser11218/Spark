@@ -52,7 +52,8 @@ public class UserProfileAsserts {
             .satisfies(e -> assertThat(e.getPassword()).as("check password").isEqualTo(actual.getPassword()))
             .satisfies(e -> assertThat(e.getFirstName()).as("check firstName").isEqualTo(actual.getFirstName()))
             .satisfies(e -> assertThat(e.getLastName()).as("check lastName").isEqualTo(actual.getLastName()))
-            .satisfies(e -> assertThat(e.getCreatedDate()).as("check createdDate").isEqualTo(actual.getCreatedDate()));
+            .satisfies(e -> assertThat(e.getCreatedDate()).as("check createdDate").isEqualTo(actual.getCreatedDate()))
+            .satisfies(e -> assertThat(e.getProfileUrl()).as("check profileUrl").isEqualTo(actual.getProfileUrl()));
     }
 
     /**

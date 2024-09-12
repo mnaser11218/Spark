@@ -17,6 +17,10 @@ const ProfilePage = () => {
     const navigate = useNavigate();
     const [userProfiles, setUserProfiles] = useState([]); 
 
+    const verifiedProfileIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2c74b3" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+    <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+    </svg>
+
     const likeIcon = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
   </svg>
@@ -111,6 +115,8 @@ const ProfilePage = () => {
         fetchUserProfiles();
     }, []);
 
+
+
     return (
         <div id="full-whole-profile-page">
         <div className="profile-page">
@@ -118,7 +124,8 @@ const ProfilePage = () => {
             <header className="profile-header">
                 <div className="cover-photo" id="the-profile-banner"></div>
                 <div className="profile-info">
-                    <div className="profile-picture" id="the-profile-default-pic"></div>
+                <img src={currentLoggedInUser.profileUrl} className="profile-picture" id="the-profile-default-pic"/>
+                    {/* <div className="profile-picture" id="the-profile-default-pic"></div> */}
                     <div className="profile-details">
                         <h1 className="profile-name" id="get-user-name-profile">Username</h1>
                         <p className="profile-handle" id="get-profile-tag">@userhandle</p>
@@ -139,8 +146,12 @@ const ProfilePage = () => {
                 <div className="tweets-section">
                     {view === 'sparks' && sparks.map(spark => (
                         <div key={spark.id} className="tweet">
+                                                    <div id="name-block-pro">
+                            <img src={currentLoggedInUser.profileUrl} className="pics-working"/>
                             <p className="name-spark-class">{currentLoggedInUser.firstName + " " + currentLoggedInUser.lastName}</p>
+                            <span id="the-v-icon">{verifiedProfileIcon}</span>
                             <p className="username-spark-class">@{currentLoggedInUser.userName}</p>
+                            </div>
                             <p className="body-spark-class">{spark.body}</p>
                             {spark.url && <img src={spark.url} alt="Spark" className="spark-image" style={{ maxWidth: '45%', height: 'auto', marginTop: '10px' }}  />}
                             {/* <br/> */}
@@ -157,6 +168,7 @@ const ProfilePage = () => {
                         return (
                             <div key={mention.id} className="tweet">
                                 <div id="click-profile-function" onClick={handleClick}>
+                                    <img src={profile?.profileUrl} className="pics-working"/>
                                     <p className="name-spark-class">{profile?.firstName + " " + profile?.lastName}</p>
                                     <p className="username-spark-class">@{profile?.userName}</p>
                                 </div>
@@ -172,9 +184,7 @@ const ProfilePage = () => {
         </div>
 
 
-
     <ShowThirdSection id="rd"/>
-
 
 
 </div>

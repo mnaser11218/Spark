@@ -17,7 +17,7 @@
 
 #main-input-element {
   flex: 1;
-  padding: 15px;
+  padding: 20px;
   padding-bottom: 80px;
   color: #e1e8ed;
   /* height: auto; */
@@ -27,6 +27,7 @@
 
 /* 
   border-top-right-radius: 0px !important;
+  another comment....
   border-bottom-right-radius: 0px !important; */
 
   border-radius: 0px;
@@ -42,7 +43,7 @@
   cursor: pointer;
   position: absolute;
   right: 90%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -54,7 +55,7 @@
   cursor: pointer;
   position: absolute;
   right: 85%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -62,11 +63,49 @@
   transform: scale(1.1);
 }
 
+#just-for-styling-pencil {
+  cursor: pointer;
+  position: absolute;
+  right: 70%;
+  top: 105px;
+  transition: transform 0.2s ease-in-out;
+}
+
+#just-for-styling-pencil:hover{
+  transform: scale(1.1);
+}
+
+#just-for-styling-smile{
+  cursor: pointer;
+  position: absolute;
+  right: 65%;
+  top: 105px;
+  transition: transform 0.2s ease-in-out;
+}
+
+#just-for-styling-smile:hover{
+  transform: scale(1.1);
+}
+
+#just-for-styling-global{
+  cursor: pointer;
+  position: absolute;
+  right: 60%;
+  top: 105px;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* #just-for-styling-global:hover{
+  transform: scale(1.1);
+} */
+
+
+
 #calendar-icon {
   cursor: pointer;
   position: absolute;
   right: 80%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -74,12 +113,11 @@
   transform: scale(1.1);
 }
 
-
 #pin-icon {
   cursor: pointer;
   position: absolute;
   right: 75%;
-  top: 75px;
+  top: 105px;
   transition: transform 0.2s ease-in-out;
 }
 
@@ -103,6 +141,12 @@
   width: 25%;
 }
 
+#display-user{
+  font-weight: 550;
+  font-size: 35px;
+  padding-bottom: 10px;
+}
+
 .add-button:hover {
   background-color: #0c8cd4;
 }
@@ -113,17 +157,19 @@
 }
 
 #following {
-  font-size: 24px;
+  font-size: 44px;
   font-weight: bold;
 }
 
 .timeline-item {
   padding: 15px;
-  border: 1px solid #38444d;
+  border: 1px solid #9cb3c3;
   color: #e1e8ed;
   margin-bottom: 10px;
-  /* border-radius: 10px; */
-  background-color: #192734;
+  font-size: 25px;
+  border-radius: 10px;
+  background-color: #253a4d;
+
 }
 
 .timeline-item:hover{
@@ -137,12 +183,21 @@
   margin-bottom: 10px;
 }
 
+#v-icon{
+  padding-top: 2px;
+
+}
+
 #user-links {
   cursor: pointer;
   display: flex;
   padding: 5px;
   padding-right: 15px;
-  flex-direction: column;
+  gap: 12px;
+}
+
+#at-symbol {
+  padding-top: 5px;
 }
 
 #user-links:hover {
@@ -152,21 +207,25 @@
 
 #user-links h4 {
   margin: 0;
-  font-size: 16px;
+  font-size: 25px;
+  padding: 5px;
 }
 
 #user-links p {
   margin: 0;
   color: #657786;
-  font-size: 14px;
+  font-size: 24px;
 }
 
 .item-content {
   margin-bottom: 10px;
+  margin-left: 44px;
 }
 
 .item-timestamp {
   font-size: 12px;
+  margin-left: 44px;
+
   color: #657786;
 }
 
@@ -174,11 +233,22 @@
   display: flex;
   padding: 15px;
   gap: 50px;
+  margin-left: 25px;
+
 }
+
 
 #like-icon-id {
   transition: 0.2s ease-in-out;
   cursor: pointer;
+}
+
+.bi-emoji-smile{
+  transition: 0.2s ease-in-out;
+
+}
+.bi-emoji-smile:hover{
+  transform: scale(1.1);
 }
 
 #like-icon-id:hover{
@@ -216,4 +286,18 @@
 #post-a-spark-button{
   width: 80px;
 }
+
+#name-name {
+  font-weight: 900;
+}
+
+#profile-pic-standard{
+  width: auto;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+
+
 

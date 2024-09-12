@@ -15,6 +15,10 @@ const UserProfilePage = () => {
     const [userData, setUserData] = useState([]);
     const [userProfiles, setUserProfiles] = useState([]);
 
+    const verifiedIcon = <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="#2c74b3" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+<path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+</svg>
+
     const navigate = useNavigate();
 
     const handleClick = (event) => {
@@ -113,7 +117,8 @@ const UserProfilePage = () => {
             <header className="profile-header">
                 <div className="cover-photo" id="user-banner-img"></div>
                 <div className="profile-info">
-                    <div className="profile-picture" id="user-pro-pic"></div>
+                <img src={userData.profileUrl} className="profile-picture" id="user-pro-pic"></img>
+                    {/* <div className="profile-picture" id="user-pro-pic"></div> */}
                     <div className="profile-details">
                         <h1 className="profile-name" id="get-user-name-profile">Username</h1>
                         <p className="profile-handle" id="get-profile-tag">@userhandle</p>
@@ -134,7 +139,9 @@ const UserProfilePage = () => {
                     {view === 'sparks' && sparks.map(spark => (
                         <div key={spark.id} className="tweet">
                             <div className='click-profile-function-user'>
+                                <img src={userData.profileUrl} className="user-prof-pro-pic-works"/>
                             <p id="f-and-l"> {userData.firstName + " " + userData.lastName}</p>
+                            <span id="u-p-v-icon">{verifiedIcon}</span>
                             <p id="sp-us">@{userData.userName}</p>
                             </div>
                             <p>{spark.body}</p>
@@ -147,7 +154,9 @@ const UserProfilePage = () => {
                         return (
                             <div key={mention.id} className="tweet">
                                 <div className="click-profile-function-user" onClick={handleClick}>
+                                    <img src={profile?.profileUrl} className="user-prof-pro-pic-works"/>
                                     <p id="names-first-last">{profile?.firstName + " " + profile?.lastName}</p>
+                                    <span id="u-p-v-icon">{verifiedIcon}</span>
                                     <p id="actual-user-name">@{profile?.userName}</p>
                                 </div>
                                 <p>{mention.body}</p>

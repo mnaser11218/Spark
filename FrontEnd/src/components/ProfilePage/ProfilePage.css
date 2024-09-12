@@ -8,7 +8,7 @@
 }
 
 .profile-page {
-    min-width: 900px;
+    min-width: 800px;
     margin: 0 auto;
     background-color: #15202b !important;
     border: 1px solid #283d53 !important;
@@ -156,7 +156,10 @@ background-color: #35506d !important;
 }
 
 #click-profile-function {
-    display: inline-block;
+    /* display: inline-block; */
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
     border-radius: 10px;
     padding-top: 10px;
 }
@@ -173,6 +176,7 @@ background-color: #35506d !important;
 #likes-comments {
     display: flex;
     padding: 15px;
+    margin-left: 0px;
     gap: 50px;
   }
   
@@ -182,7 +186,7 @@ background-color: #35506d !important;
   }
   
   #like-icon-id:hover{
-    transform: scale(1.5);
+    transform: scale(1.1);
   }
   
   #comment-icon-id {
@@ -214,13 +218,26 @@ background-color: #35506d !important;
     background-repeat: no-repeat;
   }
 
-  #the-profile-default-pic{
+  #the-profile-default-pic {
     background-image: url('../Images/profileImgDefault.png');
     background-size:120%;
     background-position: center;
     background-repeat: no-repeat;
   }
  
- 
+  #name-block-pro {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .pics-working {
+    border-radius: 50%;
+    width: auto; 
+    height: 45px;
+    border: 1px solid white;
+  }
+
+
 
  

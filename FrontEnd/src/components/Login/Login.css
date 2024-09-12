@@ -100,3 +100,8 @@ hr {
   color: white;
   border-color: white;
 }
+
+#fix-logo {
+  width: auto;
+  height: 100px;
+}

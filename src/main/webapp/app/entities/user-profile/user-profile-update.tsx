@@ -137,6 +137,13 @@ export const UserProfileUpdate = () => {
                 data-cy="createdDate"
                 type="date"
               />
+              <ValidatedField
+                label={translate('sparkApp.userProfile.profileUrl')}
+                id="user-profile-profileUrl"
+                name="profileUrl"
+                data-cy="profileUrl"
+                type="text"
+              />
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/user-profile" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

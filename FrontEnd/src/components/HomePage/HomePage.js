@@ -5,6 +5,7 @@ import Logo from '../Images/SparkLogo';
 import Login from "../Login/LoginInButton.js";
 import SignUp from "../CreateAccount/SignUpButton.js";
 import PreviewButton from '../PreviewPage/PreviewButton';
+// import OpenAIComponent from '../OpenAI/OpenAIComponent';
 
 const HomePage = () => {
     return (

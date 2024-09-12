@@ -1,0 +1,21 @@
+#icon-for-liking{
+    transition: 0.2s ease-in-out;
+
+}
+
+#icon-for-liking:hover{
+    /* color: red; */
+    transform: scale(1.5) !important;
+    cursor: pointer;
+
+}
+
+.bi-heart-fill {
+    transition: 0.2s ease-in-out;
+
+}
+.bi-heart-fill:hover{
+    color:red;
+    transform: scale(1.5) !important;
+
+}

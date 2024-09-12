@@ -26,6 +26,10 @@ function SparkPage() {
   <path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"/>
 </svg>
 
+const verifiedIcon = <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="#2c74b3" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+<path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"/>
+</svg>
+
 
   const sparkId = sparkToCall; 
 
@@ -37,8 +41,7 @@ function SparkPage() {
         const sparkData = await sparkResponse.json();
         setSpark(sparkData);
 
-        //THIS IS NOT WORKING CURRENTLY
-        const userProfileResponse = await fetch(`http://localhost:8080/api/user-profiles/${sparkData.userId}`);
+        const userProfileResponse = await fetch(`http://localhost:8080/api/user-profiles/spark/${sparkId}`);
         const userProfileData = await userProfileResponse.json();
         setUserProfile(userProfileData);
       } catch (error) {
@@ -66,13 +69,15 @@ function SparkPage() {
         <div id="spark-user-container">
           <div id="user-info" onClick={handleUserClick}>
             <h4>
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+              <img src={userProfile.profileUrl} id = "sp-page-prof-pic-works"/>
+              {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                 <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-              </svg> 
-              {userProfile.firstName}
+              </svg>  */}
+              {userProfile.firstName} 
             </h4>
-            <p>@{userProfile.userName}</p>
+            <span id="v-icon-sp">{verifiedIcon}</span>
+            <p id ="uu">@{userProfile.userName}</p>
           </div>
         </div>
         <div className="spark-body">{spark.body}</div>
@@ -89,7 +94,7 @@ function SparkPage() {
         <div className="spark-icons">
           <span className="spark-comment-icon">{commentIcon}</span>
           <span className="spark-retweet-icon">{retweetIcon}</span>
-          <span className="spark-like-icon">{likeIcon}</span>
+          {/* <span className="spark-like-icon">{likeIcon}</span> */}
             {<Likes sparkId={sparkId} />}
         </div>
       </div>
