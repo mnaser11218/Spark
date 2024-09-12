@@ -105,7 +105,7 @@ function SparkComment({sparkId}) {
             </svg> 
           </h4> */}
           <img src={userProfiles[item.userId]?.profileUrl} className="cc-img2"/>
-          <p>{userProfiles[item.userId]?.firstName || 'Unknown'}</p>
+          <p id="f-c-name">{userProfiles[item.userId]?.firstName || 'Unknown'}</p>
           <span id="verify-span-icon2">{verifiedIcon}</span>
           <p>@{userProfiles[item.userId]?.userName || 'Unknown'}</p>
           
