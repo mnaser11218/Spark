@@ -5,6 +5,12 @@ Welcome to **Spark**, a full-stack Twitter clone with a modern twist! 🔥 Spark
 
 ---
 
+![alt homepageImage](FrontEnd/src/components/Images/readMeImages/homepg.png)
+
+![alt translateAI](FrontEnd/src/components/Images/readMeImages/beforeTranslate.png)
+
+![alt profilePicImg](FrontEnd/src/components/Images/readMeImages/profilepg.png)
+
 ## 🌟 Key Features
 
 ### As a user (Not Logged In):
@@ -76,13 +82,6 @@ Welcome to **Spark**, a full-stack Twitter clone with a modern twist! 🔥 Spark
 - **Direct Messaging** 💬 for private conversations.
 
 ---
-
-## 📸 Screenshots
-
-*Coming Soon!*
-
----
-
 
 ### ✨ Made by [Josue Castro, Mohammed Naser & Bryan Smith] ✨
 
