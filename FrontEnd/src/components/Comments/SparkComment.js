@@ -4,6 +4,8 @@ import { useUser } from '../CurrentUser';
 import './SparkComment.css';
 
 
+//testing
+
 function SparkComment({sparkId}) {
   const [comments, setComments] = useState([])
   const [inputValue, setInputValue] = useState('');
