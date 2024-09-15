@@ -17,6 +17,9 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Long> 
     @Query(value = "SELECT * FROM user_profile where user_name =?1", nativeQuery = true)
     public UserProfile getUserProfileByUserName(String string);
 
+
+
+
     @Query(value="select user_profile.* from user_profile \n" +
         "join spark on spark.user_id = user_profile.user_id\n" +
         "where spark.id = ?1;", nativeQuery=true)
@@ -27,5 +30,4 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Long> 
         "join likes on likes.user_profile_id = user_profile.id\n" +
         "where spark_id = ?1;", nativeQuery=true)
     public List<UserProfile> getUserProfilesThatLikesASpark(Long id);
-
 }

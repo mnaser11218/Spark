@@ -156,7 +156,10 @@ background-color: #35506d !important;
 }
 
 #click-profile-function {
-    display: inline-block;
+    /* display: inline-block; */
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
     border-radius: 10px;
     padding-top: 10px;
 }
@@ -225,6 +228,14 @@ background-color: #35506d !important;
   #name-block-pro {
     display: flex;
     gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .pics-working {
+    border-radius: 50%;
+    width: auto; 
+    height: 45px;
+    border: 1px solid white;
   }
 
 

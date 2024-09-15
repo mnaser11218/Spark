@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useUser } from '../CurrentUser';
+import './SparkComment.css';
 
+
+//testing
 
 function SparkComment({sparkId}) {
   const [comments, setComments] = useState([])
@@ -74,7 +77,7 @@ function SparkComment({sparkId}) {
           "Content-type": "application/json; charset=UTF-8"
         }
       });
-      alert("Comment posted!");
+      // alert("Comment posted!");
       // setInputValue("");
       // setImageUrl(null);
       // //fetchSparks();
@@ -97,14 +100,15 @@ function SparkComment({sparkId}) {
       <div id="user-container">
         <div  id="user-links">
         {/* onClick={handleClick} */}
-          <h4>
+          {/* <h4>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
               <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
             </svg> 
-          </h4>
-          <p>{userProfiles[item.userId]?.firstName || 'Unknown'}</p>
-          <span id="verify-span-icon">{verifiedIcon}</span>
+          </h4> */}
+          <img src={userProfiles[item.userId]?.profileUrl} className="cc-img2"/>
+          <p id="f-c-name">{userProfiles[item.userId]?.firstName || 'Unknown'}</p>
+          <span id="verify-span-icon2">{verifiedIcon}</span>
           <p>@{userProfiles[item.userId]?.userName || 'Unknown'}</p>
           
       
@@ -136,7 +140,7 @@ function SparkComment({sparkId}) {
           autoComplete='off'
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Add a comment"
-          className="input-field-lol"
+          className="input-field-lol input-com"
           id="main-input-element"
         />
         <button onClick={postToServer} className="add-button">

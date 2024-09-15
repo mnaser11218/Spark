@@ -14,7 +14,7 @@ const GPT3PositiveFunc = ({ apiKey, onUpdateInputValue }) => {
 
     axios.post('https://api.openai.com/v1/completions', {
       model: 'gpt-3.5-turbo-instruct',
-      prompt: `Make this sentence sound more optimistic and authentic: (also dont return something TOO long keep it around same length as original prompt) ${inputText}`, //this is the prompt + whatevers in input
+      prompt: `Make this sentence sound more optimistic and authentic but only in 10 words or less: ${inputText}`, //this is the prompt + whatevers in input
       max_tokens: 1000
     }, {
       headers: {

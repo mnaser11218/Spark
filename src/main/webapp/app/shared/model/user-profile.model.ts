@@ -8,6 +8,7 @@ export interface IUserProfile {
   firstName?: string | null;
   lastName?: string | null;
   createdDate?: dayjs.Dayjs | null;
+  profileUrl?: string | null;
 }
 
 export const defaultValue: Readonly<IUserProfile> = {};
