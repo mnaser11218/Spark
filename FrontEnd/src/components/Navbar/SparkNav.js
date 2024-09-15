@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './SparkNav.css'; 
 import { useUser } from '../CurrentUser';
+import officialLogo from '../Images/colorful-square-with-rainbow-colored-border-multicolored-square_1308175-15574-removebg-preview.png';
 
 const VerticalNavbar = () => {
   const { setCurrentLoggedInUser } = useUser();
@@ -18,7 +19,8 @@ const VerticalNavbar = () => {
 
   return (
     <div className="navbar-container">
-      <h1>⚡️</h1>
+      <img src={officialLogo} id="official-spark-logo"/>
+      
       
       <nav className="navbar">
         <ul className="navbar-list">

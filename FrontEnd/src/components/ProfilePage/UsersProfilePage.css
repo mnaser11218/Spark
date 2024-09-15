@@ -151,6 +151,7 @@ background-color: #5f6885;
 
 .click-profile-function-user{
     display: flex;
+    margin-bottom: 25px;
     gap: 10px;
 }
 
@@ -179,4 +180,11 @@ background-color: #5f6885;
     background-position: center;
     background-repeat: no-repeat;
 
+}
+
+.user-prof-pro-pic-works{
+    border-radius: 50%;
+    width: auto; 
+    height: 45px;
+    border: 1px solid white;
 }
