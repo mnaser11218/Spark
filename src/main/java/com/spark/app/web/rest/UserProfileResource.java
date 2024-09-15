@@ -161,6 +161,14 @@ public class UserProfileResource {
         return userProfileRepository.findAll();
     }
 
+
+
+    @GetMapping("/sparks/{id}")
+    public List<UserProfile> getAllUserProfilesThatLikeASpark(@PathVariable Long id) {
+        log.debug("REST request to get all UserProfiles");
+        return userProfileRepository.getUserProfilesThatLikesASpark(id);
+    }
+
     /**
      * {@code GET  /user-profiles/:id} : get the "id" userProfile.
      *
