@@ -116,6 +116,8 @@ const apiKey = process.env.REACT_APP_OPENAI_API_KEY
     console.log(item);
   }
 
+  //la dee da dee da
+
   const fetchSparks = async () => {
     try {
       const response = await fetch('http://localhost:8080/api/sparks/notcomments');
