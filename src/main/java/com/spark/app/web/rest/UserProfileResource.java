@@ -167,6 +167,7 @@ public class UserProfileResource {
      * @param id the id of the userProfile to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the userProfile, or with status {@code 404 (Not Found)}.
      */
+    // this is from clean code
     @GetMapping("/{id}")
     public ResponseEntity<UserProfile> getUserProfile(@PathVariable("id") Long id) {
         log.debug("REST request to get UserProfile : {}", id);
