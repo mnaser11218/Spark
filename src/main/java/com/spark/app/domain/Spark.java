@@ -12,6 +12,9 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 /**
  * A Spark.
  */
+
+//lil sum sum
+
 @Entity
 @Table(name = "spark")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
