@@ -3,6 +3,8 @@
 
 Welcome to **Spark**, a full-stack Twitter clone with a modern twist! 🔥 Spark lets you post, view, and interact with tweets, all while ensuring a positive vibe with our AI-powered tweet optimization. Whether you're here to share thoughts, connect with others, or just scroll through an engaging feed, Spark has you covered!
 
+[CLICK HERE](http://3.134.232.108:3681/) TO SEE THE APPLICATION LIVE! 
+
 ---
 
 
